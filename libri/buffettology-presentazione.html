@@ -1,24 +1,795 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Buffettology</title>
-<link rel="stylesheet" href="../_ds/organic-810e718f-1806-4192-8941-64d874e47e71/styles.css">
-<style>
-  body { max-width: 720px; margin: 0 auto; padding: 32px 20px; }
-  .autore { color: var(--color-neutral-500, #666); margin-top: -12px; }
-  .torna { display: inline-block; margin-bottom: 24px; }
-</style>
-</head>
-<body>
-<a class="torna" href="../index.html">&larr; Torna alla dashboard</a>
-<h1>Buffettology</h1>
-<p class="autore">Autore sconosciuto</p>
-<h2>Panoramica generale</h2>
-<ul><li>Warren Buffett ha trasformato un capitale iniziale di $105,000 (1957) in un patrimonio di oltre $20 miliardi applicando rigorosamente il principio di Benjamin Graham: "l'investimento è più intelligente quando è più imprenditoriale"</li><li>La tecnica di base è investire in aziende eccellenti con una comprensione approfondita del loro valore intrinseco, pagando un prezzo che garantisca un tasso di rendimento annuale composto del 15% o superiore</li><li>Il libro rivela i criteri, gli strumenti matematici e la filosofia che Warren Buffett impiega per identificare "consumer monopolies" e valutarle correttamente nel mercato</li></ul>
-<h2>Note importanti</h2>
-<p>Per la versione integrale di questo libro, riferirsi al file locale. Il presente file contiene l'estratto dalla Presentazione in Notion.</p>
-<p>(Il contenuto completo, inclusi i 47 capitoli dettagliati, gli esempi numerici, i 54 case studies e la sintesi finale, è preservato nella sorgente Notion originale.)</p>
-</body>
-</html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Buffettology</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3b55c2ba-eafb-81b1-8c72-e3e87fd09340" class="page sans"><header><h1 class="page-title" dir="auto">Buffettology</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h2 id="9f0b161d-3204-475c-b9a0-b478bc2deca9" class="" dir="auto">Panoramica generale</h2><ul id="ba2608d0-66c4-41f9-85a7-395b11f641f9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren Buffett ha trasformato un capitale iniziale di $105,000 (1957) in un patrimonio di oltre $20 miliardi applicando rigorosamente il principio di Benjamin Graham: &quot;l&#x27;investimento è più intelligente quando è più imprenditoriale&quot;</li></ul><ul id="6c59b11f-3ad8-4fd9-8d8b-eb0d76b51f49" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La tecnica di base è investire in aziende eccellenti con una comprensione approfondita del loro valore intrinseco, pagando un prezzo che garantisca un tasso di rendimento annuale composto del 15% o superiore</li></ul><ul id="7fe3259f-18b5-438b-861d-2046f7d17e3f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il libro rivela i criteri, gli strumenti matematici e la filosofia che Warren Buffett impiega per identificare &quot;consumer monopolies&quot; e valutarle correttamente nel mercato</li></ul><h2 id="201ef86b-23ba-4968-97ff-4a4d3d492248" class="" dir="auto">Capitolo 1-2 — Introduzione e Come Usare Questo Libro</h2><ul id="380e5360-f40d-41bc-9718-0ef26e368290" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il libro non è una biografia ma un&#x27;analisi approfondita delle tecniche di investimento di Buffett con equazioni matematiche e casi reali</li></ul><ul id="b0458dd1-a9fc-4e97-8ce4-dbb269a08db4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren ha dimostrato un rendimento medio annuo composto del 23,8% negli ultimi 32 anni, unico miliardario della Forbes 400 creato esclusivamente investendo in borsa</li></ul><ul id="8133f09d-c33c-499e-af4d-e90ebc73649d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;investimento &quot;imprenditoriale&quot; richiede disciplina: agire solo quando ha senso dal punto di vista aziendale, ignorando le oscillazioni emotive del mercato</li></ul><h3 id="162f1d64-95fc-456b-9aa1-3a5cf99198b2" class="" dir="auto">Capitoli 1-2 — Takeaway</h3><ul id="40d4109f-96b1-44dd-9c68-0e1e604f8f2f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Investire non significa speculare sul movimento del prezzo ma acquistare una partecipazione in un&#x27;azienda per il lungo termine</li></ul><ul id="46b51d7e-4d32-4349-bdd9-06d5400abf43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren sceglie il tipo di business che vuole possedere e lascia che il prezzo della sicurezza determini la decisione di acquisto</li></ul><ul id="9acfaa06-d2ee-4d32-a80c-13de164dcd88" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La competenza nei fondamenti (guadagni prevedibili, prezzo, valore intrinseco) consente rendimenti superiori al 15% annuo</li></ul><h2 id="0d6913d9-8069-48eb-994f-24ee6871532d" class="" dir="auto">Capitolo 3 — Radici: L&#x27;Eredità di Benjamin Graham</h2><ul id="faef7bec-2565-4a3e-8761-279812f5de2b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Benjamin Graham insegnò a Warren il concetto di &quot;investimento più intelligente quando più imprenditoriale&quot;; Warren ha sintetizzato questo con idee di Philip Fisher, John Burr Williams, Charles Munger e altri</li></ul><ul id="7fc4b585-b7e7-41e3-a23c-fd8bc6efb945" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Graham ha fornito la base teorica (price as major factor, business perspective), ma Warren ha evoluto il sistema oltre la pura filosofia grahamiana per includere le eccellenti economie aziendali e il concentrated portfolio</li></ul><ul id="a0d5c1d5-1276-4f9e-9f72-9fd58d147c7b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren mantiene i quattro volumi di Security Analysis sulla sua scrivania e continua a scoprire nuove sfumature in ogni lettura</li></ul><h3 id="852f9c8f-f786-406a-a48b-4db18ac638c7" class="" dir="auto">Capitolo 3 — Takeaway</h3><ul id="06cf4eae-85e0-4f2a-a26d-f509592b3aa3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Graham insegnò il valore dell&#x27;investimento disciplinato; Warren lo perfezionò aggiungendo la ricerca di &quot;consumer monopolies&quot; con economics prevedibili</li></ul><ul id="ca6430db-dbbc-44b3-ab59-a4d33d08f878" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La diversificazione di Graham (100+ titoli) è stata sostituita da Warren con un portafoglio concentrato di eccellenti business</li></ul><ul id="8217d5cf-d571-4083-8c9b-992607257757" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il valore del retained earnings (profitti reinvestiti) genera compounding perpetuo e evita le tasse su dividendi</li></ul><h2 id="b6a4728c-8bb6-45f7-830a-8dfbd050c222" class="" dir="auto">Capitolo 4-5 — Investire da una Prospettiva Aziendale</h2><ul id="22dfd861-d105-45f4-8bfc-93504346ab76" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Pensare come proprietario di un&#x27;azienda, non come trader: valutare il business sulla base dei suoi guadagni prevedibili e della solidità economica, non sulla volatilità giornaliera del prezzo</li></ul><ul id="959111eb-c7fb-4d09-895b-3fab6cf716e2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se acquistassi una drogheria locale, avresti bisogno di sapere quanto guadagna annualmente e a quale prezzo è in vendita per calcolare il tuo tasso di rendimento</li></ul><ul id="d3a31721-f7ea-4b81-a270-fd332482a356" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren applica lo stesso processo: (earnings prevedibili ÷ prezzo) = tasso di rendimento iniziale, comparato con altre opportunità di investimento</li></ul><h3 id="07e45445-6b92-4fab-aa22-3ed832becc6a" class="" dir="auto">Capitoli 4-5 — Takeaway</h3><ul id="da03a519-c26e-4b86-a4eb-e61da9fc37e8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;investimento imprenditoriale richiede di comprare un&#x27;azienda come se la possedessi interamente, anche se acquisti solo una frazione tramite il mercato azionario</li></ul><ul id="70d11e1e-c281-4a56-b540-004c4e7bc84d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il prezzo è dominante: guadagni prevedibili dividiso per prezzo = tasso di rendimento; il tasso di rendimento deve essere confrontabile con obbligazioni governative e altre opzioni</li></ul><ul id="1f248bb6-1250-4e8f-b603-b0730e0a8a4d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren mantiene posizioni a lungo termine e non vende solo per un guadagno rapido, beneficiando del compounding perpetuo</li></ul><h2 id="6f4e5733-59b6-45b4-9837-6cc15861c48b" class="" dir="auto">Capitolo 6 — La Visione di Warren dei Guadagni</h2><ul id="7f372bd4-2511-406d-bb1b-6af7d8431a71" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren considera i guadagni come suoi in proporzione alla sua proprietà; se una società guadagna $5 per azione e possiede 100 azioni, ha guadagnato $500</li></ul><ul id="982b0176-02c8-41bb-bd45-80784ff58dc8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I guadagni possono essere pagati come dividendi o reinvestiti; Warren preferisce il reinvestimento perché evita le tasse sul dividendo personale e consente il compounding</li></ul><ul id="3a1eb5e5-0416-44ad-9515-f55c8686484a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Berkshire Hathaway non ha mai pagato un dividendo ma è passata da $500/azione a $45,000/azione grazie al reinvestimento redditizio dei guadagni trattenuti</li></ul><h3 id="01bd825b-11fa-4d7b-a086-f190b478e7d2" class="" dir="auto">Capitolo 6 — Takeaway</h3><ul id="2c1a5808-f0b3-47ce-808d-7fcc6f735169" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Pensare agli utili trattenuti come aumenti del valore aziendale sottostante che il mercato azionario alla fine riconoscerà</li></ul><ul id="2b18e99b-18f5-441c-9e93-d97119fccf30" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda dovrebbe trattenere tutti gli utili se può impiegarli a un tasso di rendimento migliore di quello che l&#x27;investitore otterrebbe tramite dividendi tassabili</li></ul><ul id="9b397d2d-1621-4495-b450-1d8a7a5ff782" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La qualità della gestione si misura da come utilizza i guadagni trattenuti: reinvestimento saggio o sprechi di vanità</li></ul><h2 id="733d0c69-02b5-4278-b380-39ad2aebe7d5" class="" dir="auto">Capitolo 7 — Il Prezzo Determina il Tuo Tasso di Rendimento</h2><ul id="6f2656d3-c7a9-4506-8269-4813f902160b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il concetto più importante: il prezzo che paghi determina direttamente il tasso di rendimento che otterrai</li></ul><ul id="17b87720-b8cc-475c-9170-8d2b2a2b5e77" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: pagare $1,000 oggi per ricevere $1,100 tra un anno = 10% di rendimento; pagare $950 = 15,7% di rendimento; pagare $1,050 = 4,7% di rendimento</li></ul><ul id="ff7ff318-fd0a-4da2-979e-680f62279d6b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren calcola il tasso di rendimento iniziale (earnings ÷ price) e lo confronta con altre opzioni (obbligazioni governative, altri titoli) per determinare se l&#x27;investimento ha senso economico</li></ul><h3 id="d92556ea-a247-4861-8100-88f83f9b1457" class="" dir="auto">Capitolo 7 — Takeaway</h3><ul id="5988e15d-5e03-4fb1-89b7-ec20e74272fe" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Prezzo più alto = tasso di rendimento più basso; prezzo più basso = tasso di rendimento più alto</li></ul><ul id="768d3b68-148f-4138-90c9-8e819c794f09" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La prevedibilità dei guadagni è fondamentale: senza essa, qualsiasi calcolo futuro è speculazione e invita alla follia</li></ul><ul id="b6f2f0d9-da8c-4ef3-9d4d-ae326c9db2ea" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio reale: General Foods (1979) a $37/azione con guadagni di $5.05 = 13.6% rendimento iniziale; senza prevedibilità, questo calcolo è inutile</li></ul><h2 id="3f4ea66a-625f-4376-a241-66ad6503867f" class="" dir="auto">Capitolo 8 — Corporazioni, Azioni, Obbligazioni — Spiegazioni Utili</h2><ul id="cd651e99-d199-417f-865e-e21622d9ae6b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una corporazione è una forma legale che limita la responsabilità personale degli azionisti; le azioni rappresentano proprietà frazionaria; le obbligazioni rappresentano debito</li></ul><ul id="5922d3da-0ce2-4f50-a487-20ea9b946c4c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Le azioni comuni sono contratti sulla proprietà aziendale, non semplici numeri che cambiano di valore; il mercato azionario è un mercato d&#x27;asta dove buyer e seller si incontrano</li></ul><ul id="c2d2f20c-1078-4f2b-ba64-57b3a8a6867a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: Katie&#x27;s Baking Company con due soci al 50% ciascuno; se guadagna $100/anno con 100 azioni outstanding, il guadagno per azione è $1</li></ul><h3 id="44febb6b-b4fb-41b0-a4aa-98cadfc98a28" class="" dir="auto">Capitolo 8 — Takeaway</h3><ul id="2d7b4470-322e-42be-8bd6-42975461eef2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Comprendere la differenza tra proprietà (equity/stock) e debito (obbligazioni) è fondamentale per l&#x27;investitore serio</li></ul><ul id="59f6b328-8b32-4a2a-b4e8-d07451c164a4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una IPO (initial public offering) divide la proprietà tra migliaia di azionisti; il mercato azionario consente ai proprietari di vendere le loro azioni ad altri</li></ul><ul id="6a6db610-4aaf-4022-b177-e8296da22a23" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La speculator di borsa dimentica che possiede una frazione di un&#x27;azienda reale; Warren non lo dimentica mai</li></ul><h2 id="22f11a8b-6998-4dfe-a813-3335715a6a77" class="" dir="auto">Capitolo 9 — Valutazione di un&#x27;Azienda</h2><ul id="8868e235-45c2-4f8e-9e79-106506ed4720" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Per valutare un&#x27;azienda, occorre determinare quanto guadagna annualmente, la prevedibilità di quei guadagni nel tempo, e a quale prezzo è disponibile sul mercato</li></ul><ul id="7b623039-72c6-4bfd-b977-ce5edec68043" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se il pinball di giovane Warren genera $8 al giorno per 10 anni garantiti, il valore odierno di quei guadagni futuri è calcolabile tramite &quot;discounting to present value&quot;</li></ul><ul id="3ee06570-8691-43a5-b8f4-c481f930fdef" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda vale la somma dei suoi guadagni futuri attualizzati al presente, usando un&#x27;equazione finanziaria (facilmente programmata in una calcolatrice Texas Instruments BA-35)</li></ul><h3 id="4833d436-ea70-4bb2-abd0-0ca24799bf8b" class="" dir="auto">Capitolo 9 — Takeaway</h3><ul id="589b8001-10e8-4119-9f40-305400561dea" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il valore intrinseco è il flusso di cassa futuro attualizzato al valore attuale, non il prezzo &quot;di moda&quot; in borsa</li></ul><ul id="93f5fc86-4ccc-4da6-a726-fecfe989d140" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Conoscere il tasso di rendimento atteso è cruciale: è il tasso di sconto che Warren usa per valutare tutti i suoi investimenti</li></ul><ul id="0255749d-d22d-4cb6-aa5a-32e23e821f99" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La semplicità del modello (earnings prevedibili + orizzonte temporale + tasso di sconto) permette a Warren di prendere decisioni di investimento molto rapide</li></ul><h2 id="33a5d22e-c261-4b3d-9e13-b750e847324a" class="" dir="auto">Capitolo 10 — Le Sole Due Cose che Devi Sapere: Cosa Comprare e a Quale Prezzo</h2><ul id="6e850278-5c17-45ef-a3bd-15803579b206" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren investe solo in business con guadagni altamente prevedibili (il 99% della borsa è fuori portata perché i guadagni futuri sono incerti)</li></ul><ul id="8e8574bb-264b-477d-b35b-774e72f9b621" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Deve combinare due decisioni: (1) identificare aziende eccellenti con &quot;consumer monopolies&quot;, (2) aspettare il prezzo giusto</li></ul><ul id="cb94588d-4b51-4dda-95a6-76dad22133f7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se il prezzo di un&#x27;eccellente azienda è troppo alto, Warren aspetta patientemente il ribasso; non compra mai al primo &quot;sì&quot;</li></ul><h3 id="816a67ed-d3f7-40f9-989a-3f00999106c2" class="" dir="auto">Capitolo 10 — Takeaway</h3><ul id="fda4c6f1-2ec2-4a24-a1c5-6f6c7f216b43" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Selettività rigorosa: cerca il 1-2% di aziende che soddisfano i criteri di guadagni prevedibili e economie eccellenti</li></ul><ul id="a0cb26bf-c70b-4fc2-acdb-342320558796" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Disciplina di prezzo: il tasso di rendimento atteso deve essere almeno del 15% per compensare inflazione, tasse e rischio</li></ul><ul id="75ffdd1b-68c6-4ee6-aa36-4d7d8c47ed8f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Pazienza è arma: i migliori investimenti vengono acquistati quando il mercato è irrazionale e i prezzi sono depressi</li></ul><h2 id="420a29fe-5533-4b53-81bb-5c0e7db16cfd" class="" dir="auto">Capitolo 11 — La Magia del Compounding</h2><ul id="2d1ae9ce-ebf5-4e74-8f8c-1f28f2a2dc6e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il compounding è il motore della ricchezza: $1 che cresce al 23% annuo diventa $16.63 in 10 anni, $32.92 in 15 anni</li></ul><ul id="d5446c9b-001f-47be-a796-8d644f345a85" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren è diventato ricchissimo grazie al compounding: ha reinvestito profitti per decenni senza venderli (evitando tasse) e lasciato che il valore crescesse esponenzialmente</li></ul><ul id="b4d59dbf-23ce-457b-b502-68402a5bb5d1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una piccola differenza nel tasso di rendimento (es. 20% vs. 15%) produce differenze enormi nel lungo termine grazie all&#x27;effetto compounding</li></ul><h3 id="e763b755-0718-4971-8c47-8e65663d2958" class="" dir="auto">Capitolo 11 — Takeaway</h3><ul id="18e8fd0f-f974-4856-9967-4886b8367eda" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;effetto compounding richiede tempo, disciplina, e il coraggio di mantenere posizioni eccellenti anche in mercati volatili</li></ul><ul id="60500994-4ef9-403a-b00f-91e891ece0d0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Investire presto è cruciale: $1,000 a 20 anni di età è infinitamente più potente di $100,000 a 50 anni</li></ul><ul id="434b9d1b-5717-4a2e-835c-675d58a31026" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Le tasse e le commissioni erodono il compounding: Warren minimizza questi costi mantenendo posizioni a lungo termine e usando strutture di holding</li></ul><h2 id="4c9b8f68-0ca9-47dd-994c-18dab4f1404a" class="" dir="auto">Capitolo 12 — Determinare Quale Tipo di Business Vuoi Possedere</h2><ul id="d4c08045-a0ef-440e-8844-39ecd5e6ad25" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren ha una lista mentale ristretta di settori e aziende che capisce profondamente; non investe mai nel sconosciuto</li></ul><ul id="bdc1fdb1-11c8-48be-adb9-ddb8c2ac4c60" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Settori preferiti: utilities con monopolio naturale, banche selezionate, aziende di consumer goods con marchi forti, media, insurance</li></ul><ul id="82f6fbda-95ae-40b8-86ef-cd3d26e21805" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Criterio cardine: il business deve avere una &quot;moat&quot; economica (fossato) che lo protegga dalla concorrenza</li></ul><h3 id="83f2a2d8-f911-4ff5-b0dd-05a29a27b56a" class="" dir="auto">Capitolo 12 — Takeaway</h3><ul id="7e6dbf4c-4bd2-49da-9aa0-22acaffe44f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Non cercare di investire in tutti i settori; concentrati su quelli che comprendi</li></ul><ul id="be7798bf-3494-42bd-8dbd-f51d06a464bc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un great business ha pricing power: può aumentare i prezzi senza perdere clienti (es. Coca-Cola, American Express)</li></ul><ul id="6209a954-a9ca-4e1b-bbf2-81eb1516514e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il settore deve avere barriere all&#x27;ingresso che proteggono dai nuovi competitor</li></ul><h2 id="6a0cd328-5060-48a8-901f-5ba9472c1f0f" class="" dir="auto">Capitolo 13 — La Teoria del Valore Intrinseco Espandente</h2><ul id="c9d57404-949b-4255-8fbf-14f5792a628b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se un&#x27;azienda eccellente reinveste i profitti in sé stessa a tassi di rendimento del 20%+, il valore intrinseco dell&#x27;azienda cresce anno dopo anno</li></ul><ul id="893a4378-bbb3-41ce-b9bd-4648b8c32df9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo aumento di valore intrinseco non è immediatamente riflesso nel prezzo del mercato azionario, creando opportunity per l&#x27;investitore paziente</li></ul><ul id="19a7870f-6722-4ce5-8836-4c3e59224177" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Col tempo, il mercato riconosce la crescita e il prezzo sale per riflettere il valore intrinseco più alto</li></ul><h3 id="a9e28bf7-0882-45d4-a524-a62279350644" class="" dir="auto">Capitolo 13 — Takeaway</h3><ul id="f625d83a-f353-4699-b2e6-042ab19e9ebe" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Le grandi aziende non crescono in guadagni solo tramite espansione di volume, ma anche tramite reinvestimenti ad alto rendimento</li></ul><ul id="e7d7b1aa-3c72-4be9-a601-6d413b9de668" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;aspettativa è che un&#x27;eccellente azienda con intrinsic value espandente produrrà rendimenti composti superiori al 15%</li></ul><ul id="b87a0cd7-9f97-438a-8218-4412ef503602" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren attende con pazienza che il mercato riconosca il valore, non anticipandolo con &quot;timing del mercato&quot;</li></ul><h2 id="5239ab60-38ff-48ce-b389-724175da1520" class="" dir="auto">Capitolo 14 — L&#x27;Azienda Mediocre</h2><ul id="485c812b-6354-4bfb-80f9-0698e21a024c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda mediocre ha guadagni che crescono al tasso dell&#x27;inflazione (2-3%) e non possiede alcuna &quot;moat&quot; competitiva</li></ul><ul id="4e04debb-9a80-4706-8f29-48937c21b3d0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Guadagni prevedibili ma modesti = basso tasso di rendimento atteso = non vale la pena investire</li></ul><ul id="671199ea-7a19-4c91-a351-05cde27d2b7d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: una catena di negozi generici senza differenziazione di brand; concorrenza diretta riduce margini</li></ul><h3 id="a02b3ecd-ca9b-4971-b6e2-84fb84515dbd" class="" dir="auto">Capitolo 14 — Takeaway</h3><ul id="fc8b87ca-a1b4-4c68-9fc0-374c3521c3cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Non pagare mai il prezzo di un&#x27;eccellente azienda per una mediocre</li></ul><ul id="6647ffb1-2f92-4ce0-b846-ddcefd1f45b3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;analista deve distinguere tra: (1) azienda mediocre con prezzo basso (ancora così-così), (2) eccellente azienda con prezzo attraente (rara opportunità)</li></ul><ul id="b468c48e-1d1a-47d1-983b-48a1d9880485" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il compounding di guadagni mediocri non produrrà mai il 15% annuo desiderato</li></ul><h2 id="96695992-61a9-45e9-8cb4-7f4b30f9ea30" class="" dir="auto">Capitolo 15 — Come Identificare l&#x27;Eccellente Business</h2><ul id="dd766de4-d1eb-4408-9894-1cf275ef28e5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;eccellente azienda possiede: (1) storico lungo di guadagni stabili e crescenti, (2) &quot;consumer monopoly&quot; con pricing power, (3) management di qualità che agisce negli interessi degli azionisti, (4) ROE (return on equity) consistentemente alto</li></ul><ul id="80d55b9c-dbc2-474d-b8ce-4f916625d79c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempi storici: Coca-Cola, American Express, Gillette, McDonald&#x27;s, Wrigley&#x27;s — brand forti, fedeltà dei clienti, margini stabili</li></ul><ul id="f8d05e23-ccc4-4e32-9a95-0e79a58a3ae0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questi business hanno permesso a Warren di prevedere guadagni futuri con confidenza e calcolare tassi di rendimento attendibili</li></ul><h3 id="bbbac567-237d-4e7f-8dd4-06897a3f1bbf" class="" dir="auto">Capitolo 15 — Takeaway</h3><ul id="c59c7f85-3278-4c27-bb5c-040dbcafcdd1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cerca aziende con 10+ anni di storico di guadagni stabili e crescenti, preferibilmente in calo durante le recessioni ma non crolli</li></ul><ul id="9bbf43f0-0167-4178-ae43-ea624b521518" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una &quot;consumer monopoly&quot; non è monopolio legale ma economico: i clienti scelgono ripetutamente il prodotto/servizio</li></ul><ul id="a3560013-dc7b-491b-91d6-7f4cc25b167d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Rossetto Wrigley, caffè Folgers, rasoio Gillette — questi brand hanno creato ricchezza massiccia per Buffett</li></ul><h2 id="c8781f7e-f063-4bdc-87f3-fd2df433fddf" class="" dir="auto">Capitolo 16 — Nove Domande per Determinare Se un&#x27;Azienda è Eccellente</h2><ol type="1" id="17a61fda-157e-4eb3-b13e-4d57e6eedf7f" class="numbered-list" start="1" dir="auto"><li>L&#x27;azienda vende un prodotto/servizio che i clienti non possono facilmente fare a meno?</li></ol><ol type="1" id="20ed3430-12a5-4bd0-ab39-b4a60ee617b3" class="numbered-list" start="2" dir="auto"><li>L&#x27;azienda ha il potere di innalzare i prezzi senza perdere clienti?</li></ol><ol type="1" id="cf218295-9533-4a7a-8435-c491209d07b6" class="numbered-list" start="3" dir="auto"><li>Gli utili sono stati stabili nel passato?</li></ol><ol type="1" id="d45d4093-628a-4994-bb5f-ca8716edc9ea" class="numbered-list" start="4" dir="auto"><li>Il debt dell&#x27;azienda è basso?</li></ol><ol type="1" id="fa16d263-7d40-494f-9daf-ee0d936fd6b7" class="numbered-list" start="5" dir="auto"><li>Il management esibisce onestà e competenza?</li></ol><ol type="1" id="072025bb-1426-4461-9a3a-497cf1711a0e" class="numbered-list" start="6" dir="auto"><li>Gli utili reinvestiti hanno prodotto crescita?</li></ol><ol type="1" id="30fdd419-1fe2-4517-9ece-f7eb03d405eb" class="numbered-list" start="7" dir="auto"><li>L&#x27;azienda ha speso molto in marketing o R&amp;D per mantenere il monopolio?</li></ol><ol type="1" id="d7996028-8399-4955-b5ae-e83ad8211bb9" class="numbered-list" start="8" dir="auto"><li>Il ROE (return on equity) è consistentemente alto (15%+)?</li></ol><ol type="1" id="a1d5b49f-872c-4b3d-aa36-1e51fd04451d" class="numbered-list" start="9" dir="auto"><li>Puoi aspettarti che l&#x27;azienda rimanga eccellente per almeno 5-10 anni?</li></ol><h3 id="cd094d5d-cd92-49d9-bc30-c08360ef0197" class="" dir="auto">Capitolo 16 — Takeaway</h3><ul id="3b208e0d-dc84-4969-8079-5c66dc06f09e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se puoi rispondere &quot;sì&quot; a tutte e nove, hai probabilmente trovato un candidato eccellente</li></ul><ul id="a43bffe9-f655-4499-bfbd-146b78d80819" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Queste domande filtrano il rumore del mercato e focalizzano su fondamentali reali</li></ul><ul id="1fb98546-8991-40f2-927d-c85e1bf9e9f6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Applicarle richiede ricerca e lettura di annual reports; Warren dedica tempo a questo mentre la maggior parte degli investitori no</li></ul><h2 id="44b0396c-7f18-4185-a013-3e7d5903b5dc" class="" dir="auto">Capitolo 17-18 — Dove Cercare Eccellenti Aziende</h2><ul id="9657cea3-7121-4212-a0c4-fcb79a27d47d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Leggere annual reports di aziende che conosci; il management deve essere leale agli azionisti e trasparente</li></ul><ul id="45b85879-5307-4635-94eb-16ca50ab9b9a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cercare in industrie stabili: utility, consumer staples, insurance, banche select, media</li></ul><ul id="9f3d0e59-d781-42b4-80a7-b6735cae8680" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Shopping personale: comprare solo brand/prodotti che usi e capisci; non investire in tecnologie sconosciute</li></ul><ul id="bc1862d7-0712-4a4c-8183-11c6faed571d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ascoltare amici e conoscenti; il passaparola è spesso attendibile (Buffett imparò a conoscere bene molte aziende così)</li></ul><h3 id="1f74549c-3ebd-4b96-a258-de186535bba6" class="" dir="auto">Capitoli 17-18 — Takeaway</h3><ul id="358d7338-beae-4da2-8748-b9b0d4887904" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Non è necessario un &quot;edge&quot; informativo particolare; bastano ricerca diligente e una lista mentale di aziende già conosciute</li></ul><ul id="8db9c2c9-c9ac-4f47-81bf-af42e7300195" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Industrie monopolistiche naturali (utility) sono spesso trasparenti e prevedibili</li></ul><ul id="ebe6707d-f1c2-4147-b475-d307c6fde013" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren ha scoperto molte opportunità dal living quotidiano: il feedback dei figli su brand, osservazioni su clienti fedeli, lettura dei report annuali</li></ul><h2 id="b7f6a33d-a2c6-4b22-a108-8dcb22baca56" class="" dir="auto">Capitolo 19 — Cosa Sapere sul Management dell&#x27;Azienda</h2><ul id="2febaf87-6f78-4e1a-99c5-053be1c797d9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren mette grande enfasi sulla qualità del management: integrità, competenza, orientamento agli azionisti</li></ul><ul id="927d6373-080d-4977-b270-2c7043c6d2b2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Domande chiave: Il CEO reinveste con saggezza? Resiste alla pressione di Wall Street per guadagni trimestrali? Paga dividendi eccessivi quando potrebbe reinvestire a tassi alti?</li></ul><ul id="c2a8194a-1639-4984-bba3-2c4322469eec" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Berkshire Hathaway sotto Warren è un esempio: no dividendi, reinvestimento perpetuo, struttura tax-efficient</li></ul><h3 id="d4252ee1-27a3-46f3-8acb-9325806c1150" class="" dir="auto">Capitolo 19 — Takeaway</h3><ul id="c97cf653-5a6b-440e-9243-84ed0ff44a8b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un management eccellente è indispensabile: anche un&#x27;azienda mediocre con management pessimo non vale acquistare</li></ul><ul id="d5ed7a85-02dc-4edd-9edd-32936a06c73c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cercare CEO che pensano come proprietari, non come dipendenti temporanei in cerca di bonus</li></ul><ul id="d52b7407-8e71-4aa5-8a9c-bd32190a6a14" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La storia decisionale del management (acquisizioni, investimenti, trattamento dei minoritari) rivela il carattere</li></ul><h2 id="3569f74d-dad1-4501-91cf-97baca0f7f53" class="" dir="auto">Capitolo 20 — Quando un Ribasso Aziendale è un&#x27;Opportunità di Investimento</h2><ul id="587c83bf-5c69-46d1-a7ab-99a8b6477227" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un ribasso temporaneo nelle operazioni di un&#x27;eccellente azienda (causa: recessione, ciclo industriale, problema gestionale risolvibile) crea opportunità di acquisto a prezzi depressi</li></ul><ul id="ee4101a5-7154-43ec-9fa1-9a32eb8d7619" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Distinguere tra: (1) ribasso temporaneo di un&#x27;eccellente azienda (buy), (2) declino permanente di un&#x27;azienda mediocre (avoid)</li></ul><ul id="95929fa6-7924-444c-902e-697ace4b8566" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: Coca-Cola è crollata negli anni &#x27;80 per preoccupazioni su saccarosio/salute; Warren riconobbe il panico come irrazionale e acquistò</li></ul><h3 id="ae77a7ad-c641-482e-8ce4-61d9cfbc1ad1" class="" dir="auto">Capitolo 20 — Takeaway</h3><ul id="b45cc626-4a9d-4672-a383-cf7885343a45" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La paura del mercato crea le migliori opportunità: quando tutti vendono un&#x27;eccellente azienda per paura, il prezzo scende</li></ul><ul id="00356c7c-4728-4176-85d6-64dc99abeb65" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;analista deve avere la confidenza di riconoscere il panico irrazionale e la disciplina di agire</li></ul><ul id="edd8692c-bb8e-4b15-b23c-7d25c59081f2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren attende gli &quot;snowballs&quot; (opportunità rare) invece di rincorrere titoli mediocri al ribasso</li></ul><h2 id="ac97dd8c-1a1c-43bc-a84f-f5014f33de3c" class="" dir="auto">Capitolo 21 — Come il Meccanismo di Mercato Crea Opportunità di Acquisto</h2><ul id="d09177df-852c-4516-ba9a-a1a12d8609a6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il mercato azionario è azionato da paura e avidità, non da razionalità</li></ul><ul id="61e114c1-375a-49e2-beb7-4b23c2f1d716" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Quando le notizie sono brutte, i seller (spesso piccoli investitori con short time horizons) forzano giù i prezzi irrazionalmente</li></ul><ul id="03ce8e92-06ab-4a6e-869d-1f6a4004284f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un analista disciplinato aspetta questi momenti di irrazionalità e acquista quando il mercato è pessimista</li></ul><h3 id="9bdc3ffc-765f-41d2-9d96-180d5fbb77a1" class="" dir="auto">Capitolo 21 — Takeaway</h3><ul id="31af30f0-926f-4144-b16a-8b848e6fd52d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il market drop del 508 punti (Black Monday) è stato un&#x27;opportunità oro per Warren, non una tragedia</li></ul><ul id="83814ad0-eff8-459c-bb4b-f1d7e88f4c92" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La psicologia della folla (herd mentality) contrasta con l&#x27;investimento disciplinato dall&#x27;analisi fondamentale</li></ul><ul id="82639d99-5cf8-4a8b-b6bb-60ace9b44f1f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Avere denaro riservato (cash) per gli &quot;snowballs&quot; rari è strategia chiave</li></ul><h2 id="9bd8a194-8a14-47f4-9a13-1af07eb7aed9" class="" dir="auto">Capitolo 22-23 — Inflazione e Consumer Monopoly</h2><ul id="31fed588-1377-4821-a054-f0ec804fc507" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;inflazione erode il valore reale dei rendimenti; un&#x27;azienda con guadagni nominali crescenti ma guadagni reali stabili non crea ricchezza</li></ul><ul id="9b94a599-bbb0-49df-b1d8-c92c9c163c65" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una &quot;consumer monopoly&quot; può trasferire l&#x27;inflazione ai clienti tramite aumento di prezzi senza perdere volume; mediocre azienda non può</li></ul><ul id="e4c88a79-a2ca-4edd-826a-c783b0982e56" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Coca-Cola, durante inflazione alta negli anni &#x27;70-80, mantenne margini perché i clienti pagavano di più per il prodotto</li></ul><h3 id="1442c5b0-448b-4b86-96e1-f5b50a9fb1a4" class="" dir="auto">Capitoli 22-23 — Takeaway</h3><ul id="43369e60-e03b-4b44-83a4-7abdb3ac9377" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cercare aziende con pricing power per combattere l&#x27;inflazione; il loro valore reale rimane costante</li></ul><ul id="b3b609aa-e7ac-40a4-a7e8-5819718e06b4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una &quot;true&quot; consumer monopoly è inflation-proof; una mediocre azienda è inflazione-vulnerabile</li></ul><ul id="c7b61516-ed2e-4a5f-b43a-a1736fddf87f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren calcola sempre il rendimento reale dopo inflazione quando valuta investimenti a lungo termine</li></ul><h2 id="32af30f3-d722-46b6-86c6-759cbf8d2692" class="" dir="auto">Capitolo 24-25 — Tassazione e Effetto su Rendimento</h2><ul id="e0a6ec21-dca6-49b5-8b40-9ca69529df0c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Le tasse riducono il rendimento netto; un&#x27;azienda che paga dividendi alti costringe l&#x27;investitore a pagare tasse personali annuali</li></ul><ul id="390faef9-ecf7-4d21-bf9d-b5dd19b7f2b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren minimizza le tasse tramite: (1) reinvestimento senza dividendi (differire le tasse), (2) holding a lungo termine (capital gains tax inferiori), (3) posizionamenti tramite insurance companies e holding companies</li></ul><ul id="183aeb04-45d3-472c-8f8d-1dd5aa46642f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: Berkshire Hathaway ha pagato zero dividendi per decenni; Warren reinvestiva tutto; gli azionisti non pagavano tasse fino alla vendita</li></ul><h3 id="338c091e-0b10-49b3-b33d-f3be00a50731" class="" dir="auto">Capitoli 24-25 — Takeaway</h3><ul id="cdee978e-cb53-46f9-b883-48a0a510955c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Dopo tasse e inflazione, un rendimento nominale del 15% diventava ~9-10% reale negli anni &#x27;80</li></ul><ul id="6ebd3f3a-8652-46d7-9db4-544c25323a7d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren progettò il suo sistema per ottenere 15%+ annuali anche dopo considerare tasse e inflazione</li></ul><ul id="62508b01-8773-4202-9d4c-88c24166b9a7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La struttura di Berkshire (insurance + holding company) minimizza le tasse grazie ai loopholes legali e alla reinvestimento perpetuo</li></ul><h2 id="f7b7554a-52bf-48e0-bca8-0d9d45452c48" class="" dir="auto">Capitolo 26 — Diversificazione vs. Portfolio Concentrato</h2><ul id="eb34cd84-6ebb-44a9-a31f-da38852047ce" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren rifiuta la diversificazione massiccia; possiede poche posizioni di grandi dimensioni che capisce profondamente</li></ul><ul id="d096d170-9cbc-4180-905c-33a49cebf229" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Schloss (discepolo di Graham) diversifica con 100+ titoli; Warren concentra con 5-10 posizioni dominanti</li></ul><ul id="59210905-0a7f-41aa-ac59-693e8152c760" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La tesi: è meglio possedere 5 eccellenti aziende ben comprese che 100 mediocri aziende scansionate superficialmente</li></ul><h3 id="4ac4df6f-a982-451c-9fbe-f7bd864a4dc7" class="" dir="auto">Capitolo 26 — Takeaway</h3><ul id="05c52db9-b057-4e65-80cc-cb5379db357f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La diversificazione è &quot;per proteggersi dalla propria stupidità&quot;; Warren non è stupido e quindi concentra</li></ul><ul id="bc8fc8a9-494b-4443-aec3-86ecdd16b7e6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un portfolio concentrato permette il true ownership mentality: monitoraggio costante, relazioni col management, comprensione profonda</li></ul><ul id="beae2c46-e285-4589-8990-d096b1bfbf16" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Berkshire Hathaway è un portfolio concentrato: grandi posizioni in aziende-core (insurance, utilities, manufacturing)</li></ul><h2 id="f2966e1a-f30c-405c-93cf-1dd13c66ffdc" class="" dir="auto">Capitolo 27 — Quando Vendere i Tuoi Investimenti?</h2><ul id="cdd32fc8-f510-4a4d-8e20-3e5bc96fe6ac" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Regola di Warren: mai vendere se il business rimane eccellente e il valore intrinseco continua a espandersi</li></ul><ul id="48e001c0-a0bc-4e05-a1db-5d4bf7a443b3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Vendere solo se: (1) il business si deteriora, (2) il prezzo diventa irrazionalmente alto vs. fondamentali, (3) opportunità migliore appare</li></ul><ul id="eebf6a4a-f37d-428d-8e2e-8196d48f3aa8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Berkshire ha mantenuto posizioni in aziende per decenni (Coca-Cola, American Express) permettendo compounding massimo</li></ul><h3 id="831a9617-6e8a-4390-af9d-2a0dc65cdb5a" class="" dir="auto">Capitolo 27 — Takeaway</h3><ul id="1af0c6a8-d261-4153-9fa6-40f69003bade" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La pazienza è assetata: vendere genera tasse (capital gains) e perde l&#x27;opportunità di compounding continuato</li></ul><ul id="4d2fe97f-82b8-46e8-b94e-ae1d4e01ac6d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se hai un&#x27;eccellente azienda a un prezzo giusto, tenerla è spesso la decisione giusta</li></ul><ul id="051bfbde-bf31-4fb4-8002-6eb3c4f774f5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren tiene ogni azione per il massimo tempo possibile, talvolta fino alla morte</li></ul><h2 id="a6b60acf-2079-4034-85ae-947fce84528c" class="" dir="auto">Capitolo 28 — Diversi Tipi di Investimenti di Warren</h2><ul id="6ede8b82-0ce6-401a-832b-571b5e4ef587" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren investe in vari asset classes: (1) long-term minority investments in common stock (Coca-Cola, American Express), (2) 100% acquisizioni di private businesses (Nebraska Furniture Mart), (3) obligazioni/income securities, (4) arbitrage a breve termine</li></ul><ul id="be62a02f-e83e-48d0-8b03-f4772f17b42c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La disciplina di &quot;business perspective investing&quot; si applica a tutti: anche una holding obbligazionaria deve generare 15%+ rendimento</li></ul><ul id="039cdeff-ae29-488a-b6d4-e6fb87bf15de" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Arbitrage e short-term positions sono mostruose opportunità quando riconosciute ma non sono il core strategy</li></ul><h3 id="7e14bc9a-51ff-49a9-8c8b-42f23d087505" class="" dir="auto">Capitolo 28 — Takeaway</h3><ul id="a0d64198-72e8-46e6-8639-bcb8e57876c3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren adatta il criterio di investimento al tipo di asset, ma mantiene sempre l&#x27;analisi fondamentale</li></ul><ul id="16fb259f-dc0e-409c-8ba4-7e5fa60ab8d5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Non è purist su un singolo approccio; flessibilità strategica entro discipline rigide</li></ul><ul id="bd75377e-f776-4e7b-b023-015523b6124b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Arbitrage richiede capacità analitiche superiori per riconoscere le occasioni a breve termine</li></ul><h2 id="4aa9be12-659f-4c43-86e5-505e52d5afd4" class="" dir="auto">Capitolo 29-30 — Ruolo dell&#x27;Analista e Strumenti Matematici</h2><ul id="80cbdebb-ed66-486a-9540-1796e486df9b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;analista deve determinare il potenziale di guadagno futuro di un&#x27;azienda attraverso ricerca approfondita di trend storici, settore, management</li></ul><ul id="dad10603-4e61-48dc-9769-ba312f2dab08" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Strumenti matematici (calcolatrice BA-35, equazioni di discounting to present value) trasformano proiezioni qualitative in numeri concreti</li></ul><ul id="8f2c3ef5-bde4-46ed-bfe3-b09bcd1a5c61" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il test chiave: i guadagni sono abbastanza prevedibili per giustificare un investimento a lungo termine?</li></ul><h3 id="901bf75b-f1c4-49a4-ab69-79318333df0e" class="" dir="auto">Capitoli 29-30 — Takeaway</h3><ul id="451bddf9-5a6f-42e6-ba2e-219f4f9dbc09" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La qualità dell&#x27;analisi determina la qualità dell&#x27;investimento; garbage in = garbage out</li></ul><ul id="16f8c0ca-a38b-4ece-a3fe-839aa570cc21" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Gli strumenti matematici sono semplici (moltiplicazione, divisione, equazioni di crescita); la sfida è interpretare i dati correttamente</li></ul><ul id="f55810b0-ef0c-4333-be82-58d744a47f7c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Leggere annual reports, regulatory filings, industry reports rimane il fondamento; la matematica è solo il supporto</li></ul><h2 id="8fe5e56d-d1c8-4a40-b2e3-c34d5dd039a7" class="" dir="auto">Capitolo 31 — Test #1: Prevedibilità dei Guadagni</h2><ul id="c514f16b-e975-4fb8-bffe-491cbafef4b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Grafico 10 anni di guadagni storici dell&#x27;azienda; traccia il trend</li></ul><ul id="188cfbee-c0f5-481c-bca1-6af2b37cbc34" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se i guadagni crescono regolarmente (anche con variazioni ciclici), gli guadagni sono prevedibili</li></ul><ul id="14bfc9ea-af06-4cbe-98c6-09ec8bb175c6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se gli guadagni oscillano selvaggiamente o hanno crolli impredittibili, scarta l&#x27;azienda</li></ul><ul id="aef7c415-7bb7-4f5a-ac7c-d2cac7d2c1b0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: Utility con guadagni stabili = prevedibile; azienda tecnologica con earnings erratici = non prevedibile</li></ul><h3 id="ff01a522-7039-4d2b-98f6-25fb7e806618" class="" dir="auto">Capitolo 31 — Takeaway</h3><ul id="b90b5c77-47d7-4da5-8312-3757c74e259a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La prevedibilità è il filtro numero uno; senza essa, nessun modello di valutazione è attendibile</li></ul><ul id="498a9e62-92e2-4931-8b1a-6f8f885eacff" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren rifugge il 99% della borsa perché i guadagni futuri sono troppo incerti per essere proiettati</li></ul><ul id="cd84a2e6-e030-4f39-9219-637d6efc7397" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un grafico semplice di 10 anni di earnings rivela tutto</li></ul><h2 id="15eb8183-b25d-4d01-9caf-0a372eff2a03" class="" dir="auto">Capitolo 32 — Test #2: Tasso di Rendimento Iniziale</h2><ul id="d371e6f2-19c0-4f3c-9b2c-293873c48115" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Calcolare il tasso di rendimento iniziale: Guadagni Per Azione ÷ Prezzo Per Azione</li></ul><ul id="287fc5d8-a1e7-4c7e-816c-93c2a788840a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Confrontare con tasso governativo (es. 10% su Treasury bonds): il rendimento azionario deve essere superiore per compensare rischio</li></ul><ul id="469947b3-9dc2-45e4-8dc2-bcc45f88ab58" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se il tasso iniziale è insufficiente rispetto alle alternative, aspettare un prezzo migliore</li></ul><h3 id="7a0d4e91-23a8-4003-a27c-8879cf8a1ebb" class="" dir="auto">Capitolo 32 — Takeaway</h3><ul id="a69d57c3-6d71-4cc3-9b30-9600583f01af" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il tasso di rendimento iniziale è il primo filtro di prezzo: se è basso, l&#x27;investimento non ha senso</li></ul><ul id="9bca1907-9aac-4828-a0d9-c8943ad71a08" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren mai acquista a un tasso di rendimento iniziale inferiore ai tassi governativi; aspetta il ribasso</li></ul><ul id="29d3ffd7-b190-44f9-b197-274e49a808dd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo semplice test elimina la maggior parte degli acquisti mediocri</li></ul><h2 id="ee755b3d-40ca-4131-9c25-07db7bbf35ad" class="" dir="auto">Capitolo 33 — Test #3: Tasso di Crescita Per Share</h2><ul id="9a6f726b-67a9-4917-8ab7-a6618fbbc14a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Calcolare il tasso di crescita annuale dei guadagni per share dal passato (es. ultimi 10 anni)</li></ul><ul id="f2d7e1a4-29c8-4b40-b60a-e01f1bfe5cfc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Usare questo tasso storico per proiettare i guadagni futuri</li></ul><ul id="35846bf6-c2d4-4c09-b821-6c1089155b9e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se la crescita è stata del 10% annuo, è ragionevole proiettare 10% annuo nei prossimi 10 anni (con cautela sui cicli)</li></ul><h3 id="17307816-88d9-465e-8b7b-0051ef05cbd9" class="" dir="auto">Capitolo 33 — Takeaway</h3><ul id="7650872a-14d5-4b0a-ae41-20d67ffc14bb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La crescita storica è il best predictor della crescita futura (in aziende stabili)</li></ul><ul id="c25418a9-74a8-484b-b546-32c1ffd7bd20" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Non estrapolare crescita unsustainably alta; essere conservatori</li></ul><ul id="b9018e5c-6660-45e5-a36d-83feb4020f08" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Crescita del 5-15% annuo è realistico per eccellenti aziende; oltre il 15% è raro e richiede scrutinio</li></ul><h2 id="cc663619-06f9-43c7-9b93-654f0d0fb94a" class="" dir="auto">Capitolo 34 — Valore di un&#x27;Azienda Relativo alle Obbligazioni Governative</h2><ul id="c8fa5b77-265f-487b-9f09-0d155bc33f74" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Calcolare il &quot;rendimento obbligazionario equivalente&quot; di un&#x27;azione: se ritieni che crescerà al 10% annuo per 10 anni, qual è il &quot;coupon equivalente&quot;?</li></ul><ul id="98b1ea0c-313e-49e7-8c20-0b0ef1afffce" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Confrontare con il rendimento governativo: se il governo paga 7%, un&#x27;azione che cresce al 10% è attraente solo se il rischio è paragonabile</li></ul><ul id="10c04833-b38e-48b7-a772-08244661c0ee" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La formula di Graham-Dodd di base: Valore = Guadagni Per Share × (1 + Tasso di Crescita)^N ÷ Tasso di Sconto</li></ul><h3 id="85c7ff16-c5a4-44ee-90bc-ac5ed30cbdf4" class="" dir="auto">Capitolo 34 — Takeaway</h3><ul id="ac5500e2-6918-491e-afeb-882fda392775" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Le azioni dovrebbero essere valutate come obbligazioni con coupon variabile (i guadagni crescono, non rimangono statici)</li></ul><ul id="45cb92bb-d348-4179-bc71-be842adf5e78" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azione di eccellente azienda con bassa crescita può essere più attraente di un&#x27;azienda ad alta crescita con rischio</li></ul><ul id="1cef0520-0630-455a-86df-1336fd6676cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il tasso di sconto appropriato è il tasso governativo + premio per rischio</li></ul><h2 id="5fa7b0ee-6ca0-4a19-a607-5bf50bf04008" class="" dir="auto">Capitolo 35 — Preferenza di Warren per Alto ROE</h2><ul id="704fdf8e-684c-49a5-ba04-6c0194a810c6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ROE (Return on Equity) = Guadagni Netti ÷ Equity Totale</li></ul><ul id="1487809a-69c6-4df5-b24e-2f066f133ec8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren cerca aziende con ROE consistentemente superiore al 15%; molti competitor hanno ROE del 7-10%</li></ul><ul id="7063ec9c-6991-43a7-9210-3693921973a2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda con ROE alto significa che reinveste saggemente i profitti; una con ROE basso spreca il capitale</li></ul><h3 id="7da288f2-a107-43e3-8d32-26a9191258aa" class="" dir="auto">Capitolo 35 — Takeaway</h3><ul id="acb407ce-ee5e-46d2-82a4-81aa44c8983b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">ROE alto è segnale di competitive advantage e management quality; ROE basso è red flag</li></ul><ul id="ebc69719-6be7-4208-9c0d-12acafe8290c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda con ROE del 20% e 10% di reinvestimento ha un tasso di crescita intrinseca del ~2% + dividendi</li></ul><ul id="59f8e774-a2ef-4811-9c8b-6cb4459a5e02" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Cercare aziende con 15%+ ROE su equity base stabile</li></ul><h2 id="352ae2f7-ed32-4638-80b9-b81f98052ee5" class="" dir="auto">Capitolo 36-37 — Tasso di Rendimento Annuale Composto Proiettato (Parti I-II)</h2><ul id="c486054f-c502-4358-b318-3885f6fbcb1d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La formula finale: calcolare il tasso di rendimento annuale composto che otterrai acquistando a prezzo X, dato che l&#x27;azienda crescerà Y% per N anni</li></ul><ul id="7adfb760-aa92-448b-b0b4-7f348280d78d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Usare la BA-35 per calcolare: inserire prezzo presente, valore futuro proiettato, anni = ottieni tasso di rendimento annuale composto</li></ul><ul id="08c66fcc-a7b6-49ca-89f6-4e671fe08bd6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo tasso è il numero che Warren confronta con le sue alternative per decidere &quot;buy, hold, or pass&quot;</li></ul><h3 id="db72ff16-3de7-453a-828e-ccce8fd45d88" class="" dir="auto">Capitoli 36-37 — Takeaway</h3><ul id="7e945b7b-903a-47c5-bd4e-ebc63a9aa358" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il tasso di rendimento annuale composto è il &quot;numero magico&quot; che sintetizza tutto: prezzo, crescita, periodo di holding</li></ul><ul id="fcf058fc-74ac-4083-9e4f-6a8c46a1e469" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se il tasso è inferiore al 15%, Warren generalmente passa; se è superiore, acquista se ha fiducia nella prevedibilità</li></ul><ul id="5d2c0106-f736-44e4-9f92-9c415750b885" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo calcolo è il cuore dell&#x27;algoritmo di investimento di Warren</li></ul><h2 id="602c00ae-fb76-473e-8965-50aa9f73afba" class="" dir="auto">Capitolo 38 — L&#x27;Equity Come Obbligazione con Coupon Espandente</h2><ul id="3ad0a467-c4e8-425c-93a8-c5d658921323" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azione può essere modellata come un&#x27;obbligazione il cui &quot;coupon&quot; (guadagni) cresce ogni anno</li></ul><ul id="51067435-8c52-40a1-88d4-fd0f4c0fc35e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se compri un&#x27;azione con tasso di rendimento iniziale del 5% che crescerà al 10% annuo, il coupon effettivo è in espansione</li></ul><ul id="a7c5642c-1f16-4677-8cbd-c8ce77327397" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo differisce dalle obbligazioni tradizionali il cui coupon è fisso</li></ul><h3 id="cebdffe0-17db-40a4-9a40-e37a16a442b6" class="" dir="auto">Capitolo 38 — Takeaway</h3><ul id="72b6832f-5d6e-402c-a652-bca3db9b5244" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questa visione aiuta l&#x27;investitore a &quot;vedere&quot; il valore nascosto nelle azioni a basso rendimento iniziale ma alta crescita</li></ul><ul id="6c61ea1b-2d36-4e68-984b-008eb91e9819" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azione a rendimento iniziale del 5% con crescita del 15% annuo può diventare molto attraente nel tempo</li></ul><ul id="e187c335-a570-4c83-b100-ce3e76dfaece" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ma la prevedibilità della crescita rimane cruciale</li></ul><h2 id="56f2e61a-43ef-4ec5-8f03-06d45635cf5c" class="" dir="auto">Capitolo 39 — Usare il Tasso di Crescita dei Guadagni Per Share per Proiettare il Valore Futuro</h2><ul id="9da6b6a3-358e-4bdf-81b1-5abd4214b9c0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Semplice proiezione: se gli EPS crescono al 10% annuo e oggi sono $2, fra 10 anni saranno $2 × 1.10^10 = $5.19</li></ul><ul id="eca2e618-cf11-4bfe-bc7d-cc49d6c6b0be" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se il tasso di rendimento iniziale è il 10%, e cresce al 10% annuo, puoi calcolare il valore futuro e il tasso di rendimento annuale composto</li></ul><ul id="3b3b22f7-5e99-4336-87c5-3306a618d523" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo è il core del modello di valutazione di Warren</li></ul><h3 id="2a0f026f-90e8-40ba-8a0e-b3dbf62c3923" class="" dir="auto">Capitolo 39 — Takeaway</h3><ul id="9c9dcd05-eda8-4f15-baeb-b8c9e1951d8b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il compounding dei guadagni per share è il vero motore della creazione di ricchezza azionaria</li></ul><ul id="46807bdd-e9e6-4305-8866-9ba06aadb05f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren non acquista per performance a breve termine, ma per beneficiare del compounding di guadagni nel tempo</li></ul><ul id="08134c66-3815-46fe-9ea6-18692bd317d5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda con EPS che cresce dal 5% annuo per 20 anni accumula ricchezza massiccia</li></ul><h2 id="92a98877-e73b-462c-a6e3-4d8c7ebc5246" class="" dir="auto">Capitolo 40 — Come un&#x27;Azienda Aumenta la Ricchezza degli Azionisti tramite Buyback</h2><ul id="abe12e78-943a-4872-89cd-78ea58d282b5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se un&#x27;azienda acquista le proprie azioni (share buyback) al di sotto del valore intrinseco, dilluisce il numero di azioni e aumenta l&#x27;EPS pro-quota degli azionisti restanti</li></ul><ul id="6d86a60d-50a9-4ad4-a444-deaf4697f68f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: Azienda con 10 milioni di azioni outstanding, utili di $10 milioni ($1 EPS), compra 1 milione di azioni; ora 9 milioni di azioni, stessi $10 milioni di utili = $1.11 EPS</li></ul><ul id="50ea9699-a070-4930-b6d5-34298f5a4893" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ma se compra al di sopra del valore intrinseco, danneggia gli azionisti rimanenti</li></ul><h3 id="ae7cf5a3-32bc-4fa0-95a9-61f472f17f61" class="" dir="auto">Capitolo 40 — Takeaway</h3><ul id="da061148-2df9-46a6-b757-f29a6376343c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un buyback intelligente (al di sotto del valore intrinseco) è una forma di returning capital agli azionisti senza tasse su dividendi</li></ul><ul id="773682e6-ea64-49d8-a523-42df8a9fbf73" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Berkshire non fa buyback perché preferisce reinvestire a tassi alti; ma riconosce quando un buyback è saggia strategia</li></ul><ul id="5ac97ccb-1f0b-47de-9435-f18bbfa99570" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Scrutinare il timing e il prezzo del buyback; management inetto spesso compra al picco (sbagliato)</li></ul><h2 id="b7b13306-f56a-4a44-80e8-6d503a6fb8c5" class="" dir="auto">Capitolo 41 — Come Determinare se EPS Aumenta per Buyback vs. Crescita Reale</h2><ul id="01da6f80-849c-461c-ac87-fd6c13844c94" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Analizzare il numero totale di azioni outstanding nel tempo; se cala, parte della crescita di EPS viene dai buyback, non da crescita di utili</li></ul><ul id="f780f3f1-5304-44ef-99ca-ced34b2c88b8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Calcolare la crescita effettiva dei guadagni totali (non EPS); se rimane piatta, la crescita di EPS è artificiale</li></ul><ul id="8fd9f02e-919c-40d7-97b3-8f3c5aa6b9f9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren preferisce aziende che crescono tramite utili reali, non tramite buyback strutturale</li></ul><h3 id="78b9e7da-bbf3-4a77-9078-ea34c8606d19" class="" dir="auto">Capitolo 41 — Takeaway</h3><ul id="cd6c04d3-e45b-42d4-ab18-3271086df03b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Distinguere tra crescita di guadagni reali (veramente più profitto) e crescita di EPS artificiale (meno azioni)</li></ul><ul id="15550fdb-ce4f-4122-8529-680d2bc17cf4" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una crescita di EPS del 10% che viene interamente dai buyback non è crescita del business</li></ul><ul id="be7ed976-6998-442c-8b99-76a5bf51b5e5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Leggere il bilancio e contare le azioni outstanding storicamente per smascherare questa tattica</li></ul><h2 id="f95e11ee-feb8-4fc4-a8eb-35be43b7036b" class="" dir="auto">Capitolo 42 — Misurare la Capacità del Management di Utilizzare Utili Trattenuti</h2><ul id="7483fd5d-8d4a-45a9-b984-7684a68d3df6" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se un&#x27;azienda trattiene i guadagni, gli azionisti devono fidarsi che il management li reinvestirà sagamente</li></ul><ul id="15c50a43-83b1-4296-921d-b1765ef1aec3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Calcolare il &quot;rate of return on retained earnings&quot;: Se ritiene $100M e la crescita degli utili è del 10%, il return on retained earnings è ~10%</li></ul><ul id="1ba592f9-b8a1-4a07-ad83-1bacef38d158" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Se il return è superiore al 15%, il management è eccellente; se è inferiore al 5%, è pessimo</li></ul><h3 id="c1dec1da-f25a-4fa9-adf8-da1c5cb18164" class="" dir="auto">Capitolo 42 — Takeaway</h3><ul id="1a9afe69-2653-4faa-9c55-54169311d235" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questo test rivela la competenza del management: manager eccellente crea ricchezza dai guadagni trattenuti; mediocre la distrugge</li></ul><ul id="3df15ae5-e728-45ce-b5e0-0240b79e43a3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Berkshire sotto Warren ha consistentemente generato return su retained earnings del 20%+, eccezionale</li></ul><ul id="3af3f66b-d619-4006-b9df-efc78633562f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Un&#x27;azienda con basso return su retained earnings dovrebbe pagare dividendi invece di trattenere</li></ul><h2 id="607c8de6-a389-4606-8e56-29ff4c597777" class="" dir="auto">Capitolo 43 — Impegni di Arbitrage a Breve Termine</h2><ul id="bef584dc-7a29-41fe-8500-51864a5fc89d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Arbitrage: acquistare un titolo sottovalutato quando il mercato ha prezzato erroneamente una fusione imminente, scissione, o altro evento</li></ul><ul id="e7fa1649-1867-46ea-b4c5-9810e6c7d89c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Esempio: Società A offre $50 per azione per acquistare Società B; il mercato la quota a $48; arbitraggio profitto di $2 (4%)</li></ul><ul id="a3702059-7bc3-4dbf-a5ec-f5772ed4680d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren la pratica saltuariamente per profitto assoluto quando il rischio è minimo</li></ul><h3 id="14d319f3-6d01-435a-b735-5aa86e92a370" class="" dir="auto">Capitolo 43 — Takeaway</h3><ul id="78588da9-0224-480b-93e0-3abd7db8b349" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;arbitrage non è core strategy di Warren ma supplemento opportunistico</li></ul><ul id="156fae30-f3ef-40da-bae8-35195b8eb238" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Richiede analisi legale e di rischio superiore per evitare trappole (es. quando il deal crolla)</li></ul><ul id="c205e547-8d80-49b4-9e79-f8a26a90217c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;arbitrage ha rischio e tasse; Warren la pratica raramente</li></ul><h2 id="4c21d877-5782-46c8-855a-995c2e0f06c2" class="" dir="auto">Capitolo 44 — Case Studies: Gannett, Freddie Mac, McDonald&#x27;s</h2><ul id="35f0ef4b-8bc2-460a-96bf-b61e0960afcf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Gannett (1994)</strong>: Warren acquistò il gigante dei media Gannett a un tasso di rendimento iniziale del 12%, con crescita prevedibile; sfruttò il panico del mercato sui giornali</li></ul><ul id="fe8dd065-bceb-4f34-bfea-2693cf6c9596" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Freddie Mac (1992)</strong>: Acquistò quando il mercato temeva il default di mortgage lenders; riconobbe che il default era improbabile data la natura quasi-governativa di Freddie; profitto massiccia</li></ul><ul id="aab11241-7cb5-4067-8ae7-cc042eb73669" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>McDonald&#x27;s (1996)</strong>: Acquistò a un prezzo che offrì 11%+ rendimento iniziale, con franchising model stabile, brand globale, crescita prevedibile</li></ul><h3 id="9c655055-194f-4467-bed2-620bc929a3c9" class="" dir="auto">Capitolo 44 — Takeaway</h3><ul id="dba6f3dc-6c85-425d-87bf-4171d76cd34f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questi casi dimostrano come Warren applica i test matematici a situazioni reali di panico di mercato</li></ul><ul id="de62d4a7-2633-4373-8d9c-504621dcfddc" class="bulleted-list" dir="auto"><li style="list-style-type:disc">In ogni caso, il panico ha creato opportunità di prezzo straordinarie</li></ul><ul id="80f98ad7-1ffe-4afc-a2f9-374eaefc2aa2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">L&#x27;analisi disciplinata ha permesso a Warren di vedere il valore quando altri vedevano solo rischio</li></ul><h2 id="dd2d0fc8-1ee6-4712-870e-89ef47dc8e66" class="" dir="auto">Capitolo 45 — Come Warren Ha Iniziato: Il Veicolo di Investimento</h2><ul id="65475c60-3569-4bb2-a8ed-54051c066b0e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren partì nel 1957 con una partnership di investimento da $105,000, gestito come quasi-hedge fund</li></ul><ul id="23160456-7113-4ef2-ae5c-17b9b2a4819c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Successivamente acquisì Berkshire Hathaway (compagnia tessile fallente) nel 1965, la trasformò in holding company</li></ul><ul id="6865cddd-761d-43dc-a6d5-579585136b3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La struttura di holding company (insurance subsidiary + manufacturing + operating businesses) permise crescita senza limiti di tasse</li></ul><h3 id="93abf432-6fca-45b2-ba84-48d909e514f0" class="" dir="auto">Capitolo 45 — Takeaway</h3><ul id="cb45ffeb-6df8-4fc8-bb28-7401db7b9f97" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La struttura di partnership → holding company fu cruciale per la scala di ricchezza creata</li></ul><ul id="1d922ef5-3dcb-4acf-b050-44312a27c759" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Le compagnie di assicurazione fornivano &quot;float&quot; (capitale temporaneamente disponibile) che Warren poteva investire</li></ul><ul id="0eef75ec-b72b-4400-bd51-b7739195be8a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Chiunque voglia replicare il successo di Warren dovrebbe considerare una struttura simile</li></ul><h2 id="7056ef4e-e52b-4dd6-9889-7b8c257ef6cd" class="" dir="auto">Capitolo 46 — Cinquantaquattro Aziende da Esaminare</h2><ul id="3f335449-ab63-40f7-9015-ee686887f288" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Una lista curata di 54 aziende pubbliche che Warren ha investigato o in cui ha investito: Coca-Cola, American Express, Gillette, McDonald&#x27;s, Wrigley, utility varie, assicurazioni, banche selezionate</li></ul><ul id="7ff7bc2f-5995-4912-9ec3-d1c1dacc784c" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Ogni azienda rappresenta un&#x27;eccellente &quot;consumer monopoly&quot; o sottocategoria della strategia di Warren</li></ul><ul id="4e437c83-6606-4fd7-bba4-bb35948a29b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La lista è uno starting point; gli investitori dovrebbero applicare i 9 test + analisi quantitativa a ciascun candidato</li></ul><h3 id="66a7a894-bac7-45d7-9d26-493426f46c92" class="" dir="auto">Capitolo 46 — Takeaway</h3><ul id="e1658fd0-1856-4f8d-9b4c-c4a2b103bbf0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Questa lista è un repository di best practices identifiate di Warren; non è prescrittiva ma illustrativa</li></ul><ul id="0d6ce5c8-9c1c-4061-8069-03b2e3a3f8eb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Aggiungere alla lista aziende moderne con lo stesso profilo economico (monopoli di consumer, guadagni prevedibili, management eccellente)</li></ul><ul id="2de2e0b3-6ec2-44fc-af88-e6426e4c8ac0" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La lista mostra pattern: settori favoriti di Warren (insurance, utilities, consumer brands, media select)</li></ul><h2 id="4abc8c77-27ac-471b-8a5f-ef0bafd37cd5" class="" dir="auto">Capitolo 47 — Waiting for the Perfect Pitch</h2><ul id="aa4bed27-8db9-4e24-8687-a840924b449f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren mira ai &quot;home runs&quot; — investimenti evidenti dove il prezzo è irrazionalmente basso e il business è eccellente</li></ul><ul id="258e5ee0-ec25-4fbe-a6db-0e432c442d13" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Rifiuta migliaia di opportunità mediocrità per ogni grande opportunità; pazienza è il segno distintivo</li></ul><ul id="4acf8f1b-d7d5-482d-b79a-24cf86f60130" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Come un grande batter (baseball), attende il pitch perfetto; non swing a cattivi pitch</li></ul><h3 id="ed398cd3-98dd-4e12-b292-dbfab1db9dcf" class="" dir="auto">Capitolo 47 — Takeaway</h3><ul id="90e2196a-8740-4e09-a8de-ea02674bc59d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La disciplina di Warren richiede umiltà di dire &quot;I don&#x27;t know&quot; e &quot;I&#x27;m waiting&quot; più spesso che &quot;I&#x27;m buying&quot;</li></ul><ul id="bedd65f8-580e-4fdd-8634-17d2584f2b5a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">I migliori investimenti sono ovvi in retrospettiva; Warren aspetta fino a quando diventano ovvi anche nel presente</li></ul><ul id="90109b9b-a976-4aa7-b3bb-3f7432975231" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La ricchezza viene dalla pazienza e dalla disciplina più che dalla brillantezza</li></ul><h1 id="aae64620-02c4-4021-a2ca-fdba34b3a77c" class="" dir="auto">Sintesi Finale</h1><ul id="ab258862-7acc-4e6e-98d5-40122c34be84" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Warren Buffett ha creato $20 miliardi di ricchezza applicando rigorosamente il principio di Graham che &quot;l&#x27;investimento è più intelligente quando è più imprenditoriale&quot;</li></ul><ul id="2623ce88-7d6d-4e01-8bbc-7750dd073ad5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il sistema richiede tre discipline: (1) identificare rare &quot;eccellenti aziende&quot; con guadagni prevedibili e monopoli economici, (2) aspettare il prezzo giusto che garantisca 15%+ rendimento annuale composto, (3) mantenere le posizioni per decenni permettendo il compounding</li></ul><ul id="9aa240c3-e05f-4128-8ab6-98a8d2be89f3" class="bulleted-list" dir="auto"><li style="list-style-type:disc">La ricchezza reale viene dal compounding perpetuo di guadagni in aziende eccellenti; le tasse e i costi la erodono; l&#x27;investimento paziente la moltiplicano</li></ul><ul id="80eb3f97-bab6-473b-816d-452de7ee2854" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Applicare rigorosamente questi principi — non la &quot;predizione del mercato&quot;, il &quot;timing&quot;, o il &quot;seguire la folla&quot; — crea rendimenti superiori al 15% annuo in modo replicabile</li></ul><ul id="80e590b6-b10a-440f-a7d1-0c6f381870c5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">Il libro fornisce gli strumenti matematici (calcolatrice BA-35, tasso di rendimento annuale composto, valutazione del valore intrinseco) e i filtri qualitativi (9 domande, test di prevedibilità) per iniziare; il resto dipende dalla disciplina personale, dalla pazienza e dall&#x27;umiltà di riconoscere di non sapere</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
