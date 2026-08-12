@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/organic-810e718f-1806-4192-8941-64d874e47e71/styles.css">
+  <script src="_ds/organic-810e718f-1806-4192-8941-64d874e47e71/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    a { color: var(--color-accent); }
+    a:hover { color: var(--color-accent-700); }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+</helmet>
+<div style="min-height: 100vh; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); display: flex; flex-direction: column;">
+  <nav style="{{ navWrapperStyle }}">
+    <div style="{{ brandStyle }}" onClick="{{ goHome }}">Enotiki_OS</div>
+    <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="8">
+      <button onClick="{{ item.onClick }}" style="{{ item.style }}">
+        <sc-if value="{{ item.isInvest }}" hint-placeholder-val="{{ true }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 17 9 11 13 15 21 6"></polyline><polyline points="14 6 21 6 21 13"></polyline></svg></sc-if>
+        <sc-if value="{{ item.isLibri }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 7c-2-2-5-2-8-1v13c3-1 6-1 8 1 2-2 5-2 8-1V6c-3-1-6-1-8 1Z"></path><path d="M12 7v13"></path></svg></sc-if>
+        <sc-if value="{{ item.isFilm }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><path d="M4 9.5 20 6"></path><path d="M6.5 4.5 9 8.5"></path><path d="M12.5 3.5l2.5 4"></path><path d="M4 9.5h16v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5Z"></path></svg></sc-if>
+        <sc-if value="{{ item.isSalute }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20s-7-4.3-9.5-9C1 8 2 4.5 5.3 4c2-.3 3.7.7 4.7 2.3C11 4.7 12.7 3.7 14.7 4 18 4.5 19 8 17.5 11c-.6 1.1-1.4 2.1-2.3 3"></path><polyline points="7 12 9.5 12 11 9.5 13 15 14.5 12 17 12"></polyline></svg></sc-if>
+        <sc-if value="{{ item.isHabit }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4"></rect><path d="m8 12 3 3 6-6"></path></svg></sc-if>
+        <sc-if value="{{ item.isCal }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg></sc-if>
+        <sc-if value="{{ item.isAppunti }}" hint-placeholder-val="{{ false }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round" strokeLinejoin="round"><path d="M6 3.5h10.5A1.5 1.5 0 0 1 18 5v14a1.5 1.5 0 0 1-1.5 1.5H6"></path><path d="M6 3.5v17"></path><path d="M9.5 8h5"></path><path d="M9.5 12.5 12.5 15l3.3-4.6"></path></svg></sc-if>
+        {{ item.label }}
+      </button>
+    </sc-for>
+  </nav><main style="{{ mainStyle }}">
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:28px;">
+          <p class="text-muted" style="margin:0;text-transform:capitalize;">{{ todayLabel }}</p>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.9 4.9 1.4 1.4"></path><path d="m17.7 17.7 1.4 1.4"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.3 17.7-1.4 1.4"></path><path d="m19.1 4.9-1.4 1.4"></path></svg>
+            <span style="font-family:var(--font-heading);font-size:17px;">24°</span>
+            <span class="text-muted" style="font-size:13px;">Sereno</span>
+          </div>
+        </div>
+
+        <h2 style="font-size:19px;margin:0 0 14px;">Calendario settimanale</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(130px,1fr));gap:10px;margin-bottom:36px;">
+          <sc-for list="{{ homeWeekDays }}" as="d" hint-placeholder-count="7">
+            <div class="card" style="{{ d.cardStyle }}">
+              <div style="display:flex;align-items:center;justify-content:space-between;">
+                <span style="font-size:11px;text-transform:uppercase;opacity:0.6;">{{ d.label }}</span>
+                <span style="font-family:var(--font-heading);font-size:16px;">{{ d.dayNum }}</span>
+              </div>
+              <sc-for list="{{ d.events }}" as="ev" hint-placeholder-count="1">
+                <span class="tag tag-accent" style="width:fit-content;">{{ ev.titolo }}</span>
+              </sc-for>
+              <button class="btn btn-ghost" style="padding:2px 4px;font-size:12px;justify-content:flex-start;" onClick="{{ d.onAdd }}">+ evento</button>
+            </div>
+          </sc-for>
+        </div>
+
+        <h2 style="font-size:19px;margin:0 0 14px;">Habit Tracker Daily</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;">
+          <div class="card elev-sm">
+            <div class="card-kicker">Evgeniya</div>
+            <sc-for list="{{ habitsTodayEugenia }}" as="h" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-divider);">
+                <button onClick="{{ h.onToggle }}" style="{{ h.checkStyle }}">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m5 12 5 5 9-9"></path></svg>
+                </button>
+                <span style="{{ h.textStyle }}">{{ h.nome }}</span>
+              </div>
+            </sc-for>
+            <button class="btn btn-ghost" style="margin-top:12px;white-space:nowrap;" onClick="{{ openHabitDialogEugenia }}">+ Nuova abitudine</button>
+          </div>
+          <div class="card elev-sm">
+            <div class="card-kicker">Marco</div>
+            <sc-for list="{{ habitsTodayMarco }}" as="h" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-divider);">
+                <button onClick="{{ h.onToggle }}" style="{{ h.checkStyle }}">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m5 12 5 5 9-9"></path></svg>
+                </button>
+                <span style="{{ h.textStyle }}">{{ h.nome }}</span>
+              </div>
+            </sc-for>
+            <button class="btn btn-ghost" style="margin-top:12px;white-space:nowrap;" onClick="{{ openHabitDialogMarco }}">+ Nuova abitudine</button>
+          </div>
+        </div>
+
+        <h2 style="font-size:19px;margin:0 0 14px;">Ultimi appunti</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px,1fr));gap:16px;margin-bottom:8px;">
+          <sc-for list="{{ homeAppuntiPreview }}" as="a" hint-placeholder-count="3">
+            <div class="card elev-sm">
+              <span class="{{ a.tagClass }}" style="align-self:flex-start;">{{ a.categoria }}</span>
+              <div class="card-title" style="font-size:15px;">{{ a.titolo }}</div>
+              <div style="display:flex;gap:2px;">
+                <sc-for list="{{ a.stars }}" as="s" hint-placeholder-count="5">
+                  <svg width="14" height="14" viewBox="0 0 24 24" onClick="{{ s.onClick }}" style="cursor:pointer;">
+                    <defs><linearGradient id="{{ s.gradId }}">
+                      <stop offset="0%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-neutral-400)"></stop>
+                      <stop offset="100%" stopColor="var(--color-neutral-400)"></stop>
+                    </linearGradient></defs>
+                    <path fill="url(#{{ s.gradId }})" stroke="none" d="M12 2.5 15 9.1 22 9.9 16.8 14.6 18.3 21.5 12 17.9 5.7 21.5 7.2 14.6 2 9.9 9 9.1Z"></path>
+                  </svg>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <p style="margin:4px 0 32px;"><a href="#" onClick="{{ goAppuntiPrevent }}">Vedi tutti gli appunti →</a></p>
+
+        <h2 style="font-size:19px;margin:0 0 14px;">Prossimamente</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(220px,1fr));gap:16px;">
+          <sc-for list="{{ stubLinks }}" as="s" hint-placeholder-count="3">
+            <div class="card" style="cursor:pointer;opacity:0.85;" onClick="{{ s.onClick }}">
+              <span class="tag tag-outline" style="align-self:flex-start;">Presto</span>
+              <div class="card-title" style="font-size:16px;">{{ s.label }}</div>
+              <p class="card-body">{{ s.desc }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isFilm }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+          <h1 style="margin:0;">Film e Serie TV</h1>
+          <button class="btn btn-primary" onClick="{{ openFilmDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <sc-for list="{{ filmFilterChips }}" as="c" hint-placeholder-count="3">
+            <button style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(240px,1fr));gap:16px;">
+          <sc-for list="{{ filmList }}" as="film" hint-placeholder-count="5">
+            <div class="card elev-sm">
+              <div style="height:150px;border-radius:var(--radius-md);overflow:hidden;">
+                <image-slot id="{{ film.photoId }}" shape="rect" placeholder="Locandina"></image-slot>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <span class="{{ film.tipoTagClass }}" style="white-space:nowrap;">{{ film.tipo }}</span>
+                <span class="{{ film.statoTagClass }}" style="white-space:nowrap;">{{ film.stato }}</span>
+              </div>
+              <div class="card-title">{{ film.titolo }}</div>
+              <div style="display:flex;gap:2px;">
+                <sc-for list="{{ film.stars }}" as="s" hint-placeholder-count="5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" onClick="{{ s.onClick }}" style="cursor:pointer;">
+                    <defs><linearGradient id="{{ s.gradId }}">
+                      <stop offset="0%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-neutral-400)"></stop>
+                      <stop offset="100%" stopColor="var(--color-neutral-400)"></stop>
+                    </linearGradient></defs>
+                    <path fill="url(#{{ s.gradId }})" stroke="none" d="M12 2.5 15 9.1 22 9.9 16.8 14.6 18.3 21.5 12 17.9 5.7 21.5 7.2 14.6 2 9.9 9 9.1Z"></path>
+                  </svg>
+                </sc-for>
+              </div>
+              <sc-if value="{{ film.hasNote }}" hint-placeholder-val="{{ false }}">
+                <p class="card-body">{{ film.note }}</p>
+              </sc-if>
+              <div style="display:flex;gap:8px;margin-top:auto;">
+                <button class="btn btn-secondary" style="flex:1;white-space:nowrap;" onClick="{{ film.toggleStato }}">{{ film.toggleLabel }}</button>
+                <button class="btn btn-icon btn-secondary" onClick="{{ film.onDelete }}">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+                </button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isAppunti }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+          <h1 style="margin:0;">Appunti &amp; Valutazioni</h1>
+          <button class="btn btn-primary" onClick="{{ openAppuntiDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ appuntiFilterChips }}" as="c" hint-placeholder-count="7">
+              <button style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+          <button style="{{ daProvareChip.style }}" onClick="{{ daProvareChip.onClick }}">Da provare</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(240px,1fr));gap:16px;">
+          <sc-for list="{{ appuntiList }}" as="a" hint-placeholder-count="6">
+            <div class="card elev-sm">
+              <div style="height:150px;border-radius:var(--radius-md);overflow:hidden;">
+                <image-slot id="{{ a.photoId }}" shape="rect" placeholder="Foto"></image-slot>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <span class="{{ a.tagClass }}" style="white-space:nowrap;">{{ a.categoria }}</span>
+                <span class="{{ a.statoTagClass }}" style="white-space:nowrap;">{{ a.stato }}</span>
+              </div>
+              <div class="card-title">{{ a.titolo }}</div>
+              <sc-if value="{{ a.hasIndirizzo }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ a.mapsUrl }}" target="_blank" rel="noopener" style="font-size:12px;">{{ a.indirizzo }} ↗</a>
+              </sc-if>
+              <div style="display:flex;gap:2px;">
+                <sc-for list="{{ a.stars }}" as="s" hint-placeholder-count="5">
+                  <svg width="18" height="18" viewBox="0 0 24 24" onClick="{{ s.onClick }}" style="cursor:pointer;">
+                    <defs><linearGradient id="{{ s.gradId }}">
+                      <stop offset="0%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-neutral-400)"></stop>
+                      <stop offset="100%" stopColor="var(--color-neutral-400)"></stop>
+                    </linearGradient></defs>
+                    <path fill="url(#{{ s.gradId }})" stroke="none" d="M12 2.5 15 9.1 22 9.9 16.8 14.6 18.3 21.5 12 17.9 5.7 21.5 7.2 14.6 2 9.9 9 9.1Z"></path>
+                  </svg>
+                </sc-for>
+              </div>
+              <sc-if value="{{ a.hasNote }}" hint-placeholder-val="{{ false }}">
+                <p class="card-body">{{ a.note }}</p>
+              </sc-if>
+              <div style="display:flex;gap:8px;margin-top:auto;">
+                <button class="btn btn-secondary" style="flex:1;white-space:nowrap;" onClick="{{ a.toggleStato }}">{{ a.toggleLabel }}</button>
+                <button class="btn btn-icon btn-secondary" onClick="{{ a.onDelete }}">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+                </button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isCalendario }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
+          <h1 style="margin:0;text-transform:capitalize;">{{ monthLabel }}</h1>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <button class="btn btn-secondary" style="white-space:nowrap;" onClick="{{ prevMonth }}">← Mese prec.</button>
+            <button class="btn btn-ghost" style="white-space:nowrap;" onClick="{{ resetMonth }}">Oggi</button>
+            <button class="btn btn-secondary" style="white-space:nowrap;" onClick="{{ nextMonth }}">Mese succ. →</button>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:8px;margin-bottom:8px;">
+          <span style="font-size:11px;text-transform:uppercase;opacity:0.6;text-align:center;">Lun</span>
+          <span style="font-size:11px;text-transform:uppercase;opacity:0.6;text-align:center;">Mar</span>
+          <span style="font-size:11px;text-transform:uppercase;opacity:0.6;text-align:center;">Mer</span>
+          <span style="font-size:11px;text-transform:uppercase;opacity:0.6;text-align:center;">Gio</span>
+          <span style="font-size:11px;text-transform:uppercase;opacity:0.6;text-align:center;">Ven</span>
+          <span style="font-size:11px;text-transform:uppercase;color:#b3483a;text-align:center;">Sab</span>
+          <span style="font-size:11px;text-transform:uppercase;color:#b3483a;text-align:center;">Dom</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7, 1fr);gap:8px;">
+          <sc-for list="{{ calMonthDays }}" as="d" hint-placeholder-count="42">
+            <div class="card" style="{{ d.cardStyle }}">
+              <div style="{{ d.dayNumStyle }}">{{ d.dayNum }}</div>
+              <sc-for list="{{ d.events }}" as="ev" hint-placeholder-count="1">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:4px;background:var(--color-accent-100);color:var(--color-accent-800);border-radius:999px;padding:2px 8px;font-size:11px;">
+                  <span>{{ ev.titolo }}</span>
+                  <span onClick="{{ ev.onDelete }}" style="cursor:pointer;opacity:0.6;">×</span>
+                </div>
+              </sc-for>
+              <button class="btn btn-ghost" style="padding:1px 2px;font-size:11px;justify-content:flex-start;" onClick="{{ d.onAdd }}">+ evento</button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isHabit }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+          <h1 style="margin:0;">Habit Tracker Evgeniya</h1>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openHabitDialogEugenia }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Nuova abitudine
+          </button>
+        </div>
+        <div class="card elev-sm" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
+            <div class="card-kicker" style="margin:0;">Riepilogo mensile</div>
+            <span style="font-family:var(--font-heading);font-size:20px;">{{ habitRecapEugenia.weekPctLabel }}</span>
+          </div>
+          <sc-if value="{{ habitRecapEugenia.hasHabits }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:8px;">
+              <sc-for list="{{ habitRecapEugenia.bars }}" as="b" hint-placeholder-count="7">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                  <div style="height:48px;width:100%;display:flex;align-items:flex-end;" title="{{ b.title }}">
+                    <div style="{{ b.barStyle }}"></div>
+                  </div>
+                  <span style="font-size:11px;color:var(--color-neutral-400);">{{ b.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <div class="card elev-sm" style="margin-bottom:36px;">
+          <sc-for list="{{ habitsFullEugenia }}" as="h" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--color-divider);flex-wrap:wrap;">
+              <span style="flex:1;min-width:140px;">{{ h.nome }}</span>
+              <div style="display:flex;gap:5px;">
+                <sc-for list="{{ h.days }}" as="dd" hint-placeholder-count="7">
+                  <div onClick="{{ dd.onClick }}" style="{{ dd.style }}" title="{{ dd.dateStr }}"></div>
+                </sc-for>
+              </div>
+              <button class="btn btn-icon btn-secondary" onClick="{{ h.onDelete }}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+              </button>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+          <h1 style="margin:0;">Habit Tracker Marco</h1>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openHabitDialogMarco }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Nuova abitudine
+          </button>
+        </div>
+        <div class="card elev-sm" style="margin-bottom:16px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
+            <div class="card-kicker" style="margin:0;">Riepilogo mensile</div>
+            <span style="font-family:var(--font-heading);font-size:20px;">{{ habitRecapMarco.weekPctLabel }}</span>
+          </div>
+          <sc-if value="{{ habitRecapMarco.hasHabits }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;gap:8px;">
+              <sc-for list="{{ habitRecapMarco.bars }}" as="b" hint-placeholder-count="7">
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                  <div style="height:48px;width:100%;display:flex;align-items:flex-end;" title="{{ b.title }}">
+                    <div style="{{ b.barStyle }}"></div>
+                  </div>
+                  <span style="font-size:11px;color:var(--color-neutral-400);">{{ b.label }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+        <div class="card elev-sm">
+          <sc-for list="{{ habitsFullMarco }}" as="h" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--color-divider);flex-wrap:wrap;">
+              <span style="flex:1;min-width:140px;">{{ h.nome }}</span>
+              <div style="display:flex;gap:5px;">
+                <sc-for list="{{ h.days }}" as="dd" hint-placeholder-count="7">
+                  <div onClick="{{ dd.onClick }}" style="{{ dd.style }}" title="{{ dd.dateStr }}"></div>
+                </sc-for>
+              </div>
+              <button class="btn btn-icon btn-secondary" onClick="{{ h.onDelete }}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+              </button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isLibri }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+          <h1 style="margin:0;">Libri</h1>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openLibroDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+          <sc-for list="{{ libriFilterChips }}" as="c" hint-placeholder-count="4">
+            <button style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(250px,1fr));gap:16px;">
+          <sc-for list="{{ libriList }}" as="l" hint-placeholder-count="6">
+            <div class="card elev-sm">
+              <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                <span class="{{ l.catTagClass }}" style="white-space:nowrap;">{{ l.categoria }}</span>
+                <span class="{{ l.statoTagClass }}" style="white-space:nowrap;">{{ l.stato }}</span>
+              </div>
+              <div class="card-title" style="font-size:15px;">{{ l.titolo }}</div>
+              <div style="display:flex;gap:2px;">
+                <sc-for list="{{ l.stars }}" as="s" hint-placeholder-count="5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" onClick="{{ s.onClick }}" style="cursor:pointer;">
+                    <defs><linearGradient id="{{ s.gradId }}">
+                      <stop offset="0%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-accent)"></stop>
+                      <stop offset="{{ s.pct }}%" stopColor="var(--color-neutral-400)"></stop>
+                      <stop offset="100%" stopColor="var(--color-neutral-400)"></stop>
+                    </linearGradient></defs>
+                    <path fill="url(#{{ s.gradId }})" stroke="none" d="M12 2.5 15 9.1 22 9.9 16.8 14.6 18.3 21.5 12 17.9 5.7 21.5 7.2 14.6 2 9.9 9 9.1Z"></path>
+                  </svg>
+                </sc-for>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <sc-if value="{{ l.hasPresentazione }}" hint-placeholder-val="{{ true }}">
+                  <a href="{{ l.presentazioneUrl }}" target="_blank" rel="noopener" class="btn btn-secondary" style="white-space:nowrap;font-size:12px;">Presentazione ↗</a>
+                </sc-if>
+                <sc-if value="{{ l.hasRiassunto }}" hint-placeholder-val="{{ false }}">
+                  <a href="{{ l.riassuntoUrl }}" target="_blank" rel="noopener" class="btn btn-secondary" style="white-space:nowrap;font-size:12px;">Riassunto ↗</a>
+                </sc-if>
+              </div>
+              <div style="display:flex;gap:8px;margin-top:auto;">
+                <button class="btn btn-secondary" style="flex:1;white-space:nowrap;" onClick="{{ l.toggleStato }}">{{ l.toggleLabel }}</button>
+                <button class="btn btn-icon btn-secondary" onClick="{{ l.onDelete }}">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+                </button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isInvest }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+          <h1 style="margin:0;">Investimenti</h1>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openInvestDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div class="card elev-sm" style="margin-bottom:16px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit, minmax(150px,1fr));gap:24px;">
+          <div>
+            <div class="card-kicker">Totale investito</div>
+            <div style="font-family:var(--font-heading);font-size:26px;">{{ portfolioSummary.investitoLabel }}</div>
+            <div style="display:flex;height:6px;border-radius:999px;overflow:hidden;margin:10px 0 8px;background:var(--color-neutral-300);">
+              <div style="{{ portfolioSummary.marcoBarStyle }}"></div>
+              <div style="{{ portfolioSummary.eugeniaBarStyle }}"></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;">
+              <span style="width:10px;height:10px;border-radius:3px;background:var(--color-accent);flex-shrink:0;"></span>
+              <span style="flex:1;">Marco</span>
+              <span>{{ portfolioSummary.marcoLabel }}</span>
+              <span class="text-muted">{{ portfolioSummary.marcoPctLabel }}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;margin-top:4px;">
+              <span style="width:10px;height:10px;border-radius:3px;background:var(--color-accent-2-700);flex-shrink:0;"></span>
+              <span style="flex:1;">Eugenia</span>
+              <span>{{ portfolioSummary.eugeniaLabel }}</span>
+              <span class="text-muted">{{ portfolioSummary.eugeniaPctLabel }}</span>
+            </div>
+          </div>
+          <div>
+            <div class="card-kicker">Valore attuale</div>
+            <div style="font-family:var(--font-heading);font-size:26px;">{{ portfolioSummary.attualeLabel }}</div>
+          </div>
+          <div>
+            <div class="card-kicker">Guadagno complessivo</div>
+            <div style="{{ portfolioSummary.gainStyle }}">{{ portfolioSummary.gainLabel }}</div>
+            <div class="text-muted" style="font-size:13px;">{{ portfolioSummary.pctLabel }}</div>
+          </div>
+          <div>
+            <div class="card-kicker">Posizioni</div>
+            <div style="font-family:var(--font-heading);font-size:26px;">{{ portfolioSummary.posizioniLabel }}</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px;">
+        <div class="card elev-sm" style="padding:24px;flex:1;min-width:280px;max-width:calc(2 * 240px + 16px);">
+          <div class="card-kicker" style="margin-bottom: 16px; width: 200px; height: 8px">Suddivisione del portafoglio</div>
+          <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;">
+            <div style="{{ allocationPie.gradientStyle }}"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <sc-for list="{{ allocationPie.segments }}" as="s" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <span style="width:12px;height:12px;border-radius:3px;background:{{ s.color }};flex-shrink:0;"></span>
+                  <span style="min-width:70px;">{{ s.tipo }}</span>
+                  <span class="text-muted">{{ s.pctLabel }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div><div class="card elev-sm" style="flex:1;min-width:280px;max-width:calc(2 * 240px + 16px);">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:8px;">
+            <div>
+              <div class="card-kicker">Valore del portafoglio</div>
+              <div class="card-title" style="font-size:26px;">{{ portfolioChart.totalLabel }}</div>
+            </div>
+            <span style="font-size:13px;color:var(--color-accent-2-700);">{{ portfolioChart.deltaLabel }}</span>
+          </div>
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="width:100%;height:180px;">
+            <polygon points="{{ portfolioChart.areaPoints }}" fill="var(--color-accent-100)" stroke="none"></polygon>
+            <polyline points="{{ portfolioChart.points }}" fill="none" stroke="var(--color-accent)" strokeWidth="1.5" vectorEffect="non-scaling-stroke"></polyline>
+          </svg>
+          <div style="display:grid;grid-template-columns:repeat(12, 1fr);gap:2px;">
+            <sc-for list="{{ portfolioChart.labels }}" as="m" hint-placeholder-count="12">
+              <span style="font-size:11px;text-align:center;opacity:0.6;text-transform:capitalize;">{{ m.mese }}</span>
+            </sc-for>
+          </div>
+        </div>
+
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(240px,1fr));gap:16px;">
+          <sc-for list="{{ investList }}" as="i" hint-placeholder-count="3">
+            <div class="card elev-sm">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+                <div class="card-title">{{ i.nome }}</div>
+                <span class="{{ i.deltaTagClass }}" style="white-space:nowrap;">{{ i.deltaLabel }}</span>
+              </div>
+              <span class="{{ i.tipoTagClass }}" style="align-self:flex-start;white-space:nowrap;">{{ i.tipo }}</span>
+              <sc-if value="{{ i.hasIsin }}" hint-placeholder-val="{{ false }}">
+                <div class="text-muted" style="font-size:11px;margin-top:-6px;">{{ i.isin }}</div>
+              </sc-if>
+              <div style="display:flex;flex-direction:column;gap:4px;font-size:13px;">
+                <div style="display:flex;justify-content:space-between;"><span class="text-muted">Quantità</span><span>{{ i.quantitaLabel }}</span></div>
+                <div style="display:flex;justify-content:space-between;"><span class="text-muted">Prezzo di carico</span><span>{{ i.prezzoCaricoLabel }}</span></div>
+                <div style="display:flex;justify-content:space-between;"><span class="text-muted">Valore attuale</span><span>{{ i.valoreAttualeLabel }}</span></div>
+                <sc-if value="{{ i.hasPrezzoAggiornato }}" hint-placeholder-val="{{ false }}">
+                  <div class="text-muted" style="font-size:11px;">{{ i.prezzoAggiornatoLabel }}</div>
+                </sc-if>
+                <sc-if value="{{ i.hasRange }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;justify-content:space-between;"><span class="text-muted">Range atteso</span><span>{{ i.rangeLabel }}</span></div>
+                </sc-if>
+              </div>
+              <sc-if value="{{ i.hasNote }}" hint-placeholder-val="{{ false }}">
+                <p class="card-body">{{ i.note }}</p>
+              </sc-if>
+              <button class="btn btn-secondary" style="margin-top:auto;" onClick="{{ i.onDelete }}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+                Rimuovi
+              </button>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:24px;margin-bottom:12px;">
+          <h2 style="font-size:19px;margin:0;">Depositi</h2>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openDepositoDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div class="card elev-sm">
+          <sc-for list="{{ depositiList }}" as="d" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-divider);flex-wrap:wrap;">
+              <span class="{{ d.tagClass }}" style="white-space:nowrap;">{{ d.persona }}</span>
+              <span style="font-family:var(--font-heading);flex:1;min-width:80px;">{{ d.importoLabel }}</span>
+              <sc-if value="{{ d.hasNote }}" hint-placeholder-val="{{ false }}">
+                <span class="text-muted" style="font-size:12px;">{{ d.note }}</span>
+              </sc-if>
+              <span class="text-muted" style="font-size:12px;">{{ d.data }}</span>
+              <button class="btn btn-icon btn-secondary" onClick="{{ d.onDelete }}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+              </button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isSalute }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h1 style="margin:0 0 20px;">Salute</h1>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+          <h2 style="font-size:19px;margin:0;">Parametri nel tempo</h2>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openParametroDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <sc-for list="{{ saluteFilterChips }}" as="c" hint-placeholder-count="4">
+            <button style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+          </sc-for>
+        </div>
+        <div class="card elev-sm" style="margin-bottom:36px;">
+          <sc-for list="{{ parametriList }}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-divider);flex-wrap:wrap;">
+              <span class="{{ p.tagClass }}" style="white-space:nowrap;">{{ p.tipo }}</span>
+              <sc-if value="{{ p.isPressione }}" hint-placeholder-val="{{ false }}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-2-700)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 20s-7-4.3-9.5-9C1 8 2 4.5 5.3 4c2-.3 3.7.7 4.7 2.3C11 4.7 12.7 3.7 14.7 4 18 4.5 19 8 17.5 11c-.6 1.1-1.4 2.1-2.3 3"></path><polyline points="7 12 9.5 12 11 9.5 13 15 14.5 12 17 12"></polyline></svg>
+              </sc-if>
+              <span style="font-family:var(--font-heading);flex:1;min-width:80px;">{{ p.valore }}</span>
+              <span class="text-muted" style="font-size:12px;">{{ p.data }}</span>
+              <button class="btn btn-icon btn-secondary" onClick="{{ p.onDelete }}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+              </button>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
+          <h2 style="font-size:19px;margin:0;">Farmaci e integratori</h2>
+          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openFarmacoDialog }}">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+            Aggiungi
+          </button>
+        </div>
+        <div class="card elev-sm">
+          <sc-for list="{{ farmaciList }}" as="f" hint-placeholder-count="2">
+            <div style="display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--color-divider);flex-wrap:wrap;">
+              <div style="flex:1;min-width:140px;">
+                <div style="font-family:var(--font-heading);">{{ f.nome }}</div>
+                <sc-if value="{{ f.hasNote }}" hint-placeholder-val="{{ false }}">
+                  <div class="text-muted" style="font-size:12px;">{{ f.note }}</div>
+                </sc-if>
+              </div>
+              <button class="btn btn-icon btn-secondary" onClick="{{ f.onDelete }}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16"></path><path d="M6 7V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2"></path><path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13"></path></svg>
+              </button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ isStub }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <h1 style="margin:0 0 10px;">{{ stubTitle }}</h1>
+        <span class="tag tag-outline" style="margin-bottom:16px;display:inline-flex;">In arrivo</span>
+        <p style="max-width:520px;font-size:15px;opacity:0.85;">{{ stubDesc }}</p>
+      </div>
+    </sc-if>
+  </main>
+
+  
+
+  <sc-if value="{{ filmDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeFilmDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo titolo</div>
+        <div class="field">
+          <label>Titolo</label>
+          <input class="input" type="text" value="{{ newFilmTitolo }}" onChange="{{ onNewFilmTitoloChange }}" placeholder="Es. Oppenheimer">
+        </div>
+        <div class="field">
+          <label>Tipo</label>
+          <div style="display:flex;gap:8px;">
+            <button style="{{ tipoFilmStyle }}" onClick="{{ setTipoFilm }}">Film</button>
+            <button style="{{ tipoSerieStyle }}" onClick="{{ setTipoSerie }}">Serie TV</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Stato</label>
+          <div style="display:flex;gap:8px;">
+            <button style="{{ statoDaVedereStyle }}" onClick="{{ setStatoDaVedere }}">Da vedere</button>
+            <button style="{{ statoVistaStyle }}" onClick="{{ setStatoVista }}">Vista</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Note (opzionale)</label>
+          <textarea class="input" value="{{ newFilmNote }}" onChange="{{ onNewFilmNoteChange }}" placeholder="Due righe di giudizio..."></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeFilmDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newFilmInvalid }}" onClick="{{ addFilm }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ appuntiDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeAppuntiDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo appunto</div>
+        <div class="field">
+          <label>Titolo</label>
+          <input class="input" type="text" value="{{ newAppuntoTitolo }}" onChange="{{ onNewAppuntoTitoloChange }}" placeholder="Es. Panettone Fiasconaro">
+        </div>
+        <div class="field">
+          <label>Categoria</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ categoriaOptions }}" as="c" hint-placeholder-count="6">
+              <button style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="field">
+          <label>Stato</label>
+          <div style="display:flex;gap:8px;">
+            <button style="{{ appuntoStatoProvatoStyle }}" onClick="{{ setAppuntoStatoProvato }}">Provato</button>
+            <button style="{{ appuntoStatoDaProvareStyle }}" onClick="{{ setAppuntoStatoDaProvare }}">Da provare</button>
+          </div>
+        </div>
+        <sc-if value="{{ isCategoriaPosto }}" hint-placeholder-val="{{ false }}">
+          <div class="field">
+            <label>Indirizzo</label>
+            <input class="input" type="text" value="{{ newAppuntoIndirizzo }}" onChange="{{ onNewAppuntoIndirizzoChange }}" placeholder="Via, città...">
+          </div>
+        </sc-if>
+        <div class="field">
+          <label>Punteggio</label>
+          <div style="display:flex;gap:2px;">
+            <sc-for list="{{ newAppuntoStars }}" as="s" hint-placeholder-count="5">
+              <svg width="22" height="22" viewBox="0 0 24 24" onClick="{{ s.onClick }}" style="cursor:pointer;">
+                <defs><linearGradient id="{{ s.gradId }}">
+                  <stop offset="0%" stopColor="var(--color-accent)"></stop>
+                  <stop offset="{{ s.pct }}%" stopColor="var(--color-accent)"></stop>
+                  <stop offset="{{ s.pct }}%" stopColor="var(--color-neutral-400)"></stop>
+                  <stop offset="100%" stopColor="var(--color-neutral-400)"></stop>
+                </linearGradient></defs>
+                <path fill="url(#{{ s.gradId }})" stroke="none" d="M12 2.5 15 9.1 22 9.9 16.8 14.6 18.3 21.5 12 17.9 5.7 21.5 7.2 14.6 2 9.9 9 9.1Z"></path>
+              </svg>
+            </sc-for>
+          </div>
+        </div>
+        <div class="field">
+          <label>Note (opzionale)</label>
+          <textarea class="input" value="{{ newAppuntoNote }}" onChange="{{ onNewAppuntoNoteChange }}" placeholder="Due righe da ricordare..."></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeAppuntiDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newAppuntoInvalid }}" onClick="{{ addAppunto }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ eventDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeEventDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo evento</div>
+        <div class="field">
+          <label>Data</label>
+          <input class="input" type="date" value="{{ newEventDate }}" onChange="{{ onNewEventDateChange }}">
+        </div>
+        <div class="field">
+          <label>Titolo</label>
+          <input class="input" type="text" value="{{ newEventTitolo }}" onChange="{{ onNewEventTitoloChange }}" placeholder="Es. Cena con amici">
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeEventDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newEventInvalid }}" onClick="{{ addEvent }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ habitDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeHabitDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuova abitudine</div>
+        <div class="field">
+          <label>Nome</label>
+          <input class="input" type="text" value="{{ newHabitNome }}" onChange="{{ onNewHabitNomeChange }}" placeholder="Es. Bere 2L di acqua">
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeHabitDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newHabitInvalid }}" onClick="{{ addHabit }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ depositoDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeDepositoDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo deposito</div>
+        <div class="field">
+          <label>Chi ha depositato</label>
+          <div style="display:flex;gap:8px;">
+            <button style="{{ depositoPersonaMarcoStyle }}" onClick="{{ setDepositoPersonaMarco }}">Marco</button>
+            <button style="{{ depositoPersonaEugeniaStyle }}" onClick="{{ setDepositoPersonaEugenia }}">Eugenia</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Importo</label>
+          <input class="input" type="number" value="{{ newDepositoImporto }}" onChange="{{ onNewDepositoImportoChange }}" placeholder="0.00">
+        </div>
+        <div class="field">
+          <label>Data</label>
+          <input class="input" type="date" value="{{ newDepositoData }}" onChange="{{ onNewDepositoDataChange }}">
+        </div>
+        <div class="field">
+          <label>Note (opzionale)</label>
+          <input class="input" type="text" value="{{ newDepositoNote }}" onChange="{{ onNewDepositoNoteChange }}" placeholder="Es. Bonus, tredicesima...">
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeDepositoDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newDepositoInvalid }}" onClick="{{ addDeposito }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ investDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeInvestDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuova posizione</div>
+        <div class="field">
+          <label>Nome titolo/ETF</label>
+          <input class="input" type="text" value="{{ newInvNome }}" onChange="{{ onNewInvNomeChange }}" placeholder="Es. ETF Vanguard FTSE All-World">
+        </div>
+        <div class="field">
+          <label>Tipo</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ investTipoOptions }}" as="t" hint-placeholder-count="5">
+              <button style="{{ t.style }}" onClick="{{ t.onClick }}">{{ t.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="field">
+          <label>ISIN (opzionale)</label>
+          <input class="input" type="text" value="{{ newInvIsin }}" onChange="{{ onNewInvIsinChange }}" placeholder="Es. IE00BK5BQT80">
+        </div>
+        <div class="field">
+          <label>Quantità</label>
+          <input class="input" type="number" value="{{ newInvQuantita }}" onChange="{{ onNewInvQuantitaChange }}" placeholder="0">
+        </div>
+        <div class="field">
+          <label>Prezzo di carico</label>
+          <input class="input" type="number" value="{{ newInvPrezzo }}" onChange="{{ onNewInvPrezzoChange }}" placeholder="0.00">
+        </div>
+        <div class="field">
+          <label>Valore attuale</label>
+          <input class="input" type="number" value="{{ newInvValore }}" onChange="{{ onNewInvValoreChange }}" placeholder="0.00">
+        </div>
+        <div class="field" style="display:flex;gap:10px;">
+          <div style="flex:1;">
+            <label style="display:block;font-size:12px;margin-bottom:5px;">Range atteso min</label>
+            <input class="input" type="number" value="{{ newInvRangeMin }}" onChange="{{ onNewInvRangeMinChange }}" placeholder="0.00">
+          </div>
+          <div style="flex:1;">
+            <label style="display:block;font-size:12px;margin-bottom:5px;">Range atteso max</label>
+            <input class="input" type="number" value="{{ newInvRangeMax }}" onChange="{{ onNewInvRangeMaxChange }}" placeholder="0.00">
+          </div>
+        </div>
+        <div class="field">
+          <label>Quota versata da Marco (%) — a Eugenia il {{ newInvQuotaEugeniaLabel }}</label>
+          <input class="input" type="number" min="0" max="100" value="{{ newInvQuotaMarco }}" onChange="{{ onNewInvQuotaMarcoChange }}" placeholder="50">
+        </div>
+        <div class="field">
+          <label>Note (opzionale)</label>
+          <textarea class="input" value="{{ newInvNote }}" onChange="{{ onNewInvNoteChange }}" placeholder="Motivazione, strategia..."></textarea>
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeInvestDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newInvInvalid }}" onClick="{{ addInvest }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ parametroDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeParametroDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo parametro</div>
+        <div class="field">
+          <label>Tipo</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ parametroTipoOptions }}" as="t" hint-placeholder-count="3">
+              <button style="{{ t.style }}" onClick="{{ t.onClick }}">{{ t.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ isNewParamPressione }}" hint-placeholder-val="{{ false }}">
+          <div class="field" style="display:flex;gap:10px;">
+            <div style="flex:1;">
+              <label style="display:block;font-size:12px;margin-bottom:5px;">Massima</label>
+              <input class="input" type="number" value="{{ newParamMax }}" onChange="{{ onNewParamMaxChange }}" placeholder="120">
+            </div>
+            <div style="flex:1;">
+              <label style="display:block;font-size:12px;margin-bottom:5px;">Minima</label>
+              <input class="input" type="number" value="{{ newParamMin }}" onChange="{{ onNewParamMinChange }}" placeholder="80">
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isNewParamNotPressione }}" hint-placeholder-val="{{ true }}">
+          <div class="field">
+            <label>Valore</label>
+            <input class="input" type="text" value="{{ newParamValore }}" onChange="{{ onNewParamValoreChange }}" placeholder="Es. 74 kg">
+          </div>
+        </sc-if>
+        <div class="field">
+          <label>Data</label>
+          <input class="input" type="date" value="{{ newParamData }}" onChange="{{ onNewParamDataChange }}">
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeParametroDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newParamInvalid }}" onClick="{{ addParametro }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ farmacoDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeFarmacoDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo farmaco/integratore</div>
+        <div class="field">
+          <label>Nome</label>
+          <input class="input" type="text" value="{{ newFarmacoNome }}" onChange="{{ onNewFarmacoNomeChange }}" placeholder="Es. Vitamina D">
+        </div>
+        <div class="field">
+          <label>Dosaggio/frequenza (opzionale)</label>
+          <input class="input" type="text" value="{{ newFarmacoNote }}" onChange="{{ onNewFarmacoNoteChange }}" placeholder="Es. 1 compressa al giorno">
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeFarmacoDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newFarmacoInvalid }}" onClick="{{ addFarmaco }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ libroDialogOpen }}" hint-placeholder-val="{{ false }}">
+    <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeLibroDialog }}">
+      <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
+        <div class="dialog-title">Nuovo libro</div>
+        <div class="field">
+          <label>Titolo</label>
+          <input class="input" type="text" value="{{ newLibroTitolo }}" onChange="{{ onNewLibroTitoloChange }}" placeholder="Titolo del libro">
+        </div>
+        <div class="field">
+          <label>Categoria</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <sc-for list="{{ libroCategoriaOptions }}" as="c" hint-placeholder-count="3">
+              <button style="{{ c.style }}" onClick="{{ c.onClick }}">{{ c.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="field">
+          <label>Stato</label>
+          <div style="display:flex;gap:8px;">
+            <button style="{{ libroStatoDaLeggereStyle }}" onClick="{{ setLibroStatoDaLeggere }}">Da leggere</button>
+            <button style="{{ libroStatoLettoStyle }}" onClick="{{ setLibroStatoLetto }}">Letto</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Link Presentazione (opzionale)</label>
+          <input class="input" type="text" value="{{ newLibroPresentazione }}" onChange="{{ onNewLibroPresentazioneChange }}" placeholder="https://notion.so/...">
+        </div>
+        <div class="field">
+          <label>Link Riassunto (opzionale)</label>
+          <input class="input" type="text" value="{{ newLibroRiassunto }}" onChange="{{ onNewLibroRiassuntoChange }}" placeholder="https://notion.so/...">
+        </div>
+        <div class="dialog-actions">
+          <button class="btn btn-secondary" onClick="{{ closeLibroDialog }}">Annulla</button>
+          <button class="btn btn-primary" disabled="{{ newLibroInvalid }}" onClick="{{ addLibro }}">Aggiungi</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STAR_PATH = "M12 2.5 15 9.1 22 9.9 16.8 14.6 18.3 21.5 12 17.9 5.7 21.5 7.2 14.6 2 9.9 9 9.1Z";
+const DAY_LABELS = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"];
+function pad2(n) { return n < 10 ? "0" + n : "" + n; }
+function toDateStr(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
+function addDaysToDate(d, n) { const r = new Date(d); r.setDate(r.getDate() + n); return r; }
+function mondayOfWeek(d) { const day = d.getDay(); const diff = day === 0 ? -6 : 1 - day; return addDaysToDate(d, diff); }
+const HOLIDAYS_IT = ["01-01", "01-06", "04-25", "05-01", "06-02", "08-15", "11-01", "12-08", "12-25", "12-26"];
+
+const SEED_FILM = [
+  { id: 1, titolo: "Dune: Parte Due", tipo: "Film", stato: "Vista", stelle: 5, note: "Il miglior sequel visto quest'anno, IMAX vale il prezzo." },
+  { id: 2, titolo: "The Bear", tipo: "Serie", stato: "Vista", stelle: 4, note: "Stagione 3 un po' altalenante ma vale sempre." },
+  { id: 3, titolo: "Povere Creature!", tipo: "Film", stato: "Da vedere", stelle: 0, note: "" },
+  { id: 4, titolo: "Shogun", tipo: "Serie", stato: "Da vedere", stelle: 0, note: "Consigliato da tutti, da iniziare insieme." },
+  { id: 5, titolo: "Past Lives", tipo: "Film", stato: "Vista", stelle: 5, note: "Delicato, ci ha fatto commuovere entrambi." }
+];
+
+const SEED_DEPOSITI = [
+  { id: 1, persona: "Marco", importo: 8000, data: "2026-02-10", note: "Bonus annuale" },
+  { id: 2, persona: "Eugenia", importo: 6000, data: "2026-02-15", note: "" },
+  { id: 3, persona: "Marco", importo: 4000, data: "2026-05-03", note: "" },
+  { id: 4, persona: "Eugenia", importo: 5390, data: "2026-06-20", note: "Tredicesima" }
+];
+
+const SEED_INVEST = [
+  { id: 1, nome: "ETF iShares MSCI World", tipo: "ETF", isin: "IE00B4L5Y983", quantita: 120, prezzoCarico: 38.5, valoreAttuale: 45.2, rangeMin: 42, rangeMax: 50, quotaMarco: 50, note: "PAC mensile, orizzonte 15+ anni" },
+  { id: 2, nome: "ETF Vanguard FTSE All-World", tipo: "ETF", isin: "IE00BK5BQT80", quantita: 60, prezzoCarico: 95, valoreAttuale: 99.8, rangeMin: 90, rangeMax: 110, quotaMarco: 40, note: "" },
+  { id: 3, nome: "Azioni Enel", tipo: "Azioni", isin: "IT0003128367", quantita: 200, prezzoCarico: 6.1, valoreAttuale: 6.85, rangeMin: 6, rangeMax: 7.5, quotaMarco: 100, note: "Dividendo interessante" },
+  { id: 4, nome: "Oro fisico (lingotti)", tipo: "Oro", isin: "", quantita: 3, prezzoCarico: 1850, valoreAttuale: 2050, rangeMin: 1900, rangeMax: 2200, quotaMarco: 50, note: "Copertura patrimoniale" },
+  { id: 5, nome: "Bitcoin", tipo: "Crypto", isin: "", quantita: 0.15, prezzoCarico: 42000, valoreAttuale: 58000, rangeMin: 45000, rangeMax: 70000, quotaMarco: 70, note: "" }
+];
+
+const SEED_LIBRI = [
+  { cat: "Trading & Investimenti", t: "Analisi Tecnica", p: "https://app.notion.com/p/3b55c2baeafb81b5ab8bf8f316a51acb" },
+  { cat: "Trading & Investimenti", t: "Beat the Market", p: "https://app.notion.com/p/3b55c2baeafb81a1a7bed9dd8b5a9b28" },
+  { cat: "Trading & Investimenti", t: "Buffettology", p: "https://app.notion.com/p/3b55c2baeafb81b18c72e3e87fd09340" },
+  { cat: "Trading & Investimenti", t: "Gli scritti di Warren Buffett — Lezioni senza tempo per investire con successo", p: "https://app.notion.com/p/3b65c2baeafb81ac8dfee2f8e3631b3a", r: "https://app.notion.com/p/3b65c2baeafb817997d4e4c8aa9ba5a0" },
+  { cat: "Trading & Investimenti", t: "Guida completa al trading", p: "https://app.notion.com/p/3b65c2baeafb81ccb4ecd16c2083f696" },
+  { cat: "Trading & Investimenti", t: "Guida pratica al trading", p: "https://app.notion.com/p/3b65c2baeafb813fa33cef5f05318c12", r: "https://app.notion.com/p/3b65c2baeafb815a9c5fc2caf75b1387" },
+  { cat: "Trading & Investimenti", t: "I quattro pilastri dell'indipendenza finanziaria", p: "https://app.notion.com/p/3b65c2baeafb81839296e745b62ec00d" },
+  { cat: "Trading & Investimenti", t: "I Consigli dei Grandi Trader", p: "https://app.notion.com/p/3b65c2baeafb81d6b2a7df24d1c8986d" },
+  { cat: "Trading & Investimenti", t: "I Consigli dei Grandi Trader", p: "https://app.notion.com/p/3b65c2baeafb8181b3cce220301686e2", r: "https://app.notion.com/p/3b65c2baeafb81af8497c01f612a17d4" },
+  { cat: "Trading & Investimenti", t: "I principi per affrontare il nuovo ordine mondiale", p: "https://app.notion.com/p/3b65c2baeafb81e68325f524084b8d49", r: "https://app.notion.com/p/3b65c2baeafb81f2a5c1ef1236beab63" },
+  { cat: "Trading & Investimenti", t: "Il Ciclo Economico e Quello Finanziario", p: "https://app.notion.com/p/3b65c2baeafb81e4b58bcfca56efc7d5", r: "https://app.notion.com/p/3b65c2baeafb81a89f59c2d5a65c80b7" },
+  { cat: "Trading & Investimenti", t: "Il Metodo Warren Buffett", p: "https://app.notion.com/p/3b65c2baeafb8177a279db33db2f3a8f" },
+  { cat: "Trading & Investimenti", t: "Il Piccolo Libro che Batte il Mercato Azionario", p: "https://app.notion.com/p/3b65c2baeafb81ce9fc5c00c2a578881" },
+  { cat: "Trading & Investimenti", t: "Il piccolo libro degli investimenti di buon senso", p: "https://app.notion.com/p/3b65c2baeafb8155b32edbfa553bf144" },
+  { cat: "Trading & Investimenti", t: "Il segreto dei giganti", p: "https://app.notion.com/p/3b65c2baeafb81a39945cae84518e31e" },
+  { cat: "Trading & Investimenti", t: "Il Trading con i Pattern di Prezzo", p: "https://app.notion.com/p/3b65c2baeafb81bc8aced1fafa45eec7" },
+  { cat: "Trading & Investimenti", t: "Investimenti - La Guida Completa", p: "https://app.notion.com/p/3b65c2baeafb81f0bf93ec1da3715d2e" },
+  { cat: "Trading & Investimenti", t: "Investire con l'AI For Dummies", p: "https://app.notion.com/p/3b65c2baeafb8145a8fcd374ade7162c" },
+  { cat: "Trading & Investimenti", t: "Investire nel breve e nel lungo", p: "https://app.notion.com/p/3b65c2baeafb81608744fd51313bf638" },
+  { cat: "Trading & Investimenti", t: "Investire senza dubbi", p: "https://app.notion.com/p/3b65c2baeafb815eafedd0c08e9e6bc3", r: "https://app.notion.com/p/3b65c2baeafb819b94a3e741181e3c52" },
+  { cat: "Trading & Investimenti", t: "Just Keep Buying", p: "https://app.notion.com/p/3b65c2baeafb819bbb8ef992ea6a0e6d" },
+  { cat: "Trading & Investimenti", t: "La Bibbia del Trading Online - 5 Libri in 1", p: "https://app.notion.com/p/3b65c2baeafb81d2b198ca907f6ff41d" },
+  { cat: "Trading & Investimenti", t: "L'Algebra della Ricchezza", p: "https://app.notion.com/p/3b65c2baeafb8106b2bde63993e97416" },
+  { cat: "Trading & Investimenti", t: "L'Algebra della Ricchezza", p: "https://app.notion.com/p/3b65c2baeafb8162b1f0f37db954081b", r: "https://app.notion.com/p/3b65c2baeafb8110a1d7fce458b17e83" },
+  { cat: "Trading & Investimenti", t: "Le 3 Formule per Investire in Borsa, Edizione 2022", p: "https://app.notion.com/p/3b65c2baeafb8139ad31ce5993a09b65" },
+  { cat: "Trading & Investimenti", t: "O la Borsa o la Vita", p: "https://app.notion.com/p/3b65c2baeafb813d8e3ffa27e026f36c", r: "https://app.notion.com/p/3b65c2baeafb8171870ddabc3082508d" },
+  { cat: "Trading & Investimenti", t: "Perché i Paesi Falliscono - Il Grande Ciclo dell'Economia", p: "https://app.notion.com/p/3b65c2baeafb8159a6edfbf9fc1e890b", r: "https://app.notion.com/p/3b65c2baeafb815cacacce2b4d8a66c4" },
+  { cat: "Trading & Investimenti", t: "Ti insegno come diventare ricco", p: "https://app.notion.com/p/3b65c2baeafb812b9828dbf2d3846f49" },
+  { cat: "Trading & Investimenti", t: "Value Investing", p: "https://app.notion.com/p/3b65c2baeafb81948935e2965ca382d2" },
+  { cat: "Salute & Alimentazione", t: "Dimagrisci subito mangiando", p: "https://app.notion.com/p/3b55c2baeafb8166a601f8616fb992bc", r: "https://app.notion.com/p/3b55c2baeafb81e4bd73fa53c7733a09" },
+  { cat: "Salute & Alimentazione", t: "Fegato felice", p: "https://app.notion.com/p/3b65c2baeafb81c28dabcd8df8f2f6eb", r: "https://app.notion.com/p/3b65c2baeafb8195b473c675bb4b9228" },
+  { cat: "Salute & Alimentazione", t: "I segreti della longevità", p: "https://app.notion.com/p/3b65c2baeafb8134aa7aceb23025b9c8" },
+  { cat: "Salute & Alimentazione", t: "Il Cibo che Cura il Cibo che Ammala", p: "https://app.notion.com/p/3b65c2baeafb81ab9662e9343bdb3ce0" },
+  { cat: "Salute & Alimentazione", t: "Il Codice Antinfiammatorio", p: "https://app.notion.com/p/3b65c2baeafb814cb421f90f2b239a71", r: "https://app.notion.com/p/3b65c2baeafb81d3bf89d9f8ef5be22a" },
+  { cat: "Salute & Alimentazione", t: "Il codice della longevità", p: "https://app.notion.com/p/3b65c2baeafb817e88e3dcd912951492" },
+  { cat: "Salute & Alimentazione", t: "Il nostro veleno quotidiano", p: "https://app.notion.com/p/3b65c2baeafb81f0a55dfd29f156a31f" },
+  { cat: "Salute & Alimentazione", t: "Il Segreto della Longevità", p: "https://app.notion.com/p/3b65c2baeafb81179078e0ac231971f4" },
+  { cat: "Salute & Alimentazione", t: "La dieta della vita vera", p: "https://app.notion.com/p/3b65c2baeafb813fa5f2f13bb8af26a1" },
+  { cat: "Crescita Personale & Produttività", t: "101 Riflessioni che Cambiano il Tuo Modo di Pensare", p: "https://app.notion.com/p/3b55c2baeafb81e79a91c0bdaebc9399" },
+  { cat: "Crescita Personale & Produttività", t: "96 Lezioni di Felicità", p: "https://app.notion.com/p/3b55c2baeafb812b8c3fc94f743a0b41" },
+  { cat: "Crescita Personale & Produttività", t: "Così bravo che non potranno ignorarti", p: "https://app.notion.com/p/3b55c2baeafb819d83e0dbf5f9435880", r: "https://app.notion.com/p/3b55c2baeafb8153bcf6ecf2f9972483" },
+  { cat: "Crescita Personale & Produttività", t: "Diventare invisibili", p: "https://app.notion.com/p/3b55c2baeafb81a388cac82b77075de9", r: "https://app.notion.com/p/3b55c2baeafb81538a3ef2e3aaddf128" },
+  { cat: "Crescita Personale & Produttività", t: "Diventare stoici", p: "https://app.notion.com/p/3b55c2baeafb81f2adcdc93b217e78b0", r: "https://app.notion.com/p/3b55c2baeafb81469d14f63f7f1954fe" },
+  { cat: "Crescita Personale & Produttività", t: "Guida alle abitudini intelligenti", p: "https://app.notion.com/p/3b65c2baeafb81a4844cc2198620311c", r: "https://app.notion.com/p/3b65c2baeafb81b2b268cbf115eacd78" },
+  { cat: "Crescita Personale & Produttività", t: "I 7 Trucchi dell'1%", p: "https://app.notion.com/p/3b65c2baeafb81608236d249adfd227f" },
+  { cat: "Crescita Personale & Produttività", t: "I Principi del Successo - Il tuo diario", p: "https://app.notion.com/p/3b65c2baeafb81ca9bbbd99f04fdf8f0" },
+  { cat: "Crescita Personale & Produttività", t: "Il metodo Feel-Good", p: "https://app.notion.com/p/3b65c2baeafb816fafcfcf1a072e8152" },
+  { cat: "Crescita Personale & Produttività", t: "Il piccolo libro dell'ikigai", p: "https://app.notion.com/p/3b65c2baeafb810aaa84c6fbd5fa1467" },
+  { cat: "Crescita Personale & Produttività", t: "Il Piccolo Libro per Cambiare Vita", p: "https://app.notion.com/p/3b65c2baeafb815d98e4d83742fc285d" },
+  { cat: "Crescita Personale & Produttività", t: "La Tribù dei Maestri", p: "https://app.notion.com/p/3b65c2baeafb811fad74ff38d2401cbe" },
+  { cat: "Crescita Personale & Produttività", t: "L'Almanacco di Naval Ravikant", p: "https://app.notion.com/p/3b65c2baeafb81c6bf80c4e21e37b36f" }
+].map((b, i) => ({ id: i + 1, titolo: b.t, categoria: b.cat, stato: "Letto", stelle: 0, presentazioneUrl: b.p, riassuntoUrl: b.r || "" }));
+
+const SEED_APPUNTI = [
+  { id: 101, titolo: "Panettone Motta", categoria: "Cibo", stato: "Provato", stelle: 3, note: "Troppo canditi, l'anno prossimo proviamo Fiasconaro." },
+  { id: 102, titolo: "Barolo Cannubi 2018", categoria: "Bevande", stato: "Provato", stelle: 5, note: "Da ricomprare per Natale, corposo ma elegante." },
+  { id: 103, titolo: "Trattoria da Nonna Rosa, Bologna", categoria: "Posto", stato: "Provato", indirizzo: "Via Castiglione 26, Bologna", stelle: 4, note: "Tortellini fatti a mano, un po' caro ma vale." },
+  { id: 104, titolo: "Carbonara della nonna", categoria: "Ricette", stato: "Provato", stelle: 4, note: "Guanciale croccante, niente panna: la versione definitiva." },
+  { id: 106, titolo: "Pizza Margherita, Forno Roscioli", categoria: "Cibo", stato: "Provato", stelle: 5, note: "La migliore mangiata a Roma finora." },
+  { id: 107, titolo: "Ristorante Le Baccanti", categoria: "Posto", stato: "Da provare", indirizzo: "Via Val di Lamona 4, Firenze", stelle: 0, note: "Consigliato da Marco, prenotare per un sabato sera." }
+];
+
+const CATEGORY_TAG_CLASS = { Cibo: "tag tag-accent", Bevande: "tag tag-accent-2", Posto: "tag tag-neutral", Ricette: "tag tag-accent-2", Altro: "tag tag-neutral" };
+const TIPO_TAG_CLASS = { ETF: "tag tag-accent", Azioni: "tag tag-accent-2", Oro: "tag tag-outline", Crypto: "tag tag-neutral", Altro: "tag tag-neutral" };
+const SYMBOL_BY_NOME = { "ETF iShares MSCI World": "SWDA.MI", "ETF Vanguard FTSE All-World": "VWCE.DE", "Bitcoin": "bitcoin" };
+const TIPO_COLOR = { ETF: "var(--color-accent)", Azioni: "var(--color-accent-2-700)", Oro: "#c9a227", Crypto: "#6b5ce0", Altro: "var(--color-neutral-400)" };
+const STUB_INFO = {
+  investimenti: { title: "Investimenti", desc: "Qui traccerai i tuoi ETF e azioni: prezzo di carico, valore attuale e note su ogni posizione." },
+  libri: { title: "Libri", desc: "Liste \u201cda leggere\u201d e \u201cletti\u201d, con voto e due righe di giudizio per ogni libro." },
+  salute: { title: "Salute", desc: "Parametri, visite e promemoria per tenere sotto controllo la salute di entrambi." },
+  habit: { title: "Habit Tracker", desc: "Una checklist giornaliera semplice per le abitudini che volete costruire." },
+  calendario: { title: "Calendario", desc: "Vista mensile completa con gli eventi e gli impegni di entrambi." }
+};
+
+class Component extends DCLogic {
+  state = {
+    page: "home",
+    isMobile: typeof window !== "undefined" ? window.innerWidth < 760 : false,
+    film: SEED_FILM,
+    appunti: SEED_APPUNTI,
+    filmFilter: "tutti",
+    appuntiFilter: "Tutte",
+    filmDialogOpen: false,
+    appuntiDialogOpen: false,
+    newFilmTitolo: "", newFilmTipo: "Film", newFilmStato: "Da vedere", newFilmNote: "",
+    newAppuntoTitolo: "", newAppuntoCategoria: "Cibo", newAppuntoStato: "Provato", newAppuntoIndirizzo: "", newAppuntoNote: "", newAppuntoStelle: 0,
+    events: [], habits: [], monthOffsetCal: 0,
+    eventDialogOpen: false, newEventDate: "", newEventTitolo: "",
+    habitDialogOpen: false, newHabitNome: "", newHabitPersona: "Eugenia",
+    investimenti: [], investDialogOpen: false, newInvNome: "", newInvTipo: "ETF", newInvIsin: "", newInvQuantita: "", newInvPrezzo: "", newInvValore: "", newInvRangeMin: "", newInvRangeMax: "", newInvQuotaMarco: "50", newInvNote: "",
+    parametri: [], farmaci: [], saluteFilter: "Tutti",
+    portfolioHistory: [],
+    depositi: [], depositoDialogOpen: false, newDepositoPersona: "Marco", newDepositoImporto: "", newDepositoData: "", newDepositoNote: "",
+    parametroDialogOpen: false, newParamTipo: "Peso", newParamValore: "", newParamMax: "", newParamMin: "", newParamData: "",
+    farmacoDialogOpen: false, newFarmacoNome: "", newFarmacoNote: "",
+    libri: [], libriFilter: "Tutti", libroDialogOpen: false,
+    newLibroTitolo: "", newLibroCategoria: "Trading & Investimenti", newLibroStato: "Da leggere", newLibroPresentazione: "", newLibroRiassunto: ""
+  };
+
+  nextId = 200;
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem("vita-dash-v1");
+      if (raw) {
+        const data = JSON.parse(raw);
+        this.setState({
+          film: data.film || SEED_FILM,
+          appunti: (data.appunti || SEED_APPUNTI).map((a) => ({ stato: "Provato", ...a, indirizzo: a.indirizzo || (SEED_APPUNTI.find((s) => s.id === a.id) || {}).indirizzo || "" })),
+          events: data.events || this.buildSeedEvents(), habits: (data.habits || this.buildSeedHabits()).map((h) => ({ persona: "Eugenia", ...h })),
+          portfolioHistory: (data.portfolioHistory && data.portfolioHistory[0] && data.portfolioHistory[0].factor != null) ? data.portfolioHistory : this.buildSeedPortfolioHistory(),
+          depositi: data.depositi || SEED_DEPOSITI,
+          investimenti: (() => {
+            const existing = (data.investimenti || SEED_INVEST).map((i) => {
+              const seed = SEED_INVEST.find((s) => s.nome === i.nome) || {};
+              return { ...i, tipo: i.tipo || seed.tipo || "Altro", isin: i.isin || seed.isin || "", rangeMin: i.rangeMin || seed.rangeMin || 0, rangeMax: i.rangeMax || seed.rangeMax || 0, quotaMarco: i.quotaMarco != null ? i.quotaMarco : (seed.quotaMarco != null ? seed.quotaMarco : 50) };
+            });
+            const existingNames = existing.map((i) => i.nome);
+            const missing = SEED_INVEST.filter((s) => !existingNames.includes(s.nome));
+            return existing.concat(missing);
+          })(),
+          parametri: data.parametri || this.buildSeedParametri(), farmaci: data.farmaci || this.buildSeedFarmaci(),
+          libri: data.libri || SEED_LIBRI
+        });
+        if (data.nextId) this.nextId = data.nextId;
+      } else {
+        this.setState({ events: this.buildSeedEvents(), habits: this.buildSeedHabits(), investimenti: SEED_INVEST, parametri: this.buildSeedParametri(), farmaci: this.buildSeedFarmaci(), libri: SEED_LIBRI, portfolioHistory: this.buildSeedPortfolioHistory(), depositi: SEED_DEPOSITI });
+      }
+    } catch (e) {}
+    fetch("libri.json").then((r) => r.json()).then((data) => {
+      if (!data || !data.libri) return;
+      const decode = (s) => (s || "").replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      this.setState((prev) => {
+        const existingBySlug = {};
+        prev.libri.forEach((l) => { if (l.slug) existingBySlug[l.slug] = l; });
+        const realBooks = data.libri.map((b) => {
+          const existing = existingBySlug[b.slug];
+          return {
+            id: existing ? existing.id : "libri-json-" + b.slug,
+            slug: b.slug,
+            titolo: decode(b.titolo),
+            categoria: decode(b.categoria),
+            stato: existing ? existing.stato : "Da leggere",
+            stelle: existing ? existing.stelle : 0,
+            presentazioneUrl: b.hasPresentazione ? "libri/" + b.slug + "-presentazione.html" : "",
+            riassuntoUrl: b.hasRiassunto ? "libri/" + b.slug + "-riassunto.html" : ""
+          };
+        });
+        const manualBooks = prev.libri.filter((l) => !l.slug);
+        return { libri: [...realBooks, ...manualBooks] };
+      }, this.persist);
+    }).catch(() => {});
+    fetch("prices.json").then((r) => r.json()).then((data) => {
+      const prices = (data && data.prices) || {};
+      this.setState({
+        investimenti: this.state.investimenti.map((inv) => {
+          const sym = SYMBOL_BY_NOME[inv.nome];
+          const fresh = sym && prices[sym];
+          if (!fresh || fresh.currency !== "EUR") return inv;
+          return { ...inv, valoreAttuale: fresh.value, prezzoAggiornatoAl: fresh.asOf };
+        })
+      }, this.persist);
+    }).catch(() => {});
+    this.handleResize = () => this.setState({ isMobile: window.innerWidth < 760 });
+    window.addEventListener("resize", this.handleResize);
+  }
+  componentWillUnmount() { window.removeEventListener("resize", this.handleResize); }
+
+  persist = () => {
+    try { localStorage.setItem("vita-dash-v1", JSON.stringify({ film: this.state.film, appunti: this.state.appunti, events: this.state.events, habits: this.state.habits, investimenti: this.state.investimenti, parametri: this.state.parametri, farmaci: this.state.farmaci, libri: this.state.libri, portfolioHistory: this.state.portfolioHistory, depositi: this.state.depositi, nextId: this.nextId })); } catch (e) {}
+  };
+
+  openLibroDialog = () => this.setState({ libroDialogOpen: true, newLibroTitolo: "", newLibroCategoria: "Trading & Investimenti", newLibroStato: "Da leggere", newLibroPresentazione: "", newLibroRiassunto: "" });
+  closeLibroDialog = () => this.setState({ libroDialogOpen: false });
+  addLibro = () => {
+    if (!this.state.newLibroTitolo.trim()) return;
+    const entry = {
+      id: this.nextId++, titolo: this.state.newLibroTitolo.trim(), categoria: this.state.newLibroCategoria, stato: this.state.newLibroStato,
+      stelle: 0, presentazioneUrl: this.state.newLibroPresentazione.trim(), riassuntoUrl: this.state.newLibroRiassunto.trim()
+    };
+    this.setState({ libri: [entry, ...this.state.libri], libroDialogOpen: false }, this.persist);
+  };
+  deleteLibro(id) { this.setState({ libri: this.state.libri.filter((l) => l.id !== id) }, this.persist); }
+  toggleLibroStato(id) { this.setState({ libri: this.state.libri.map((l) => l.id === id ? { ...l, stato: l.stato === "Letto" ? "Da leggere" : "Letto" } : l) }, this.persist); }
+  setLibroStelle(id, n) { this.setState({ libri: this.state.libri.map((l) => l.id === id ? { ...l, stelle: n } : l) }, this.persist); }
+
+  buildSeedParametri() {
+    const today = new Date();
+    const d = (n) => toDateStr(addDaysToDate(today, n));
+    return [
+      { id: 1, tipo: "Peso", valore: "74 kg", data: d(-7) },
+      { id: 2, tipo: "Pressione", valore: "118/76", data: d(-6) },
+      { id: 3, tipo: "Peso", valore: "73.5 kg", data: d(0) }
+    ];
+  }
+  buildSeedPortfolioHistory() {
+    const shape = [0.838, 0.851, 0.870, 0.861, 0.891, 0.910, 0.923, 0.948, 0.935, 0.961, 0.982, 1];
+    const today = new Date();
+    return shape.map((f, i) => ({ mese: new Date(today.getFullYear(), today.getMonth() - (11 - i), 1).toLocaleDateString("it-IT", { month: "short" }), factor: f }));
+  }
+  buildSeedFarmaci() {
+    return [
+      { id: 1, nome: "Vitamina D", note: "1 compressa al giorno, mattina" },
+      { id: 2, nome: "Magnesio", note: "Alla sera, nei periodi di stress" }
+    ];
+  }
+
+  openInvestDialog = () => this.setState({ investDialogOpen: true, newInvNome: "", newInvTipo: "ETF", newInvIsin: "", newInvQuantita: "", newInvPrezzo: "", newInvValore: "", newInvRangeMin: "", newInvRangeMax: "", newInvQuotaMarco: "50", newInvNote: "" });
+  closeInvestDialog = () => this.setState({ investDialogOpen: false });
+  addInvest = () => {
+    if (!this.state.newInvNome.trim()) return;
+    const entry = {
+      id: this.nextId++, nome: this.state.newInvNome.trim(), tipo: this.state.newInvTipo, isin: this.state.newInvIsin.trim(),
+      quantita: parseFloat(this.state.newInvQuantita) || 0, prezzoCarico: parseFloat(this.state.newInvPrezzo) || 0,
+      valoreAttuale: parseFloat(this.state.newInvValore) || 0,
+      rangeMin: parseFloat(this.state.newInvRangeMin) || 0, rangeMax: parseFloat(this.state.newInvRangeMax) || 0,
+      quotaMarco: Math.max(0, Math.min(100, parseFloat(this.state.newInvQuotaMarco) || 0)),
+      note: this.state.newInvNote.trim()
+    };
+    this.setState({ investimenti: [entry, ...this.state.investimenti], investDialogOpen: false }, this.persist);
+  };
+  deleteInvest(id) { this.setState({ investimenti: this.state.investimenti.filter((i) => i.id !== id) }, this.persist); }
+
+  openParametroDialog = () => this.setState({ parametroDialogOpen: true, newParamTipo: "Peso", newParamValore: "", newParamMax: "", newParamMin: "", newParamData: toDateStr(new Date()) });
+  closeParametroDialog = () => this.setState({ parametroDialogOpen: false });
+  addParametro = () => {
+    const isPressione = this.state.newParamTipo === "Pressione";
+    const valore = isPressione ? (this.state.newParamMax.trim() + "/" + this.state.newParamMin.trim()) : this.state.newParamValore.trim();
+    if (isPressione ? (!this.state.newParamMax.trim() || !this.state.newParamMin.trim()) : !valore) return;
+    const entry = { id: this.nextId++, tipo: this.state.newParamTipo, valore, data: this.state.newParamData || toDateStr(new Date()) };
+    this.setState({ parametri: [entry, ...this.state.parametri], parametroDialogOpen: false }, this.persist);
+  };
+  deleteParametro(id) { this.setState({ parametri: this.state.parametri.filter((p) => p.id !== id) }, this.persist); }
+
+  openFarmacoDialog = () => this.setState({ farmacoDialogOpen: true, newFarmacoNome: "", newFarmacoNote: "" });
+  closeFarmacoDialog = () => this.setState({ farmacoDialogOpen: false });
+  addFarmaco = () => {
+    if (!this.state.newFarmacoNome.trim()) return;
+    const entry = { id: this.nextId++, nome: this.state.newFarmacoNome.trim(), note: this.state.newFarmacoNote.trim() };
+    this.setState({ farmaci: [entry, ...this.state.farmaci], farmacoDialogOpen: false }, this.persist);
+  };
+  deleteFarmaco(id) { this.setState({ farmaci: this.state.farmaci.filter((f) => f.id !== id) }, this.persist); }
+
+  buildSeedEvents() {
+    const today = new Date();
+    const defs = [[0, "Palestra"], [1, "Cena con amici"], [3, "Revisione budget"], [-2, "Dentista"]];
+    return defs.map(([n, titolo], i) => ({ id: i + 1, date: toDateStr(addDaysToDate(today, n)), titolo }));
+  }
+  buildSeedHabits() {
+    const today = new Date();
+    const d = (n) => toDateStr(addDaysToDate(today, n));
+    return [
+      { id: 1, nome: "Bere 2L di acqua", persona: "Eugenia", doneDates: [d(-1), d(-2)] },
+      { id: 2, nome: "10 minuti di stretching", persona: "Eugenia", doneDates: [d(-1)] },
+      { id: 3, nome: "Leggere 20 pagine", persona: "Eugenia", doneDates: [] },
+      { id: 4, nome: "Allenamento in palestra", persona: "Marco", doneDates: [d(-2), d(-1)] },
+      { id: 5, nome: "Meditazione 10 minuti", persona: "Marco", doneDates: [] }
+    ];
+  }
+
+  openEventDialog = (dateStr) => this.setState({ eventDialogOpen: true, newEventDate: dateStr, newEventTitolo: "" });
+  closeEventDialog = () => this.setState({ eventDialogOpen: false });
+  addEvent = () => {
+    if (!this.state.newEventTitolo.trim() || !this.state.newEventDate) return;
+    const entry = { id: this.nextId++, date: this.state.newEventDate, titolo: this.state.newEventTitolo.trim() };
+    this.setState({ events: [...this.state.events, entry], eventDialogOpen: false }, this.persist);
+  };
+  deleteEvent(id) { this.setState({ events: this.state.events.filter((e) => e.id !== id) }, this.persist); }
+
+  openHabitDialog = (persona) => this.setState({ habitDialogOpen: true, newHabitNome: "", newHabitPersona: persona || "Eugenia" });
+  closeHabitDialog = () => this.setState({ habitDialogOpen: false });
+  addHabit = () => {
+    if (!this.state.newHabitNome.trim()) return;
+    const entry = { id: this.nextId++, nome: this.state.newHabitNome.trim(), persona: this.state.newHabitPersona || "Eugenia", doneDates: [] };
+    this.setState({ habits: [...this.state.habits, entry], habitDialogOpen: false }, this.persist);
+  };
+  deleteHabit(id) { this.setState({ habits: this.state.habits.filter((h) => h.id !== id) }, this.persist); }
+  toggleHabitDate(id, ds) {
+    this.setState({ habits: this.state.habits.map((h) => h.id === id ? { ...h, doneDates: h.doneDates.includes(ds) ? h.doneDates.filter((x) => x !== ds) : [...h.doneDates, ds] } : h) }, this.persist);
+  }
+
+  buildAllocationPie() {
+    const totals = {};
+    this.state.investimenti.forEach((i) => { totals[i.tipo] = (totals[i.tipo] || 0) + i.quantita * i.valoreAttuale; });
+    const grandTotal = Object.values(totals).reduce((a, b) => a + b, 0) || 1;
+    let acc = 0;
+    const order = ["ETF", "Azioni", "Oro", "Crypto", "Altro"];
+    const segments = order.filter((t) => totals[t] > 0).map((t) => {
+      const pct = (totals[t] / grandTotal) * 100;
+      const seg = { tipo: t, color: TIPO_COLOR[t] || "var(--color-neutral-400)", pctLabel: pct.toFixed(1) + "%", from: acc.toFixed(2), to: (acc + pct).toFixed(2) };
+      acc += pct;
+      return seg;
+    });
+    const gradient = segments.map((s) => s.color + " " + s.from + "% " + s.to + "%").join(", ");
+    return { segments, gradientStyle: { background: "conic-gradient(" + gradient + ")", borderRadius: "50%", width: "160px", height: "160px", flexShrink: 0 } };
+  }
+
+  openDepositoDialog = () => this.setState({ depositoDialogOpen: true, newDepositoPersona: "Marco", newDepositoImporto: "", newDepositoData: toDateStr(new Date()), newDepositoNote: "" });
+  closeDepositoDialog = () => this.setState({ depositoDialogOpen: false });
+  addDeposito = () => {
+    if (!this.state.newDepositoImporto || !(parseFloat(this.state.newDepositoImporto) > 0)) return;
+    const entry = { id: this.nextId++, persona: this.state.newDepositoPersona, importo: parseFloat(this.state.newDepositoImporto), data: this.state.newDepositoData || toDateStr(new Date()), note: this.state.newDepositoNote.trim() };
+    this.setState({ depositi: [entry, ...this.state.depositi], depositoDialogOpen: false }, this.persist);
+  };
+  deleteDeposito(id) { this.setState({ depositi: this.state.depositi.filter((d) => d.id !== id) }, this.persist); }
+
+  buildPortfolioChart() {
+    const history = this.state.portfolioHistory;
+    if (!history || !history.length) return { points: "", areaPoints: "", labels: [], totalLabel: "€ 0", deltaLabel: "", deltaPositive: true };
+    const attuale = this.state.investimenti.reduce((a, i) => a + i.quantita * i.valoreAttuale, 0);
+    const data = history.map((d) => ({ mese: d.mese, valore: d.factor != null ? d.factor * attuale : d.valore }));
+    const W = 100, H = 100, PAD = 4;
+    const vals = data.map((d) => d.valore);
+    const min = Math.min(...vals), max = Math.max(...vals);
+    const range = max - min || 1;
+    const step = (W - PAD * 2) / (data.length - 1);
+    const pts = data.map((d, i) => {
+      const x = PAD + i * step;
+      const y = PAD + (H - PAD * 2) * (1 - (d.valore - min) / range);
+      return [x.toFixed(2), y.toFixed(2)];
+    });
+    const points = pts.map((p) => p.join(",")).join(" ");
+    const areaPoints = points + " " + (W - PAD) + "," + (H - PAD) + " " + PAD + "," + (H - PAD);
+    const last = vals[vals.length - 1], first = vals[0];
+    const deltaPct = first ? ((last - first) / first) * 100 : 0;
+    const fmt = (n) => "€ " + Math.round(n).toLocaleString("it-IT");
+    return {
+      points, areaPoints,
+      labels: data.map((d, i) => ({ mese: d.mese, showLabel: i % 2 === 0 || i === data.length - 1 })),
+      totalLabel: fmt(last),
+      deltaLabel: (deltaPct >= 0 ? "+" : "") + deltaPct.toFixed(1) + "% negli ultimi 12 mesi",
+      deltaPositive: deltaPct >= 0
+    };
+  }
+
+  prevMonth = () => this.setState({ monthOffsetCal: this.state.monthOffsetCal - 1 });
+  nextMonth = () => this.setState({ monthOffsetCal: this.state.monthOffsetCal + 1 });
+  resetMonth = () => this.setState({ monthOffsetCal: 0 });
+
+  getMonthGrid(offsetMonths) {
+    const today = new Date();
+    const base = new Date(today.getFullYear(), today.getMonth() + offsetMonths, 1);
+    const year = base.getFullYear(), month = base.getMonth();
+    const startOffset = (base.getDay() + 6) % 7;
+    const gridStart = addDaysToDate(base, -startOffset);
+    const todayStr = toDateStr(today);
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const totalCells = Math.ceil((startOffset + daysInMonth) / 7) * 7;
+    const days = [];
+    for (let i = 0; i < totalCells; i++) {
+      const d = addDaysToDate(gridStart, i);
+      const ds = toDateStr(d);
+      const inMonth = d.getMonth() === month;
+      const isWeekend = d.getDay() === 0 || d.getDay() === 6;
+      const isHoliday = HOLIDAYS_IT.includes(pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()));
+      const dayEvents = this.state.events.filter((e) => e.date === ds).map((e) => ({ ...e, onDelete: () => this.deleteEvent(e.id) }));
+      days.push({
+        dateStr: ds, dayNum: d.getDate(), isToday: ds === todayStr, events: dayEvents, onAdd: () => this.openEventDialog(ds),
+        cardStyle: { border: ds === todayStr ? "2px solid var(--color-accent)" : "1px solid var(--color-divider)", opacity: inMonth ? 1 : 0.4, minHeight: "90px" },
+        dayNumStyle: { fontFamily: "var(--font-heading)", fontSize: "14px", color: isHoliday ? "var(--color-accent-2-700)" : isWeekend ? "#b3483a" : "var(--color-text)", fontWeight: isHoliday || isWeekend ? "700" : "400" }
+      });
+    }
+    return { monthLabel: base.toLocaleDateString("it-IT", { month: "long", year: "numeric" }), days };
+  }
+
+  getWeekDays(offset) {
+    const today = new Date();
+    const monday = addDaysToDate(mondayOfWeek(today), offset * 7);
+    const todayStr = toDateStr(today);
+    return DAY_LABELS.map((label, i) => {
+      const d = addDaysToDate(monday, i);
+      const ds = toDateStr(d);
+      const dayEvents = this.state.events.filter((e) => e.date === ds).map((e) => ({ ...e, onDelete: () => this.deleteEvent(e.id) }));
+      return {
+        dateStr: ds, label, dayNum: d.getDate(), isToday: ds === todayStr,
+        events: dayEvents,
+        onAdd: () => this.openEventDialog(ds),
+        cardStyle: { border: ds === todayStr ? "2px solid var(--color-accent)" : "1px solid transparent", gap: "6px" }
+      };
+    });
+  }
+
+  setPage = (key) => this.setState({ page: key });
+  stopProp = (e) => e.stopPropagation();
+
+  chipStyle(active) {
+    return { padding: "7px 15px", borderRadius: "999px", border: active ? "1px solid var(--color-accent)" : "1px solid var(--color-divider)", background: active ? "var(--color-accent)" : "transparent", color: active ? "var(--color-bg)" : "var(--color-text)", fontSize: "13px", fontFamily: "var(--font-body)", cursor: "pointer", flexShrink: 0, whiteSpace: "nowrap" };
+  }
+
+  navItemStyle(active, isMobile) {
+    return {
+      display: "flex", alignItems: "center", flexDirection: isMobile ? "column" : "row",
+      gap: isMobile ? "3px" : "10px", justifyContent: isMobile ? "center" : "flex-start",
+      background: active ? "var(--color-accent)" : "transparent", color: active ? "var(--color-bg)" : "var(--color-text)",
+      border: "none", cursor: "pointer", borderRadius: "999px", padding: isMobile ? "8px 12px" : "10px 14px",
+      fontFamily: "var(--font-body)", fontWeight: active ? "700" : "400", fontSize: isMobile ? "10px" : "14px",
+      flexShrink: 0, minWidth: isMobile ? "60px" : "auto", whiteSpace: "nowrap"
+    };
+  }
+
+  buildStars(value, onSet, ownerKey) {
+    return [1, 2, 3, 4, 5].map((n) => {
+      const filled = value >= n;
+      const half = !filled && value >= n - 0.5;
+      const pct = filled ? 100 : half ? 50 : 0;
+      return {
+        n, pct, gradId: "sg_" + ownerKey + "_" + n,
+        onClick: (e) => {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const isLeftHalf = e.clientX - rect.left < rect.width / 2;
+          const newVal = isLeftHalf ? n - 0.5 : n;
+          onSet(value === newVal ? 0 : newVal);
+        }
+      };
+    });
+  }
+
+  mapFilm = (f) => ({
+    ...f,
+    photoId: "film-photo-" + f.id,
+    tipoTagClass: f.tipo === "Film" ? "tag tag-accent" : "tag tag-accent-2",
+    statoTagClass: f.stato === "Vista" ? "tag tag-accent-2" : "tag tag-outline",
+    hasNote: !!f.note,
+    stars: this.buildStars(f.stelle, (n) => this.setFilmStelle(f.id, n), "f" + f.id),
+    toggleLabel: f.stato === "Vista" ? "Rimetti in coda" : "Segna vista",
+    toggleStato: () => this.toggleFilmStato(f.id),
+    onDelete: () => this.deleteFilm(f.id)
+  });
+
+  mapAppunto = (a) => ({
+    ...a,
+    photoId: "appunto-photo-" + a.id,
+    tagClass: CATEGORY_TAG_CLASS[a.categoria] || "tag tag-neutral",
+    statoTagClass: a.stato === "Da provare" ? "tag tag-outline" : "tag tag-accent-2",
+    hasNote: !!a.note,
+    hasIndirizzo: a.categoria === "Posto" && !!a.indirizzo,
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(a.indirizzo || ""),
+    stars: this.buildStars(a.stelle, (n) => this.setAppuntoStelle(a.id, n), "a" + a.id),
+    toggleLabel: a.stato === "Da provare" ? "Segna provato" : "Segna da provare",
+    toggleStato: () => this.toggleAppuntoStato(a.id),
+    onDelete: () => this.deleteAppunto(a.id)
+  });
+
+  toggleFilmStato(id) { this.setState({ film: this.state.film.map((f) => f.id === id ? { ...f, stato: f.stato === "Vista" ? "Da vedere" : "Vista" } : f) }, this.persist); }
+  setFilmStelle(id, n) { this.setState({ film: this.state.film.map((f) => f.id === id ? { ...f, stelle: n } : f) }, this.persist); }
+  deleteFilm(id) { this.setState({ film: this.state.film.filter((f) => f.id !== id) }, this.persist); }
+  setAppuntoStelle(id, n) { this.setState({ appunti: this.state.appunti.map((a) => a.id === id ? { ...a, stelle: n } : a) }, this.persist); }
+  deleteAppunto(id) { this.setState({ appunti: this.state.appunti.filter((a) => a.id !== id) }, this.persist); }
+  toggleAppuntoStato(id) { this.setState({ appunti: this.state.appunti.map((a) => a.id === id ? { ...a, stato: a.stato === "Da provare" ? "Provato" : "Da provare" } : a) }, this.persist); }
+
+  openFilmDialog = () => this.setState({ filmDialogOpen: true, newFilmTitolo: "", newFilmTipo: "Film", newFilmStato: "Da vedere", newFilmNote: "" });
+  closeFilmDialog = () => this.setState({ filmDialogOpen: false });
+  addFilm = () => {
+    if (!this.state.newFilmTitolo.trim()) return;
+    const entry = { id: this.nextId++, titolo: this.state.newFilmTitolo.trim(), tipo: this.state.newFilmTipo, stato: this.state.newFilmStato, stelle: 0, note: this.state.newFilmNote.trim() };
+    this.setState({ film: [entry, ...this.state.film], filmDialogOpen: false }, this.persist);
+  };
+
+  openAppuntiDialog = () => this.setState({ appuntiDialogOpen: true, newAppuntoTitolo: "", newAppuntoCategoria: "Cibo", newAppuntoStato: "Provato", newAppuntoIndirizzo: "", newAppuntoNote: "", newAppuntoStelle: 0 });
+  closeAppuntiDialog = () => this.setState({ appuntiDialogOpen: false });
+  addAppunto = () => {
+    if (!this.state.newAppuntoTitolo.trim()) return;
+    const entry = { id: this.nextId++, titolo: this.state.newAppuntoTitolo.trim(), categoria: this.state.newAppuntoCategoria, stato: this.state.newAppuntoStato, indirizzo: this.state.newAppuntoIndirizzo.trim(), stelle: this.state.newAppuntoStelle, note: this.state.newAppuntoNote.trim() };
+    this.setState({ appunti: [entry, ...this.state.appunti], appuntiDialogOpen: false }, this.persist);
+  };
+
+  renderVals() {
+    const { page, isMobile, film, appunti, filmFilter, appuntiFilter } = this.state;
+    const navDefs = [
+      { key: "investimenti", label: "Investimenti", flag: "isInvest" },
+      { key: "libri", label: "Libri", flag: "isLibri" },
+      { key: "film", label: "Film & TV", flag: "isFilm" },
+      { key: "salute", label: "Salute", flag: "isSalute" },
+      { key: "habit", label: "Habit", flag: "isHabit" },
+      { key: "calendario", label: "Calendario", flag: "isCal" },
+      { key: "appunti", label: "Appunti", flag: "isAppunti" }
+    ];
+    const navItems = navDefs.map((d) => {
+      const active = page === d.key;
+      const item = { key: d.key, label: d.label, onClick: () => this.setPage(d.key), style: this.navItemStyle(active, isMobile), isInvest: false, isLibri: false, isFilm: false, isSalute: false, isHabit: false, isCal: false, isAppunti: false };
+      item[d.flag] = true;
+      return item;
+    });
+
+    const navWrapperStyle = isMobile
+      ? { position: "fixed", left: 0, right: 0, bottom: 0, display: "flex", flexDirection: "row", overflowX: "auto", gap: "4px", padding: "8px 8px 12px", background: "var(--color-surface)", borderTop: "1px solid var(--color-divider)", zIndex: 50 }
+      : { width: "100%", position: "sticky", top: 0, display: "flex", flexDirection: "row", alignItems: "center", flexWrap: "wrap", gap: "4px", padding: "14px 32px", background: "var(--color-surface)", borderBottom: "1px solid var(--color-divider)", zIndex: 40 };
+
+    const mainStyle = { flex: 1, minWidth: 0, padding: isMobile ? "20px 16px 110px" : "32px 40px", maxWidth: "1100px" };
+
+    const filmDaVedereCount = film.filter((f) => f.stato === "Da vedere").length;
+    const filmVisteCount = film.length - filmDaVedereCount;
+
+    let filmSource = film;
+    if (filmFilter === "davedere") filmSource = film.filter((f) => f.stato === "Da vedere");
+    else if (filmFilter === "viste") filmSource = film.filter((f) => f.stato === "Vista");
+
+    let appuntiSource = appunti;
+    if (appuntiFilter === "Da provare") appuntiSource = appunti.filter((a) => a.stato === "Da provare");
+    else if (appuntiFilter !== "Tutte") appuntiSource = appunti.filter((a) => a.categoria === appuntiFilter);
+
+    const filmFilterDefs = [{ key: "tutti", label: "Tutti" }, { key: "davedere", label: "Da vedere" }, { key: "viste", label: "Viste" }];
+    const filmFilterChips = filmFilterDefs.map((d) => ({ ...d, style: this.chipStyle(filmFilter === d.key), onClick: () => this.setState({ filmFilter: d.key }) }));
+
+    const categorie = ["Tutte", "Cibo", "Bevande", "Posto", "Ricette", "Altro"];
+    const appuntiFilterChips = categorie.map((c) => ({ key: c, label: c, style: this.chipStyle(appuntiFilter === c), onClick: () => this.setState({ appuntiFilter: c }) }));
+    const daProvareChip = { style: this.chipStyle(appuntiFilter === "Da provare"), onClick: () => this.setState({ appuntiFilter: appuntiFilter === "Da provare" ? "Tutte" : "Da provare" }) };
+
+    const categoriaOptions = ["Cibo", "Bevande", "Posto", "Ricette", "Altro"].map((c) => ({ label: c, style: this.chipStyle(this.state.newAppuntoCategoria === c), onClick: () => this.setState({ newAppuntoCategoria: c }) }));
+
+    const stubLinks = [];
+    const stubInfo = STUB_INFO[page];
+    const CAT_TAG = { "Trading & Investimenti": "tag tag-accent", "Salute & Alimentazione": "tag tag-accent-2", "Crescita Personale & Produttività": "tag tag-neutral" };
+
+    const today = new Date();
+    const todayStr = toDateStr(today);
+    const todayLabel = today.toLocaleDateString("it-IT", { weekday: "long", day: "numeric", month: "long" });
+
+    const buildHabitsToday = (persona) => this.state.habits.filter((h) => h.persona === persona).map((h) => {
+      const done = h.doneDates.includes(todayStr);
+      return {
+        id: h.id, nome: h.nome, onToggle: () => this.toggleHabitDate(h.id, todayStr),
+        checkStyle: { width: "26px", height: "26px", borderRadius: "999px", border: "1.5px solid var(--color-accent)", background: done ? "var(--color-accent)" : "transparent", color: done ? "var(--color-bg)" : "transparent", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0, padding: 0 },
+        textStyle: { textDecoration: done ? "line-through" : "none", opacity: done ? 0.55 : 1 }
+      };
+    });
+    const habitsTodayEugenia = buildHabitsToday("Eugenia");
+    const habitsTodayMarco = buildHabitsToday("Marco");
+
+    const buildHabitsFull = (persona) => this.state.habits.filter((h) => h.persona === persona).map((h) => {
+      const last7 = [-6, -5, -4, -3, -2, -1, 0].map((n) => toDateStr(addDaysToDate(today, n)));
+      const days = last7.map((ds) => {
+        const filled = h.doneDates.includes(ds);
+        return { dateStr: ds, onClick: () => this.toggleHabitDate(h.id, ds), style: { width: "18px", height: "18px", borderRadius: "6px", background: filled ? "var(--color-accent)" : "var(--color-neutral-300)", cursor: "pointer" } };
+      });
+      return { id: h.id, nome: h.nome, onDelete: () => this.deleteHabit(h.id), days };
+    });
+    const habitsFullEugenia = buildHabitsFull("Eugenia");
+    const habitsFullMarco = buildHabitsFull("Marco");
+
+    const buildHabitRecap = (persona) => {
+      const list = this.state.habits.filter((h) => h.persona === persona);
+      const total = list.length;
+      const weekCount = 4;
+      const weeks = [];
+      for (let w = weekCount - 1; w >= 0; w--) {
+        const start = addDaysToDate(today, -w * 7 - 6);
+        const daysInWeek = Array.from({ length: 7 }, (_, i) => addDaysToDate(start, i));
+        let doneSum = 0, possible = 0;
+        daysInWeek.forEach((d) => {
+          if (d > today) return;
+          const ds = toDateStr(d);
+          possible += total;
+          doneSum += total ? list.filter((h) => h.doneDates.includes(ds)).length : 0;
+        });
+        const pct = possible ? Math.round((doneSum / possible) * 100) : 0;
+        weeks.push({
+          label: w === 0 ? "Questa" : (w + 1) + " sett. fa",
+          title: pct + "% nella settimana del " + toDateStr(start),
+          barStyle: { height: Math.max(pct, 4) + "%", width: "100%", background: pct > 0 ? "var(--color-accent)" : "var(--color-neutral-300)", borderRadius: "4px 4px 0 0" }
+        });
+      }
+      const last30 = Array.from({ length: 30 }, (_, i) => addDaysToDate(today, -i));
+      let doneSum30 = 0;
+      last30.forEach((d) => { const ds = toDateStr(d); doneSum30 += total ? list.filter((h) => h.doneDates.includes(ds)).length : 0; });
+      const monthPct = total ? Math.round((doneSum30 / (total * 30)) * 100) : 0;
+      return { hasHabits: total > 0, bars: weeks, weekPctLabel: monthPct + "%" };
+    };
+    const habitRecapEugenia = buildHabitRecap("Eugenia");
+    const habitRecapMarco = buildHabitRecap("Marco");
+
+    const calMonth = this.getMonthGrid(this.state.monthOffsetCal);
+
+    const brandStyle = isMobile
+      ? { fontFamily: "var(--font-heading)", fontSize: "10px", cursor: "pointer", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", minWidth: "50px", padding: "8px 6px" }
+      : { fontFamily: "var(--font-heading)", fontSize: "22px", marginRight: "24px", cursor: "pointer" };
+
+    return {
+      navItems, navWrapperStyle, brandStyle, mainStyle,
+      isHome: page === "home", isFilm: page === "film", isAppunti: page === "appunti",
+      isCalendario: page === "calendario", isHabit: page === "habit",
+      isInvest: page === "investimenti", isSalute: page === "salute", isLibri: page === "libri",
+      isStub: !["home", "film", "appunti", "calendario", "habit", "investimenti", "salute", "libri"].includes(page),
+      libriFilterChips: ["Tutti", "Trading & Investimenti", "Salute & Alimentazione", "Crescita Personale & Produttività"].map((c) => ({ key: c, label: c, style: this.chipStyle(this.state.libriFilter === c), onClick: () => this.setState({ libriFilter: c }) })),
+      libriList: (this.state.libriFilter === "Tutti" ? this.state.libri : this.state.libri.filter((l) => l.categoria === this.state.libriFilter)).map((l) => ({
+        ...l, catTagClass: CAT_TAG[l.categoria] || "tag tag-neutral", statoTagClass: l.stato === "Letto" ? "tag tag-accent-2" : "tag tag-outline",
+        hasPresentazione: !!l.presentazioneUrl, hasRiassunto: !!l.riassuntoUrl,
+        stars: this.buildStars(l.stelle, (n) => this.setLibroStelle(l.id, n), "l" + l.id),
+        toggleLabel: l.stato === "Letto" ? "Segna da leggere" : "Segna letto", toggleStato: () => this.toggleLibroStato(l.id),
+        onDelete: () => this.deleteLibro(l.id)
+      })),
+      libroDialogOpen: this.state.libroDialogOpen, closeLibroDialog: this.closeLibroDialog, openLibroDialog: this.openLibroDialog, addLibro: this.addLibro,
+      newLibroTitolo: this.state.newLibroTitolo, onNewLibroTitoloChange: (e) => this.setState({ newLibroTitolo: e.target.value }),
+      newLibroInvalid: !this.state.newLibroTitolo.trim(),
+      libroCategoriaOptions: ["Trading & Investimenti", "Salute & Alimentazione", "Crescita Personale & Produttività"].map((c) => ({ label: c, style: this.chipStyle(this.state.newLibroCategoria === c), onClick: () => this.setState({ newLibroCategoria: c }) })),
+      libroStatoDaLeggereStyle: this.chipStyle(this.state.newLibroStato === "Da leggere"), libroStatoLettoStyle: this.chipStyle(this.state.newLibroStato === "Letto"),
+      setLibroStatoDaLeggere: () => this.setState({ newLibroStato: "Da leggere" }), setLibroStatoLetto: () => this.setState({ newLibroStato: "Letto" }),
+      newLibroPresentazione: this.state.newLibroPresentazione, onNewLibroPresentazioneChange: (e) => this.setState({ newLibroPresentazione: e.target.value }),
+      newLibroRiassunto: this.state.newLibroRiassunto, onNewLibroRiassuntoChange: (e) => this.setState({ newLibroRiassunto: e.target.value }),
+      portfolioChart: this.buildPortfolioChart(),
+      allocationPie: this.buildAllocationPie(),
+      depositiSummary: (() => {
+        const dep = this.state.depositi;
+        const fmt = (n) => "€ " + Math.round(n).toLocaleString("it-IT");
+        const totMarco = dep.filter((d) => d.persona === "Marco").reduce((a, d) => a + d.importo, 0);
+        const totEugenia = dep.filter((d) => d.persona === "Eugenia").reduce((a, d) => a + d.importo, 0);
+        const tot = totMarco + totEugenia;
+        return {
+          totMarcoLabel: fmt(totMarco), totEugeniaLabel: fmt(totEugenia), totLabel: fmt(tot),
+          marcoBarStyle: { width: (tot ? (totMarco / tot) * 100 : 50) + "%", background: "var(--color-accent)", height: "100%" },
+          eugeniaBarStyle: { width: (tot ? (totEugenia / tot) * 100 : 50) + "%", background: "var(--color-accent-2-700)", height: "100%" },
+          marcoPctLabel: tot ? Math.round((totMarco / tot) * 100) + "%" : "0%",
+          eugeniaPctLabel: tot ? Math.round((totEugenia / tot) * 100) + "%" : "0%"
+        };
+      })(),
+      depositiList: this.state.depositi.slice().sort((a, b) => b.data.localeCompare(a.data)).map((d) => ({
+        ...d, importoLabel: "€ " + Math.round(d.importo).toLocaleString("it-IT"),
+        tagClass: d.persona === "Marco" ? "tag tag-accent" : "tag tag-accent-2",
+        hasNote: !!d.note, onDelete: () => this.deleteDeposito(d.id)
+      })),
+      depositoDialogOpen: this.state.depositoDialogOpen, closeDepositoDialog: this.closeDepositoDialog, openDepositoDialog: this.openDepositoDialog, addDeposito: this.addDeposito,
+      depositoPersonaMarcoStyle: this.chipStyle(this.state.newDepositoPersona === "Marco"), depositoPersonaEugeniaStyle: this.chipStyle(this.state.newDepositoPersona === "Eugenia"),
+      setDepositoPersonaMarco: () => this.setState({ newDepositoPersona: "Marco" }), setDepositoPersonaEugenia: () => this.setState({ newDepositoPersona: "Eugenia" }),
+      newDepositoImporto: this.state.newDepositoImporto, onNewDepositoImportoChange: (e) => this.setState({ newDepositoImporto: e.target.value }),
+      newDepositoData: this.state.newDepositoData, onNewDepositoDataChange: (e) => this.setState({ newDepositoData: e.target.value }),
+      newDepositoNote: this.state.newDepositoNote, onNewDepositoNoteChange: (e) => this.setState({ newDepositoNote: e.target.value }),
+      newDepositoInvalid: !(parseFloat(this.state.newDepositoImporto) > 0),
+      portfolioSummary: (() => {
+        const inv = this.state.investimenti;
+        const investito = inv.reduce((a, i) => a + i.quantita * i.prezzoCarico, 0);
+        const attuale = inv.reduce((a, i) => a + i.quantita * i.valoreAttuale, 0);
+        const marco = inv.reduce((a, i) => a + i.quantita * i.prezzoCarico * ((i.quotaMarco != null ? i.quotaMarco : 50) / 100), 0);
+        const eugenia = investito - marco;
+        const gain = attuale - investito;
+        const pct = investito ? (gain / investito) * 100 : 0;
+        const fmt = (n) => "€ " + Math.round(n).toLocaleString("it-IT");
+        return {
+          investitoLabel: fmt(investito), attualeLabel: fmt(attuale),
+          marcoLabel: fmt(marco), eugeniaLabel: fmt(eugenia),
+          marcoPctLabel: investito ? Math.round((marco / investito) * 100) + "%" : "0%",
+          eugeniaPctLabel: investito ? Math.round((eugenia / investito) * 100) + "%" : "0%",
+          marcoBarStyle: { width: (investito ? (marco / investito) * 100 : 50) + "%", background: "var(--color-accent)", height: "100%" },
+          eugeniaBarStyle: { width: (investito ? (eugenia / investito) * 100 : 50) + "%", background: "var(--color-accent-2-700)", height: "100%" },
+          gainLabel: (gain >= 0 ? "+" : "") + fmt(gain),
+          pctLabel: (pct >= 0 ? "+" : "") + pct.toFixed(1) + "%",
+          gainStyle: { fontFamily: "var(--font-heading)", fontSize: "26px", color: gain >= 0 ? "var(--color-accent-2-700)" : "#b3483a" },
+          posizioniLabel: inv.length + (inv.length === 1 ? " posizione" : " posizioni")
+        };
+      })(),
+      investList: this.state.investimenti.map((i) => {
+        const delta = i.prezzoCarico ? ((i.valoreAttuale - i.prezzoCarico) / i.prezzoCarico) * 100 : 0;
+        const fmt = (n) => n.toLocaleString("it-IT", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return {
+          ...i, hasNote: !!i.note, hasIsin: !!i.isin, tipoTagClass: TIPO_TAG_CLASS[i.tipo] || "tag tag-neutral",
+          hasPrezzoAggiornato: !!i.prezzoAggiornatoAl,
+          prezzoAggiornatoLabel: i.prezzoAggiornatoAl ? "Aggiornato al " + i.prezzoAggiornatoAl : "",
+          hasRange: !!(i.rangeMin || i.rangeMax),
+          rangeLabel: "€ " + fmt(i.rangeMin || 0) + " – € " + fmt(i.rangeMax || 0),
+          quantitaLabel: i.quantita.toLocaleString("it-IT"), prezzoCaricoLabel: "€ " + fmt(i.prezzoCarico), valoreAttualeLabel: "€ " + fmt(i.valoreAttuale),
+          deltaLabel: (delta >= 0 ? "+" : "") + delta.toFixed(1) + "%",
+          deltaTagClass: delta >= 0 ? "tag tag-accent-2" : "tag tag-outline",
+          onDelete: () => this.deleteInvest(i.id)
+        };
+      }),
+      investDialogOpen: this.state.investDialogOpen, closeInvestDialog: this.closeInvestDialog, openInvestDialog: this.openInvestDialog, addInvest: this.addInvest,
+      newInvNome: this.state.newInvNome, onNewInvNomeChange: (e) => this.setState({ newInvNome: e.target.value }),
+      newInvIsin: this.state.newInvIsin, onNewInvIsinChange: (e) => this.setState({ newInvIsin: e.target.value }),
+      newInvQuantita: this.state.newInvQuantita, onNewInvQuantitaChange: (e) => this.setState({ newInvQuantita: e.target.value }),
+      newInvPrezzo: this.state.newInvPrezzo, onNewInvPrezzoChange: (e) => this.setState({ newInvPrezzo: e.target.value }),
+      newInvValore: this.state.newInvValore, onNewInvValoreChange: (e) => this.setState({ newInvValore: e.target.value }),
+      newInvNote: this.state.newInvNote, onNewInvNoteChange: (e) => this.setState({ newInvNote: e.target.value }),
+      newInvRangeMin: this.state.newInvRangeMin, onNewInvRangeMinChange: (e) => this.setState({ newInvRangeMin: e.target.value }),
+      newInvRangeMax: this.state.newInvRangeMax, onNewInvRangeMaxChange: (e) => this.setState({ newInvRangeMax: e.target.value }),
+      newInvQuotaMarco: this.state.newInvQuotaMarco, onNewInvQuotaMarcoChange: (e) => this.setState({ newInvQuotaMarco: e.target.value }),
+      newInvQuotaEugeniaLabel: Math.max(0, 100 - (parseFloat(this.state.newInvQuotaMarco) || 0)) + "%",
+      newInvInvalid: !this.state.newInvNome.trim(),
+      investTipoOptions: ["ETF", "Azioni", "Oro", "Crypto", "Altro"].map((t) => ({ label: t, style: this.chipStyle(this.state.newInvTipo === t), onClick: () => this.setState({ newInvTipo: t }) })),
+      saluteFilterChips: ["Tutti", "Peso", "Pressione", "Altro"].map((c) => ({ key: c, label: c, style: this.chipStyle(this.state.saluteFilter === c), onClick: () => this.setState({ saluteFilter: c }) })),
+      parametroTipoOptions: ["Peso", "Pressione", "Altro"].map((t) => ({ label: t, style: this.chipStyle(this.state.newParamTipo === t), onClick: () => this.setState({ newParamTipo: t }) })),
+      parametriList: (this.state.saluteFilter === "Tutti" ? this.state.parametri : this.state.parametri.filter((p) => p.tipo === this.state.saluteFilter))
+        .slice().sort((a, b) => b.data.localeCompare(a.data))
+        .map((p) => ({ ...p, tagClass: p.tipo === "Peso" ? "tag tag-accent" : p.tipo === "Pressione" ? "tag tag-accent-2" : "tag tag-neutral", isPressione: p.tipo === "Pressione", onDelete: () => this.deleteParametro(p.id) })),
+      farmaciList: this.state.farmaci.map((f) => ({ ...f, hasNote: !!f.note, onDelete: () => this.deleteFarmaco(f.id) })),
+      parametroDialogOpen: this.state.parametroDialogOpen, closeParametroDialog: this.closeParametroDialog, openParametroDialog: this.openParametroDialog, addParametro: this.addParametro,
+      newParamValore: this.state.newParamValore, onNewParamValoreChange: (e) => this.setState({ newParamValore: e.target.value }),
+      newParamMax: this.state.newParamMax, onNewParamMaxChange: (e) => this.setState({ newParamMax: e.target.value }),
+      newParamMin: this.state.newParamMin, onNewParamMinChange: (e) => this.setState({ newParamMin: e.target.value }),
+      newParamData: this.state.newParamData, onNewParamDataChange: (e) => this.setState({ newParamData: e.target.value }),
+      isNewParamPressione: this.state.newParamTipo === "Pressione",
+      isNewParamNotPressione: this.state.newParamTipo !== "Pressione",
+      newParamInvalid: this.state.newParamTipo === "Pressione" ? (!this.state.newParamMax.trim() || !this.state.newParamMin.trim()) : !this.state.newParamValore.trim(),
+      farmacoDialogOpen: this.state.farmacoDialogOpen, closeFarmacoDialog: this.closeFarmacoDialog, openFarmacoDialog: this.openFarmacoDialog, addFarmaco: this.addFarmaco,
+      newFarmacoNome: this.state.newFarmacoNome, onNewFarmacoNomeChange: (e) => this.setState({ newFarmacoNome: e.target.value }),
+      newFarmacoNote: this.state.newFarmacoNote, onNewFarmacoNoteChange: (e) => this.setState({ newFarmacoNote: e.target.value }),
+      newFarmacoInvalid: !this.state.newFarmacoNome.trim(),
+      homeWeekDays: this.getWeekDays(0), calMonthDays: calMonth.days, monthLabel: calMonth.monthLabel,
+      habitsTodayEugenia, habitsTodayMarco, habitsFullEugenia, habitsFullMarco, habitRecapEugenia, habitRecapMarco,
+      openHabitDialogEugenia: () => this.openHabitDialog("Eugenia"), openHabitDialogMarco: () => this.openHabitDialog("Marco"),
+      prevMonth: this.prevMonth, nextMonth: this.nextMonth, resetMonth: this.resetMonth,
+      eventDialogOpen: this.state.eventDialogOpen, closeEventDialog: this.closeEventDialog, addEvent: this.addEvent,
+      newEventDate: this.state.newEventDate, onNewEventDateChange: (e) => this.setState({ newEventDate: e.target.value }),
+      newEventTitolo: this.state.newEventTitolo, onNewEventTitoloChange: (e) => this.setState({ newEventTitolo: e.target.value }),
+      newEventInvalid: !this.state.newEventTitolo.trim() || !this.state.newEventDate,
+      habitDialogOpen: this.state.habitDialogOpen, closeHabitDialog: this.closeHabitDialog, openHabitDialog: this.openHabitDialog, addHabit: this.addHabit,
+      newHabitNome: this.state.newHabitNome, onNewHabitNomeChange: (e) => this.setState({ newHabitNome: e.target.value }),
+      newHabitInvalid: !this.state.newHabitNome.trim(),
+      stubTitle: stubInfo ? stubInfo.title : "", stubDesc: stubInfo ? stubInfo.desc : "",
+      todayLabel,
+      filmDaVedereCount, filmVisteCount, appuntiCount: appunti.length,
+      goHome: () => this.setPage("home"),
+      goFilm: () => this.setPage("film"), goAppunti: () => this.setPage("appunti"),
+      goFilmPrevent: (e) => { e.preventDefault(); this.setPage("film"); },
+      goAppuntiPrevent: (e) => { e.preventDefault(); this.setPage("appunti"); },
+      homeFilmPreview: film.filter((f) => f.stato === "Da vedere").slice(0, 3).map(this.mapFilm),
+      homeAppuntiPreview: [...appunti].slice(0, 3).map(this.mapAppunto),
+      stubLinks,
+      filmFilterChips, filmList: filmSource.map(this.mapFilm),
+      appuntiFilterChips, daProvareChip, appuntiList: appuntiSource.map(this.mapAppunto),
+      filmDialogOpen: this.state.filmDialogOpen, closeFilmDialog: this.closeFilmDialog, openFilmDialog: this.openFilmDialog, addFilm: this.addFilm, stopProp: this.stopProp,
+      newFilmTitolo: this.state.newFilmTitolo, onNewFilmTitoloChange: (e) => this.setState({ newFilmTitolo: e.target.value }),
+      newFilmNote: this.state.newFilmNote, onNewFilmNoteChange: (e) => this.setState({ newFilmNote: e.target.value }),
+      newFilmInvalid: !this.state.newFilmTitolo.trim(),
+      tipoFilmStyle: this.chipStyle(this.state.newFilmTipo === "Film"), tipoSerieStyle: this.chipStyle(this.state.newFilmTipo === "Serie"),
+      setTipoFilm: () => this.setState({ newFilmTipo: "Film" }), setTipoSerie: () => this.setState({ newFilmTipo: "Serie" }),
+      statoDaVedereStyle: this.chipStyle(this.state.newFilmStato === "Da vedere"), statoVistaStyle: this.chipStyle(this.state.newFilmStato === "Vista"),
+      setStatoDaVedere: () => this.setState({ newFilmStato: "Da vedere" }), setStatoVista: () => this.setState({ newFilmStato: "Vista" }),
+      appuntiDialogOpen: this.state.appuntiDialogOpen, closeAppuntiDialog: this.closeAppuntiDialog, openAppuntiDialog: this.openAppuntiDialog, addAppunto: this.addAppunto,
+      newAppuntoTitolo: this.state.newAppuntoTitolo, onNewAppuntoTitoloChange: (e) => this.setState({ newAppuntoTitolo: e.target.value }),
+      newAppuntoNote: this.state.newAppuntoNote, onNewAppuntoNoteChange: (e) => this.setState({ newAppuntoNote: e.target.value }),
+      newAppuntoIndirizzo: this.state.newAppuntoIndirizzo, onNewAppuntoIndirizzoChange: (e) => this.setState({ newAppuntoIndirizzo: e.target.value }),
+      newAppuntoStars: this.buildStars(this.state.newAppuntoStelle, (n) => this.setState({ newAppuntoStelle: n }), "newappunto"),
+      isCategoriaPosto: this.state.newAppuntoCategoria === "Posto",
+      newAppuntoInvalid: !this.state.newAppuntoTitolo.trim(),
+      appuntoStatoProvatoStyle: this.chipStyle(this.state.newAppuntoStato === "Provato"), appuntoStatoDaProvareStyle: this.chipStyle(this.state.newAppuntoStato === "Da provare"),
+      setAppuntoStatoProvato: () => this.setState({ newAppuntoStato: "Provato" }), setAppuntoStatoDaProvare: () => this.setState({ newAppuntoStato: "Da provare" }),
+      categoriaOptions
+    };
+  }
+}
+
+</script>
+</body>
+</html>

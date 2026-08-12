@@ -1,0 +1,413 @@
+{
+  "generatedAt": "2026-08-11T19:07:41.009Z",
+  "libri": [
+    {
+      "slug": "101-riflessioni-che-cambiano-il-tuo-modo-di-pensare",
+      "titolo": "101 Riflessioni che Cambiano il Tuo Modo di Pensare",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "96-lezioni-di-felicita",
+      "titolo": "96 Lezioni di Felicità",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "analisi-tecnica",
+      "titolo": "Analisi Tecnica",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "beat-the-market",
+      "titolo": "Beat the Market",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "buffettology",
+      "titolo": "Buffettology",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "cosi-bravo-che-non-potranno-ignorarti",
+      "titolo": "Così bravo che non potranno ignorarti",
+      "autore": "Cal Newport",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "dimagrisci-subito-mangiando",
+      "titolo": "Dimagrisci subito mangiando",
+      "autore": "Dr. John Briffa (titolo originale: *Escape the Diet Trap*; edizione italiana Newton Compton Editori, 2012)",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "diventare-invisibili",
+      "titolo": "Diventare invisibili",
+      "autore": "Francesco Narmenni",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "diventare-stoici",
+      "titolo": "Diventare stoici",
+      "autore": "Ryan Holiday e Stephen Hanselman",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "fegato-felice",
+      "titolo": "Fegato felice",
+      "autore": "Kristin Kirkpatrick, con Ibrahim Hanouneh (traduzione di Irene Annoni)",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "gli-scritti-di-warren-buffett-lezioni-senza-tempo-per-investire-con-successo",
+      "titolo": "Gli scritti di Warren Buffett — Lezioni senza tempo per investire con successo",
+      "autore": "Warren E. Buffett (saggi tratti dalle lettere agli azionisti di Berkshire Hathaway), raccolti, organizzati e introdotti da Lawrence A. Cunningham",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "guida-alle-abitudini-intell-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Guida alle abitudini intelligenti: 36 piccoli cambiamenti nella vostra vita di cui vi sarà grato il cervello",
+      "autore": "I. C. Robledo (traduzione italiana di Francesca Marrucci)",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": true,
+      "hasPresentazione": false
+    },
+    {
+      "slug": "guida-completa-al-trading",
+      "titolo": "Guida completa al trading",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "guida-pratica-al-trading",
+      "titolo": "Guida pratica al trading",
+      "autore": "Gianluca Defendi (Hoepli, 2019)",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-7-trucchi-dell-1",
+      "titolo": "I 7 Trucchi dell'1%",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-consigli-dei-grandi-trader",
+      "titolo": "I Consigli dei Grandi Trader",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-consigli-dei-grandi-trader-2",
+      "titolo": "I Consigli dei Grandi Trader",
+      "autore": "opera collettiva di otto trader e analisti finanziari italiani — Francesco Caruso, Antonio Lengua, Antonio Landolfi, Enrico Malverti, Paolo Serafini, Luca Stellato, Eugenio Sartorelli, Maurizio Mazziero — con prefazione di Giovanni Lapidari (Hoepli, 2012; sottotitolo: \"Le strategie operative degli investitori professionali\")",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-principi-del-successo-il-tuo-diario",
+      "titolo": "I Principi del Successo - Il tuo diario",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-principi-per-affrontare-il-nuovo-ordine-mondiale",
+      "titolo": "I principi per affrontare il nuovo ordine mondiale",
+      "autore": "Ray Dalio",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-quattro-pilastri-dell-indipendenza-finanziaria",
+      "titolo": "I quattro pilastri dell'indipendenza finanziaria",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "i-segreti-della-longevita",
+      "titolo": "I segreti della longevità",
+      "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-cibo-che-cura-il-cibo-che-ammala",
+      "titolo": "IL CIBO CHE CURA IL CIBO CHE AMMALA",
+      "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-ciclo-economico-e-quello-finanziario",
+      "titolo": "Il Ciclo Economico e Quello Finanziario",
+      "autore": "Howard Marks (titolo originale: *Mastering the Market Cycle. Getting the Odds on Your Side*, 2018; traduzione italiana di Ilaria Katerinov, Hoepli, edizione con Postfazione del settembre 2020)",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-codice-antinfiammatorio",
+      "titolo": "Il Codice Antinfiammatorio",
+      "autore": "Serena Missori, Alessandro Gelli",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-codice-della-longevita",
+      "titolo": "Il codice della longevità",
+      "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-metodo-feel-good",
+      "titolo": "Il metodo Feel-Good",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-metodo-warren-buffett",
+      "titolo": "Il Metodo Warren Buffett",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-nostro-veleno-quotidiano",
+      "titolo": "Il nostro veleno quotidiano",
+      "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-piccolo-libro-che-batte-il-mercato-azionario",
+      "titolo": "Il Piccolo Libro che Batte il Mercato Azionario",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-piccolo-libro-degli-investimenti-di-buon-senso",
+      "titolo": "Il piccolo libro degli investimenti di buon senso",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-piccolo-libro-dell-ikigai",
+      "titolo": "Il piccolo libro dell'ikigai",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-piccolo-libro-per-cambiare-vita",
+      "titolo": "Il Piccolo Libro per Cambiare Vita",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-segreto-dei-giganti",
+      "titolo": "Il segreto dei giganti",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-segreto-della-longevita",
+      "titolo": "Il Segreto della Longevità",
+      "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-trading-con-i-pattern-di-prezzo",
+      "titolo": "IL TRADING CON I PATTERN DI PREZZO",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "investimenti-la-guida-completa",
+      "titolo": "Investimenti - La Guida Completa",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "investire-con-l-ai-for-dummies",
+      "titolo": "Investire con l'AI For Dummies",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "investire-nel-breve-e-nel-lungo",
+      "titolo": "Investire nel breve e nel lungo",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "investire-senza-dubbi",
+      "titolo": "Investire senza dubbi",
+      "autore": "Riccardo Spada",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "just-keep-buying",
+      "titolo": "Just Keep Buying",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "l-algebra-della-ricchezza",
+      "titolo": "L'Algebra della Ricchezza",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "l-algebra-della-ricchezza-2",
+      "titolo": "L'Algebra della Ricchezza",
+      "autore": "Scott Galloway",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "l-almanacco-di-naval-ravikant",
+      "titolo": "L'Almanacco di Naval Ravikant",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "la-bibbia-del-trading-online-5-libri-in-1",
+      "titolo": "La Bibbia del Trading Online - 5 Libri in 1",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "la-dieta-della-vita-vera",
+      "titolo": "La dieta della vita vera",
+      "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "la-tribu-dei-maestri",
+      "titolo": "La Tribù dei Maestri",
+      "autore": "Autore sconosciuto",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "le-3-formule-per-investire-in-borsa-edizione-2022",
+      "titolo": "Le 3 Formule per Investire in Borsa, Edizione 2022",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "o-la-borsa-o-la-vita",
+      "titolo": "O LA BORSA O LA VITA",
+      "autore": "Vicki Robin e Joe Dominguez",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "perche-i-paesi-falliscono-il-grande-ciclo-dell-economia",
+      "titolo": "Perché i Paesi Falliscono - Il Grande Ciclo dell'Economia",
+      "autore": "Ray Dalio (titolo originale: *How Countries Go Broke. The Big Cycle*)",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "ti-insegno-come-diventare-ricco",
+      "titolo": "Ti insegno come diventare ricco",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "value-investing",
+      "titolo": "VALUE INVESTING",
+      "autore": "Autore sconosciuto",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    }
+  ]
+}

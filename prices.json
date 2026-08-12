@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-08-09T17:29:28.946Z",
+  "prices": {
+    "SWDA.MI": {
+      "value": 128.67,
+      "currency": "EUR",
+      "asOf": "2026-08-07"
+    },
+    "VWCE.DE": {
+      "value": 168.38,
+      "currency": "EUR",
+      "asOf": "2026-08-07"
+    },
+    "bitcoin": {
+      "value": 56657,
+      "currency": "EUR",
+      "asOf": "2026-08-09"
+    }
+  }
+}
