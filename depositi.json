@@ -1,0 +1,33 @@
+{
+  "generatedAt": "2026-08-12T09:50:34.065190+00:00",
+  "depositi": [
+    {
+      "id": "dep-1",
+      "persona": "Marco",
+      "importo": 8000.0,
+      "data": "2026-02-10",
+      "note": "Bonus annuale"
+    },
+    {
+      "id": "dep-2",
+      "persona": "Eugenia",
+      "importo": 6000.0,
+      "data": "2026-02-15",
+      "note": ""
+    },
+    {
+      "id": "dep-3",
+      "persona": "Marco",
+      "importo": 4000.0,
+      "data": "2026-05-03",
+      "note": ""
+    },
+    {
+      "id": "dep-4",
+      "persona": "Eugenia",
+      "importo": 5390.0,
+      "data": "2026-06-20",
+      "note": "Tredicesima"
+    }
+  ]
+}

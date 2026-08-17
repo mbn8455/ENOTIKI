@@ -416,13 +416,24 @@
 
     <sc-if value="{{ isInvest }}" hint-placeholder-val="{{ false }}">
       <div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;">
           <h1 style="margin:0;">Investimenti</h1>
-          <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openInvestDialog }}">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
-            Aggiungi
-          </button>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-secondary" style="white-space:nowrap;" onClick="{{ copyPerClaude }}">
+              Copia per Claude{{ pendingSyncLabel }}
+            </button>
+            <button class="btn btn-primary" style="white-space:nowrap;" onClick="{{ openInvestDialog }}">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.75" strokeLinecap="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+              Registra movimento
+            </button>
+          </div>
         </div>
+        <sc-if value="{{ hasCopyFeedback }}" hint-placeholder-val="{{ false }}">
+          <div class="card elev-sm" style="margin-bottom:16px;padding:16px;">
+            <div class="card-kicker" style="margin-bottom:8px;">Testo pronto per la chat con Claude</div>
+            <textarea class="input" readonly value="{{ copyFeedback }}" style="min-height:80px;font-size:13px;"></textarea>
+          </div>
+        </sc-if>
         <div class="card elev-sm" style="margin-bottom:16px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit, minmax(150px,1fr));gap:24px;">
           <div>
             <div class="card-kicker">Totale investito</div>
@@ -781,13 +792,37 @@
   <sc-if value="{{ investDialogOpen }}" hint-placeholder-val="{{ false }}">
     <div class="dialog-backdrop" style="overflow-y:auto;padding:24px 0;align-items:flex-start;" onClick="{{ closeInvestDialog }}">
       <div class="dialog" style="max-height:calc(100vh - 48px);overflow-y:auto;" onClick="{{ stopProp }}">
-        <div class="dialog-title">Nuova posizione</div>
+        <div class="dialog-title">Registra movimento</div>
         <div class="field">
-          <label>Nome titolo/ETF</label>
-          <input class="input" type="text" value="{{ newInvNome }}" onChange="{{ onNewInvNomeChange }}" placeholder="Es. ETF Vanguard FTSE All-World">
+          <label>Strumento</label>
+          <input class="input" type="text" value="{{ newMovNome }}" onChange="{{ onNewMovNomeChange }}" placeholder="Es. ETF Vanguard FTSE All-World">
         </div>
         <div class="field">
-          <label>Tipo</label>
+          <label>Tipo movimento</label>
+          <div style="display:flex;gap:8px;">
+            <button style="{{ movTipoAcquistoStyle }}" onClick="{{ setMovTipoAcquisto }}">Acquisto</button>
+            <button style="{{ movTipoVenditaStyle }}" onClick="{{ setMovTipoVendita }}">Vendita</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>Quantità</label>
+          <input class="input" type="number" value="{{ newMovQuantita }}" onChange="{{ onNewMovQuantitaChange }}" placeholder="0">
+        </div>
+        <div class="field">
+          <label>Prezzo operazione</label>
+          <input class="input" type="number" value="{{ newMovPrezzo }}" onChange="{{ onNewMovPrezzoChange }}" placeholder="0.00">
+        </div>
+        <div class="field">
+          <label>Data</label>
+          <input class="input" type="date" value="{{ newMovData }}" onChange="{{ onNewMovDataChange }}">
+        </div>
+        <div class="field">
+          <label>Note (opzionale)</label>
+          <input class="input" type="text" value="{{ newMovNote }}" onChange="{{ onNewMovNoteChange }}" placeholder="Es. PAC mensile">
+        </div>
+        <p class="text-muted" style="font-size:12px;">I campi sotto contano solo se lo strumento è nuovo (non ancora presente nell'elenco posizioni).</p>
+        <div class="field">
+          <label>Tipo strumento (se nuovo)</label>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <sc-for list="{{ investTipoOptions }}" as="t" hint-placeholder-count="5">
               <button style="{{ t.style }}" onClick="{{ t.onClick }}">{{ t.label }}</button>
@@ -795,42 +830,30 @@
           </div>
         </div>
         <div class="field">
-          <label>ISIN (opzionale)</label>
-          <input class="input" type="text" value="{{ newInvIsin }}" onChange="{{ onNewInvIsinChange }}" placeholder="Es. IE00BK5BQT80">
+          <label>ISIN (se nuovo, opzionale)</label>
+          <input class="input" type="text" value="{{ newMovIsin }}" onChange="{{ onNewMovIsinChange }}" placeholder="Es. IE00BK5BQT80">
         </div>
         <div class="field">
-          <label>Quantità</label>
-          <input class="input" type="number" value="{{ newInvQuantita }}" onChange="{{ onNewInvQuantitaChange }}" placeholder="0">
-        </div>
-        <div class="field">
-          <label>Prezzo di carico</label>
-          <input class="input" type="number" value="{{ newInvPrezzo }}" onChange="{{ onNewInvPrezzoChange }}" placeholder="0.00">
-        </div>
-        <div class="field">
-          <label>Valore attuale</label>
-          <input class="input" type="number" value="{{ newInvValore }}" onChange="{{ onNewInvValoreChange }}" placeholder="0.00">
+          <label>Valore attuale (se nuovo)</label>
+          <input class="input" type="number" value="{{ newMovValore }}" onChange="{{ onNewMovValoreChange }}" placeholder="0.00">
         </div>
         <div class="field" style="display:flex;gap:10px;">
           <div style="flex:1;">
-            <label style="display:block;font-size:12px;margin-bottom:5px;">Range atteso min</label>
-            <input class="input" type="number" value="{{ newInvRangeMin }}" onChange="{{ onNewInvRangeMinChange }}" placeholder="0.00">
+            <label style="display:block;font-size:12px;margin-bottom:5px;">Range atteso min (se nuovo)</label>
+            <input class="input" type="number" value="{{ newMovRangeMin }}" onChange="{{ onNewMovRangeMinChange }}" placeholder="0.00">
           </div>
           <div style="flex:1;">
-            <label style="display:block;font-size:12px;margin-bottom:5px;">Range atteso max</label>
-            <input class="input" type="number" value="{{ newInvRangeMax }}" onChange="{{ onNewInvRangeMaxChange }}" placeholder="0.00">
+            <label style="display:block;font-size:12px;margin-bottom:5px;">Range atteso max (se nuovo)</label>
+            <input class="input" type="number" value="{{ newMovRangeMax }}" onChange="{{ onNewMovRangeMaxChange }}" placeholder="0.00">
           </div>
         </div>
         <div class="field">
-          <label>Quota versata da Marco (%) — a Eugenia il {{ newInvQuotaEugeniaLabel }}</label>
-          <input class="input" type="number" min="0" max="100" value="{{ newInvQuotaMarco }}" onChange="{{ onNewInvQuotaMarcoChange }}" placeholder="50">
-        </div>
-        <div class="field">
-          <label>Note (opzionale)</label>
-          <textarea class="input" value="{{ newInvNote }}" onChange="{{ onNewInvNoteChange }}" placeholder="Motivazione, strategia..."></textarea>
+          <label>Quota versata da Marco % (se nuovo)</label>
+          <input class="input" type="number" min="0" max="100" value="{{ newMovQuotaMarco }}" onChange="{{ onNewMovQuotaMarcoChange }}" placeholder="50">
         </div>
         <div class="dialog-actions">
           <button class="btn btn-secondary" onClick="{{ closeInvestDialog }}">Annulla</button>
-          <button class="btn btn-primary" disabled="{{ newInvInvalid }}" onClick="{{ addInvest }}">Aggiungi</button>
+          <button class="btn btn-primary" disabled="{{ newMovInvalid }}" onClick="{{ addMovimento }}">Registra</button>
         </div>
       </div>
     </div>
@@ -1061,10 +1084,13 @@ class Component extends DCLogic {
     events: [], habits: [], monthOffsetCal: 0,
     eventDialogOpen: false, newEventDate: "", newEventTitolo: "",
     habitDialogOpen: false, newHabitNome: "", newHabitPersona: "Eugenia",
-    investimenti: [], investDialogOpen: false, newInvNome: "", newInvTipo: "ETF", newInvIsin: "", newInvQuantita: "", newInvPrezzo: "", newInvValore: "", newInvRangeMin: "", newInvRangeMax: "", newInvQuotaMarco: "50", newInvNote: "",
+    investimenti: [], movimenti: [], investDialogOpen: false,
+    newMovNome: "", newMovTipo: "Acquisto", newMovQuantita: "", newMovPrezzo: "", newMovData: "", newMovNote: "",
+    newMovTipoStrumento: "ETF", newMovIsin: "", newMovValore: "", newMovRangeMin: "", newMovRangeMax: "", newMovQuotaMarco: "50",
     parametri: [], farmaci: [], saluteFilter: "Tutti",
     portfolioHistory: [],
     depositi: [], depositoDialogOpen: false, newDepositoPersona: "Marco", newDepositoImporto: "", newDepositoData: "", newDepositoNote: "",
+    copyFeedback: "",
     parametroDialogOpen: false, newParamTipo: "Peso", newParamValore: "", newParamMax: "", newParamMin: "", newParamData: "",
     farmacoDialogOpen: false, newFarmacoNome: "", newFarmacoNote: "",
     libri: [], libriFilter: "Tutti", libroDialogOpen: false,
@@ -1083,7 +1109,8 @@ class Component extends DCLogic {
           appunti: (data.appunti || SEED_APPUNTI).map((a) => ({ stato: "Provato", ...a, indirizzo: a.indirizzo || (SEED_APPUNTI.find((s) => s.id === a.id) || {}).indirizzo || "" })),
           events: data.events || this.buildSeedEvents(), habits: (data.habits || this.buildSeedHabits()).map((h) => ({ persona: "Eugenia", ...h })),
           portfolioHistory: (data.portfolioHistory && data.portfolioHistory[0] && data.portfolioHistory[0].factor != null) ? data.portfolioHistory : this.buildSeedPortfolioHistory(),
-          depositi: data.depositi || SEED_DEPOSITI,
+          depositi: (data.depositi || SEED_DEPOSITI).map((d) => ({ synced: true, ...d })),
+          movimenti: data.movimenti || [],
           investimenti: (() => {
             const existing = (data.investimenti || SEED_INVEST).map((i) => {
               const seed = SEED_INVEST.find((s) => s.nome === i.nome) || {};
@@ -1124,15 +1151,49 @@ class Component extends DCLogic {
         return { libri: [...realBooks, ...manualBooks] };
       }, this.persist);
     }).catch(() => {});
-    fetch("prices.json").then((r) => r.json()).then((data) => {
-      const prices = (data && data.prices) || {};
-      this.setState({
-        investimenti: this.state.investimenti.map((inv) => {
-          const sym = SYMBOL_BY_NOME[inv.nome];
-          const fresh = sym && prices[sym];
-          if (!fresh || fresh.currency !== "EUR") return inv;
-          return { ...inv, valoreAttuale: fresh.value, prezzoAggiornatoAl: fresh.asOf };
-        })
+    const fetchPrices = () => {
+      fetch("prices.json").then((r) => r.json()).then((data) => {
+        const prices = (data && data.prices) || {};
+        this.setState({
+          investimenti: this.state.investimenti.map((inv) => {
+            const sym = SYMBOL_BY_NOME[inv.nome];
+            const fresh = sym && prices[sym];
+            if (!fresh || fresh.currency !== "EUR") return inv;
+            return { ...inv, valoreAttuale: fresh.value, prezzoAggiornatoAl: fresh.asOf };
+          })
+        }, this.persist);
+      }).catch(() => {});
+    };
+    fetch("investimenti.json").then((r) => r.json()).then((data) => {
+      const base = (data && data.investimenti) || [];
+      this.setState((prev) => {
+        const byName = {};
+        base.forEach((b) => { byName[b.nome] = { ...b }; });
+        const merged = Object.values(byName);
+        const pendingNames = new Set(prev.movimenti.filter((m) => m.synced === false).map((m) => m.nome));
+        prev.investimenti.forEach((local) => { if (!byName[local.nome] && pendingNames.has(local.nome)) merged.push(local); });
+        const pending = prev.movimenti.filter((m) => m.synced === false).slice().sort((a, b) => a.data.localeCompare(b.data));
+        pending.forEach((m) => {
+          const idx = merged.findIndex((i) => i.nome === m.nome);
+          if (idx >= 0) {
+            merged[idx] = this.applyMovimento(merged[idx], m);
+          } else {
+            const blank = { id: "local-" + m.nome, nome: m.nome, tipo: "Altro", isin: "", quantita: 0, prezzoCarico: 0, valoreAttuale: 0, rangeMin: 0, rangeMax: 0, quotaMarco: 50, note: "" };
+            merged.push(this.applyMovimento(blank, m));
+          }
+        });
+        return { investimenti: merged };
+      }, () => {
+        this.persist();
+        fetchPrices();
+      });
+    }).catch(() => { fetchPrices(); });
+    fetch("depositi.json").then((r) => r.json()).then((data) => {
+      const base = ((data && data.depositi) || []).map((d) => ({ ...d, synced: true }));
+      this.setState((prev) => {
+        const baseIds = new Set(base.map((b) => b.id));
+        const localOnly = prev.depositi.filter((d) => !baseIds.has(d.id) && d.synced === false);
+        return { depositi: [...base, ...localOnly] };
       }, this.persist);
     }).catch(() => {});
     this.handleResize = () => this.setState({ isMobile: window.innerWidth < 760 });
@@ -1141,7 +1202,7 @@ class Component extends DCLogic {
   componentWillUnmount() { window.removeEventListener("resize", this.handleResize); }
 
   persist = () => {
-    try { localStorage.setItem("vita-dash-v1", JSON.stringify({ film: this.state.film, appunti: this.state.appunti, events: this.state.events, habits: this.state.habits, investimenti: this.state.investimenti, parametri: this.state.parametri, farmaci: this.state.farmaci, libri: this.state.libri, portfolioHistory: this.state.portfolioHistory, depositi: this.state.depositi, nextId: this.nextId })); } catch (e) {}
+    try { localStorage.setItem("vita-dash-v1", JSON.stringify({ film: this.state.film, appunti: this.state.appunti, events: this.state.events, habits: this.state.habits, investimenti: this.state.investimenti, movimenti: this.state.movimenti, parametri: this.state.parametri, farmaci: this.state.farmaci, libri: this.state.libri, portfolioHistory: this.state.portfolioHistory, depositi: this.state.depositi, nextId: this.nextId })); } catch (e) {}
   };
 
   openLibroDialog = () => this.setState({ libroDialogOpen: true, newLibroTitolo: "", newLibroCategoria: "Trading & Investimenti", newLibroStato: "Da leggere", newLibroPresentazione: "", newLibroRiassunto: "" });
@@ -1179,19 +1240,32 @@ class Component extends DCLogic {
     ];
   }
 
-  openInvestDialog = () => this.setState({ investDialogOpen: true, newInvNome: "", newInvTipo: "ETF", newInvIsin: "", newInvQuantita: "", newInvPrezzo: "", newInvValore: "", newInvRangeMin: "", newInvRangeMax: "", newInvQuotaMarco: "50", newInvNote: "" });
+  openInvestDialog = () => this.setState({
+    investDialogOpen: true, newMovNome: "", newMovTipo: "Acquisto", newMovQuantita: "", newMovPrezzo: "", newMovData: "", newMovNote: "",
+    newMovTipoStrumento: "ETF", newMovIsin: "", newMovValore: "", newMovRangeMin: "", newMovRangeMax: "", newMovQuotaMarco: "50"
+  });
   closeInvestDialog = () => this.setState({ investDialogOpen: false });
-  addInvest = () => {
-    if (!this.state.newInvNome.trim()) return;
-    const entry = {
-      id: this.nextId++, nome: this.state.newInvNome.trim(), tipo: this.state.newInvTipo, isin: this.state.newInvIsin.trim(),
-      quantita: parseFloat(this.state.newInvQuantita) || 0, prezzoCarico: parseFloat(this.state.newInvPrezzo) || 0,
-      valoreAttuale: parseFloat(this.state.newInvValore) || 0,
-      rangeMin: parseFloat(this.state.newInvRangeMin) || 0, rangeMax: parseFloat(this.state.newInvRangeMax) || 0,
-      quotaMarco: Math.max(0, Math.min(100, parseFloat(this.state.newInvQuotaMarco) || 0)),
-      note: this.state.newInvNote.trim()
+  addMovimento = () => {
+    const nome = this.state.newMovNome.trim();
+    const quantita = parseFloat(this.state.newMovQuantita);
+    const prezzo = parseFloat(this.state.newMovPrezzo);
+    if (!nome || !(quantita > 0) || !(prezzo >= 0)) return;
+    const movimento = {
+      id: this.nextId++, nome, tipo: this.state.newMovTipo, quantita, prezzo,
+      data: this.state.newMovData || toDateStr(new Date()), note: this.state.newMovNote.trim(), synced: false
     };
-    this.setState({ investimenti: [entry, ...this.state.investimenti], investDialogOpen: false }, this.persist);
+    const existing = this.state.investimenti.find((i) => i.nome === nome);
+    const base = existing || {
+      id: this.nextId++, nome, tipo: this.state.newMovTipoStrumento, isin: this.state.newMovIsin.trim(),
+      quantita: 0, prezzoCarico: 0, valoreAttuale: parseFloat(this.state.newMovValore) || 0,
+      rangeMin: parseFloat(this.state.newMovRangeMin) || 0, rangeMax: parseFloat(this.state.newMovRangeMax) || 0,
+      quotaMarco: Math.max(0, Math.min(100, parseFloat(this.state.newMovQuotaMarco) || 0)), note: ""
+    };
+    const updated = this.applyMovimento(base, movimento);
+    const investimenti = existing
+      ? this.state.investimenti.map((i) => i.nome === nome ? updated : i)
+      : [updated, ...this.state.investimenti];
+    this.setState({ movimenti: [movimento, ...this.state.movimenti], investimenti, investDialogOpen: false }, this.persist);
   };
   deleteInvest(id) { this.setState({ investimenti: this.state.investimenti.filter((i) => i.id !== id) }, this.persist); }
 
@@ -1253,6 +1327,23 @@ class Component extends DCLogic {
     this.setState({ habits: this.state.habits.map((h) => h.id === id ? { ...h, doneDates: h.doneDates.includes(ds) ? h.doneDates.filter((x) => x !== ds) : [...h.doneDates, ds] } : h) }, this.persist);
   }
 
+  applyMovimento(pos, movimento) {
+    let quantita = pos.quantita || 0;
+    let costoTotale = (pos.quantita || 0) * (pos.prezzoCarico || 0);
+    if (movimento.tipo === "Acquisto") {
+      quantita += movimento.quantita;
+      costoTotale += movimento.quantita * movimento.prezzo;
+    } else if (movimento.tipo === "Vendita") {
+      if (quantita > 0) {
+        const prezzoMedio = costoTotale / quantita;
+        costoTotale -= prezzoMedio * movimento.quantita;
+      }
+      quantita -= movimento.quantita;
+    }
+    const prezzoCarico = quantita > 0 ? costoTotale / quantita : 0;
+    return { ...pos, quantita, prezzoCarico };
+  }
+
   buildAllocationPie() {
     const totals = {};
     this.state.investimenti.forEach((i) => { totals[i.tipo] = (totals[i.tipo] || 0) + i.quantita * i.valoreAttuale; });
@@ -1273,8 +1364,26 @@ class Component extends DCLogic {
   closeDepositoDialog = () => this.setState({ depositoDialogOpen: false });
   addDeposito = () => {
     if (!this.state.newDepositoImporto || !(parseFloat(this.state.newDepositoImporto) > 0)) return;
-    const entry = { id: this.nextId++, persona: this.state.newDepositoPersona, importo: parseFloat(this.state.newDepositoImporto), data: this.state.newDepositoData || toDateStr(new Date()), note: this.state.newDepositoNote.trim() };
+    const entry = { id: this.nextId++, persona: this.state.newDepositoPersona, importo: parseFloat(this.state.newDepositoImporto), data: this.state.newDepositoData || toDateStr(new Date()), note: this.state.newDepositoNote.trim(), synced: false };
     this.setState({ depositi: [entry, ...this.state.depositi], depositoDialogOpen: false }, this.persist);
+  };
+  copyPerClaude = () => {
+    const pendingMov = this.state.movimenti.filter((m) => m.synced === false);
+    const pendingDep = this.state.depositi.filter((d) => d.synced === false);
+    const lines = [];
+    pendingMov.forEach((m) => lines.push(
+      m.data + ": " + (m.tipo === "Acquisto" ? "comprate" : "vendute") + " " + m.quantita + " quote di " + m.nome + " a " + m.prezzo + "€" + (m.note ? " (" + m.note + ")" : "")
+    ));
+    pendingDep.forEach((d) => lines.push(
+      d.data + ": versati " + d.importo + "€ da " + d.persona + (d.note ? " (" + d.note + ")" : "")
+    ));
+    const text = lines.length ? lines.join("\n") : "Nessun aggiornamento da sincronizzare.";
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(() => {});
+    }
+    const movimenti = this.state.movimenti.map((m) => pendingMov.includes(m) ? { ...m, synced: true } : m);
+    const depositi = this.state.depositi.map((d) => pendingDep.includes(d) ? { ...d, synced: true } : d);
+    this.setState({ movimenti, depositi, copyFeedback: text }, this.persist);
   };
   deleteDeposito(id) { this.setState({ depositi: this.state.depositi.filter((d) => d.id !== id) }, this.persist); }
 
@@ -1636,19 +1745,27 @@ class Component extends DCLogic {
           onDelete: () => this.deleteInvest(i.id)
         };
       }),
-      investDialogOpen: this.state.investDialogOpen, closeInvestDialog: this.closeInvestDialog, openInvestDialog: this.openInvestDialog, addInvest: this.addInvest,
-      newInvNome: this.state.newInvNome, onNewInvNomeChange: (e) => this.setState({ newInvNome: e.target.value }),
-      newInvIsin: this.state.newInvIsin, onNewInvIsinChange: (e) => this.setState({ newInvIsin: e.target.value }),
-      newInvQuantita: this.state.newInvQuantita, onNewInvQuantitaChange: (e) => this.setState({ newInvQuantita: e.target.value }),
-      newInvPrezzo: this.state.newInvPrezzo, onNewInvPrezzoChange: (e) => this.setState({ newInvPrezzo: e.target.value }),
-      newInvValore: this.state.newInvValore, onNewInvValoreChange: (e) => this.setState({ newInvValore: e.target.value }),
-      newInvNote: this.state.newInvNote, onNewInvNoteChange: (e) => this.setState({ newInvNote: e.target.value }),
-      newInvRangeMin: this.state.newInvRangeMin, onNewInvRangeMinChange: (e) => this.setState({ newInvRangeMin: e.target.value }),
-      newInvRangeMax: this.state.newInvRangeMax, onNewInvRangeMaxChange: (e) => this.setState({ newInvRangeMax: e.target.value }),
-      newInvQuotaMarco: this.state.newInvQuotaMarco, onNewInvQuotaMarcoChange: (e) => this.setState({ newInvQuotaMarco: e.target.value }),
-      newInvQuotaEugeniaLabel: Math.max(0, 100 - (parseFloat(this.state.newInvQuotaMarco) || 0)) + "%",
-      newInvInvalid: !this.state.newInvNome.trim(),
-      investTipoOptions: ["ETF", "Azioni", "Oro", "Crypto", "Altro"].map((t) => ({ label: t, style: this.chipStyle(this.state.newInvTipo === t), onClick: () => this.setState({ newInvTipo: t }) })),
+      investDialogOpen: this.state.investDialogOpen, closeInvestDialog: this.closeInvestDialog, openInvestDialog: this.openInvestDialog, addMovimento: this.addMovimento,
+      newMovNome: this.state.newMovNome, onNewMovNomeChange: (e) => this.setState({ newMovNome: e.target.value }),
+      movTipoAcquistoStyle: this.chipStyle(this.state.newMovTipo === "Acquisto"), movTipoVenditaStyle: this.chipStyle(this.state.newMovTipo === "Vendita"),
+      setMovTipoAcquisto: () => this.setState({ newMovTipo: "Acquisto" }), setMovTipoVendita: () => this.setState({ newMovTipo: "Vendita" }),
+      newMovQuantita: this.state.newMovQuantita, onNewMovQuantitaChange: (e) => this.setState({ newMovQuantita: e.target.value }),
+      newMovPrezzo: this.state.newMovPrezzo, onNewMovPrezzoChange: (e) => this.setState({ newMovPrezzo: e.target.value }),
+      newMovData: this.state.newMovData, onNewMovDataChange: (e) => this.setState({ newMovData: e.target.value }),
+      newMovNote: this.state.newMovNote, onNewMovNoteChange: (e) => this.setState({ newMovNote: e.target.value }),
+      newMovIsin: this.state.newMovIsin, onNewMovIsinChange: (e) => this.setState({ newMovIsin: e.target.value }),
+      newMovValore: this.state.newMovValore, onNewMovValoreChange: (e) => this.setState({ newMovValore: e.target.value }),
+      newMovRangeMin: this.state.newMovRangeMin, onNewMovRangeMinChange: (e) => this.setState({ newMovRangeMin: e.target.value }),
+      newMovRangeMax: this.state.newMovRangeMax, onNewMovRangeMaxChange: (e) => this.setState({ newMovRangeMax: e.target.value }),
+      newMovQuotaMarco: this.state.newMovQuotaMarco, onNewMovQuotaMarcoChange: (e) => this.setState({ newMovQuotaMarco: e.target.value }),
+      newMovInvalid: !this.state.newMovNome.trim() || !(parseFloat(this.state.newMovQuantita) > 0) || !(parseFloat(this.state.newMovPrezzo) >= 0),
+      investTipoOptions: ["ETF", "Azioni", "Oro", "Crypto", "Altro"].map((t) => ({ label: t, style: this.chipStyle(this.state.newMovTipoStrumento === t), onClick: () => this.setState({ newMovTipoStrumento: t }) })),
+      copyPerClaude: this.copyPerClaude,
+      copyFeedback: this.state.copyFeedback, hasCopyFeedback: !!this.state.copyFeedback,
+      pendingSyncLabel: (() => {
+        const n = this.state.movimenti.filter((m) => m.synced === false).length + this.state.depositi.filter((d) => d.synced === false).length;
+        return n > 0 ? " (" + n + ")" : "";
+      })(),
       saluteFilterChips: ["Tutti", "Peso", "Pressione", "Altro"].map((c) => ({ key: c, label: c, style: this.chipStyle(this.state.saluteFilter === c), onClick: () => this.setState({ saluteFilter: c }) })),
       parametroTipoOptions: ["Peso", "Pressione", "Altro"].map((t) => ({ label: t, style: this.chipStyle(this.state.newParamTipo === t), onClick: () => this.setState({ newParamTipo: t }) })),
       parametriList: (this.state.saluteFilter === "Tutti" ? this.state.parametri : this.state.parametri.filter((p) => p.tipo === this.state.saluteFilter))

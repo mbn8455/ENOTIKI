@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-08-12T09:50:34.063150+00:00",
+  "investimenti": [
+    {
+      "id": "fin-etf-ishares-msci-world",
+      "nome": "ETF iShares MSCI World",
+      "tipo": "ETF",
+      "isin": "IE00B4L5Y983",
+      "quantita": 120.0,
+      "prezzoCarico": 38.5,
+      "valoreAttuale": 45.2,
+      "rangeMin": 42.0,
+      "rangeMax": 50.0,
+      "quotaMarco": 50.0,
+      "note": "PAC mensile, orizzonte 15+ anni"
+    },
+    {
+      "id": "fin-etf-vanguard-ftse-all-world",
+      "nome": "ETF Vanguard FTSE All-World",
+      "tipo": "ETF",
+      "isin": "IE00BK5BQT80",
+      "quantita": 60.0,
+      "prezzoCarico": 95.0,
+      "valoreAttuale": 99.8,
+      "rangeMin": 90.0,
+      "rangeMax": 110.0,
+      "quotaMarco": 40.0,
+      "note": ""
+    },
+    {
+      "id": "fin-azioni-enel",
+      "nome": "Azioni Enel",
+      "tipo": "Azioni",
+      "isin": "IT0003128367",
+      "quantita": 200.0,
+      "prezzoCarico": 6.1,
+      "valoreAttuale": 6.85,
+      "rangeMin": 6.0,
+      "rangeMax": 7.5,
+      "quotaMarco": 100.0,
+      "note": "Dividendo interessante"
+    },
+    {
+      "id": "fin-oro-fisico-lingotti",
+      "nome": "Oro fisico (lingotti)",
+      "tipo": "Oro",
+      "isin": "",
+      "quantita": 3.0,
+      "prezzoCarico": 1850.0,
+      "valoreAttuale": 2050.0,
+      "rangeMin": 1900.0,
+      "rangeMax": 2200.0,
+      "quotaMarco": 50.0,
+      "note": "Copertura patrimoniale"
+    },
+    {
+      "id": "fin-bitcoin",
+      "nome": "Bitcoin",
+      "tipo": "Crypto",
+      "isin": "",
+      "quantita": 0.15,
+      "prezzoCarico": 42000.0,
+      "valoreAttuale": 58000.0,
+      "rangeMin": 45000.0,
+      "rangeMax": 70000.0,
+      "quotaMarco": 70.0,
+      "note": ""
+    }
+  ]
+}
