@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="_ds/organic-810e718f-1806-4192-8941-64d874e47e71/styles.css">
   <script src="_ds/organic-810e718f-1806-4192-8941-64d874e47e71/_ds_bundle.js"></script>
   <script src="./image-slot.js"></script>
+  <script type="module" src="./sync.js"></script>
   <style>
     a { color: var(--color-accent); }
     a:hover { color: var(--color-accent-700); }
@@ -18,6 +19,24 @@
   </style>
 </helmet>
 <div style="min-height: 100vh; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); display: flex; flex-direction: column;">
+  <sc-if value="{{ !syncUnlocked }}" hint-placeholder-val="{{ true }}">
+    <div style="position:fixed;inset:0;z-index:9999;background:var(--color-bg);display:flex;align-items:center;justify-content:center;padding:24px;">
+      <div class="dialog" style="max-width:360px;width:100%;">
+        <div class="dialog-title">Password di famiglia</div>
+        <p class="text-muted" style="margin:0 0 16px;font-size:14px;">Inserisci la password condivisa per sincronizzare i dati tra i device.</p>
+        <div class="field">
+          <label>Password</label>
+          <input class="input" type="password" value="{{ syncPasswordInput }}" onChange="{{ onSyncPasswordChange }}" placeholder="Password">
+        </div>
+        <sc-if value="{{ syncError }}" hint-placeholder-val="{{ false }}">
+          <p style="color:#c0392b;font-size:13px;margin:0 0 12px;">{{ syncError }}</p>
+        </sc-if>
+        <div class="dialog-actions">
+          <button class="btn btn-primary" disabled="{{ syncSubmitDisabled }}" onClick="{{ submitSyncPassword }}">Entra</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
   <nav style="{{ navWrapperStyle }}">
     <div style="{{ brandStyle }}" onClick="{{ goHome }}">Enotiki_OS</div>
     <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="8">
@@ -1094,7 +1113,8 @@ class Component extends DCLogic {
     parametroDialogOpen: false, newParamTipo: "Peso", newParamValore: "", newParamMax: "", newParamMin: "", newParamData: "",
     farmacoDialogOpen: false, newFarmacoNome: "", newFarmacoNote: "",
     libri: [], libriFilter: "Tutti", libroDialogOpen: false,
-    newLibroTitolo: "", newLibroCategoria: "Trading & Investimenti", newLibroStato: "Da leggere", newLibroPresentazione: "", newLibroRiassunto: ""
+    newLibroTitolo: "", newLibroCategoria: "Trading & Investimenti", newLibroStato: "Da leggere", newLibroPresentazione: "", newLibroRiassunto: "",
+    syncUnlocked: false, syncPasswordInput: "", syncError: "", syncBusy: false
   };
 
   nextId = 200;
@@ -1128,6 +1148,19 @@ class Component extends DCLogic {
         this.setState({ events: this.buildSeedEvents(), habits: this.buildSeedHabits(), investimenti: SEED_INVEST, parametri: this.buildSeedParametri(), farmaci: this.buildSeedFarmaci(), libri: SEED_LIBRI, portfolioHistory: this.buildSeedPortfolioHistory(), depositi: SEED_DEPOSITI });
       }
     } catch (e) {}
+    const startSync = () => {
+      window.SyncManager.init(
+        (remote) => this.applyRemoteState(remote),
+        (msg) => console.error("[sync]", msg)
+      );
+      window.SyncManager.autoUnlock(this.getSyncableState()).then((res) => {
+        if (res && res.ok) {
+          this.setState({ syncUnlocked: true });
+          if (res.state) this.applyRemoteState(res.state);
+        }
+      }).catch((e) => console.error("[sync]", e));
+    };
+    if (window.SyncManager) startSync(); else window.addEventListener("enotiki-sync-ready", startSync, { once: true });
     fetch("libri.json").then((r) => r.json()).then((data) => {
       if (!data || !data.libri) return;
       const decode = (s) => (s || "").replace(/&amp;/g, "&").replace(/&#39;/g, "'").replace(/&quot;/g, '"');
@@ -1201,8 +1234,42 @@ class Component extends DCLogic {
   }
   componentWillUnmount() { window.removeEventListener("resize", this.handleResize); }
 
+  submitSyncPassword = () => {
+    const password = this.state.syncPasswordInput.trim();
+    if (!password) return;
+    if (!window.SyncManager) {
+      this.setState({ syncError: "Errore di connessione. Riprova." });
+      return;
+    }
+    this.setState({ syncBusy: true, syncError: "" });
+    window.SyncManager.unlockWithPassword(password, this.getSyncableState()).then((res) => {
+      if (res && res.ok) {
+        this.setState({ syncUnlocked: true, syncBusy: false, syncPasswordInput: "", syncError: "" });
+        if (res.state) this.applyRemoteState(res.state);
+      } else {
+        this.setState({ syncBusy: false, syncError: "Password errata. Riprova." });
+      }
+    }).catch(() => {
+      this.setState({ syncBusy: false, syncError: "Errore di connessione. Riprova." });
+    });
+  };
+
+  getSyncableState = () => ({
+    film: this.state.film, appunti: this.state.appunti, events: this.state.events, habits: this.state.habits,
+    investimenti: this.state.investimenti, movimenti: this.state.movimenti, parametri: this.state.parametri,
+    farmaci: this.state.farmaci, libri: this.state.libri, portfolioHistory: this.state.portfolioHistory,
+    depositi: this.state.depositi, nextId: this.nextId
+  });
+  persistLocal = () => {
+    try { localStorage.setItem("vita-dash-v1", JSON.stringify(this.getSyncableState())); } catch (e) {}
+  };
   persist = () => {
-    try { localStorage.setItem("vita-dash-v1", JSON.stringify({ film: this.state.film, appunti: this.state.appunti, events: this.state.events, habits: this.state.habits, investimenti: this.state.investimenti, movimenti: this.state.movimenti, parametri: this.state.parametri, farmaci: this.state.farmaci, libri: this.state.libri, portfolioHistory: this.state.portfolioHistory, depositi: this.state.depositi, nextId: this.nextId })); } catch (e) {}
+    this.persistLocal();
+    if (window.SyncManager) window.SyncManager.schedulePush(this.getSyncableState());
+  };
+  applyRemoteState = (remote) => {
+    if (remote.nextId) this.nextId = remote.nextId;
+    this.setState({ ...remote }, this.persistLocal);
   };
 
   openLibroDialog = () => this.setState({ libroDialogOpen: true, newLibroTitolo: "", newLibroCategoria: "Trading & Investimenti", newLibroStato: "Da leggere", newLibroPresentazione: "", newLibroRiassunto: "" });
@@ -1824,7 +1891,13 @@ class Component extends DCLogic {
       newAppuntoInvalid: !this.state.newAppuntoTitolo.trim(),
       appuntoStatoProvatoStyle: this.chipStyle(this.state.newAppuntoStato === "Provato"), appuntoStatoDaProvareStyle: this.chipStyle(this.state.newAppuntoStato === "Da provare"),
       setAppuntoStatoProvato: () => this.setState({ newAppuntoStato: "Provato" }), setAppuntoStatoDaProvare: () => this.setState({ newAppuntoStato: "Da provare" }),
-      categoriaOptions
+      categoriaOptions,
+      syncUnlocked: this.state.syncUnlocked,
+      syncPasswordInput: this.state.syncPasswordInput,
+      onSyncPasswordChange: (e) => this.setState({ syncPasswordInput: e.target.value }),
+      syncError: this.state.syncError,
+      submitSyncPassword: this.submitSyncPassword,
+      syncSubmitDisabled: this.state.syncBusy || !this.state.syncPasswordInput.trim()
     };
   }
 }
