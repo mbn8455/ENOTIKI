@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T19:07:41.009Z",
+  "generatedAt": "2026-08-20T12:00:16.329Z",
   "libri": [
     {
       "slug": "101-riflessioni-che-cambiano-il-tuo-modo-di-pensare",
@@ -26,6 +26,14 @@
       "hasPresentazione": true
     },
     {
+      "slug": "basta-cazzate-sulla-leadership-33-strategie-per-essere-il-capo-che-vorresti-avere-alessandro-militi-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Basta cazzate sulla leadership",
+      "autore": "Alessandro Militi",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
       "slug": "beat-the-market",
       "titolo": "Beat the Market",
       "autore": "Autore sconosciuto",
@@ -42,11 +50,35 @@
       "hasPresentazione": true
     },
     {
+      "slug": "ci-vuole-fegato-antonio-mo-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Ci vuole fegato",
+      "autore": "Antonio Moschetta",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "come-stare-bene-quando-le-c-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Come stare bene quando le cose vanno male",
+      "autore": "Gael Lindenfield",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
       "slug": "cosi-bravo-che-non-potranno-ignorarti",
       "titolo": "Così bravo che non potranno ignorarti",
       "autore": "Cal Newport",
       "categoria": "Crescita Personale & Produttività",
       "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "decidere-e-una-scommessa-a-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Decidere è una scommessa",
+      "autore": "Annie Duke",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
       "hasPresentazione": true
     },
     {
@@ -173,6 +205,14 @@
       "slug": "il-cibo-che-cura-il-cibo-che-ammala",
       "titolo": "IL CIBO CHE CURA IL CIBO CHE AMMALA",
       "autore": "Autore sconosciuto",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "il-cibo-della-longevita-in-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "IL CIBO DELLA LONGEVITÀ",
+      "autore": "Franco Berrino",
       "categoria": "Salute & Alimentazione",
       "hasRiassunto": false,
       "hasPresentazione": true
@@ -378,6 +418,38 @@
       "hasPresentazione": true
     },
     {
+      "slug": "le-48-leggi-del-potere-rob-z-library",
+      "titolo": "Le 48 leggi del potere",
+      "autore": "Robert Greene",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "manuale-della-longevita-felice-franco-berrino-enrica-bortolazzi-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Manuale della longevità felice",
+      "autore": "Franco Berrino, Enrica Bortolazzi, Antonino Frustaglia",
+      "categoria": "Salute & Alimentazione",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "mollo-tutto-e-vado-allester-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Mollo tutto e vado all'estero",
+      "autore": "Francesco Narmenni",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "nasci-produci-muori-benven-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Nasci, produci, muori",
+      "autore": "Francesco Narmenni",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
       "slug": "o-la-borsa-o-la-vita",
       "titolo": "O LA BORSA O LA VITA",
       "autore": "Vicki Robin e Joe Dominguez",
@@ -386,11 +458,107 @@
       "hasPresentazione": true
     },
     {
+      "slug": "oro-bene-rifugio-o-trappola-beppe-scienza-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Oro — Bene rifugio o trappola?",
+      "autore": "Beppe Scienza",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "parola-di-warren-buffett-charlie-munger-tre-decenni-di-investimenti-e-business-insight-da-berkshire-hathaway-italian-warren-buffett-charles-munger-etc-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Parola di Warren Buffett & Charlie Munger",
+      "autore": "Warren Buffett e Charles Munger",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "pensaci-ancora-il-potere-d-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Pensaci ancora",
+      "autore": "Adam Grant",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "pensieri-lenti-e-veloci-da-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Pensieri lenti e veloci",
+      "autore": "Daniel Kahneman",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "pensieri-marco-aurelio-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Pensieri — Meditazioni sulla Virtù e la Natura",
+      "autore": "Marco Aurelio",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
       "slug": "perche-i-paesi-falliscono-il-grande-ciclo-dell-economia",
       "titolo": "Perché i Paesi Falliscono - Il Grande Ciclo dell'Economia",
       "autore": "Ray Dalio (titolo originale: *How Countries Go Broke. The Big Cycle*)",
       "categoria": "Trading & Investimenti",
       "hasRiassunto": true,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "piccolo-manuale-di-intelligenza-emotiva-per-leader-che-ottengono-risultati-daniel-goleman-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Piccolo manuale di intelligenza emotiva per leader",
+      "autore": "Daniel Goleman",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "ricco-solo-risparmiando-co-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Ricco solo risparmiando",
+      "autore": "Francesco Narmenni",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "socrate-agata-e-il-futuro-beppe-severgnini-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Socrate, Agata e il futuro",
+      "autore": "Beppe Severgnini",
+      "categoria": "Crescita Personale & Produttività",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "soldi-domina-il-gioco-sette-semplici-passi-per-la-liberta-finanziaria-tony-robbins-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Soldi. Domina il Gioco",
+      "autore": "Anthony Robbins",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "stock-market-math-essential-formulas-for-selecting-and-managing-stock-and-risk-michael-c-thomsett-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Stock Market Math",
+      "autore": "Michael C. Thomsett",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "the-worlds-simplest-guide-t-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "The World's Simplest Guide to the Stock Market",
+      "autore": "Edward W. Ryan",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "the-worlds-simplest-stock-p-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "La Strategia di Stock Picking più Semplice del Mondo",
+      "autore": "Edward W. Ryan",
+      "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
       "hasPresentazione": true
     },
     {
@@ -406,6 +574,14 @@
       "titolo": "VALUE INVESTING",
       "autore": "Autore sconosciuto",
       "categoria": "Trading & Investimenti",
+      "hasRiassunto": false,
+      "hasPresentazione": true
+    },
+    {
+      "slug": "vecchiaia-per-principianti-z-library-sk-1lib-sk-z-lib-sk",
+      "titolo": "Vecchiaia per principianti",
+      "autore": "Alberto Cester",
+      "categoria": "Salute & Alimentazione",
       "hasRiassunto": false,
       "hasPresentazione": true
     }
