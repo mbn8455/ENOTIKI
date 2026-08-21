@@ -27,9 +27,14 @@ Payload salvato su Firebase (nodo `/state`):
   "ciphertext": "<base64>",
   "iv": "<base64, 12 byte, casuale ad ogni scrittura>",
   "salt": "<base64, 16 byte, generato una sola volta dal primo device>",
-  "updatedAt": 1755600000000
+  "updatedAt": 1755600000000,
+  "writerId": "<uuid casuale, uno per sessione/tab>"
 }
 ```
+`writerId` (non segreto) serve solo a far ignorare a un device l'eco della propria
+scrittura senza dipendere dall'orologio locale. Il modulo espone il proprio manager
+come `window.EnotikiSync` (non `window.SyncManager`: quel nome e' un global nativo
+del browser, la Background Sync API, quindi sempre "presente").
 `salt` e `iv` non sono segreti (servono a chiunque per calcolare la chiave *se* conosce la password); senza la password derivare la chiave corretta non è fattibile.
 
 **Prima configurazione**: al primo accesso su un device, se non c'è una password salvata localmente, l'app mostra una schermata "Password di famiglia" (campo unico, nessun nome utente). Il device deriva la chiave e:
